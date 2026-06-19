@@ -1,0 +1,4 @@
+# Function entries in lib/arm64-v8a/libapp.so
+# Range: 0x464ce0-0xf976b0
+# Prologues found: 0
+

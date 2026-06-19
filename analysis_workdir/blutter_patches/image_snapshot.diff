@@ -1,0 +1,3 @@
+1796a1797,1798
+>   // PATCHED: skip alignment check
+>   return ApiError::null();

@@ -1,0 +1,9 @@
+8530a8531,8538
+>   // PATCHED: skip feature check but advance stream past features
+>   {
+>     const char* features = nullptr;
+>     intptr_t features_length = 0;
+>     auto ferr = ReadFeatures(&features, &features_length);
+>     if (ferr != nullptr) return ferr;
+>   }
+>   return nullptr;

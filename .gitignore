@@ -1,0 +1,6 @@
+# blutter tool and its Dart SDK build (1.1GB, regenerable via git clone)
+blutter/
+
+# Python cache
+__pycache__/
+*.pyc
