@@ -1,0 +1,358 @@
+================================================================================
+皮皮喵 libapp.so 关键反汇编片段(由 capstone 输出)
+来源:lib/arm64-v8a/libapp.so (16352152 bytes, SHA256 a447bb99...e82c9)
+
+注:由于 libflutter.so 为深度定制引擎(snapshot_hash 抹零、arm64-sysv ABI、
+cid 84 未定义),blutter 无法完整反序列化。以下片段均为 capstone 直接反汇编。
+Dart ARM64 ABI:x15 = shadow stack, x26 = Thread, x27 = Pool pointer (PP),
+x28 = heap base (compressed ptr 解码用)。
+================================================================================
+
+一、_kDartIsolateSnapshotData 头部 (0x3330 - 0x3420)
+--------------------------------------------------------------------------------
+地址范围:0x3330 - 0x3420
+magic              = f5f5dcdc (期望 f5f5dcdc)
+length (raw int64) = 0x45c913 (4573459)
+kind   (raw int64) = 3 (3 = kFullAOT)
+snapshot_hash (32) = b'                                '
+features       (无结尾 \0)= 'product no-code_comments dwarf_stack_traces_mode lazy_async_stacks no-lazy_dispatchers use_bare_instructions dedup_instructions no-asserts arm64-sysv compressed-pointers no-null-safety\x00n�\x04'
+
+二、启动提示框长版正文(UTF-16LE,0x1c326e 起)
+--------------------------------------------------------------------------------
+文件偏移范围:0x1c326e - 0x1c3334 (198 字节)
+完整内容:
+  应用已被非法篡改或被第三方APP禁用某些模块或安装在第三方虚拟环境！
+  请重新下载正版并直接安装在真实环境，而且不要使用第三方APP禁用某些模块！
+  如果是环境异常导致的，你可以尝试重启设备和重装APP！
+
+三、长版正文紧邻的 Code 注释(0x1c3334 - 0x1c33c0,证明 checkAppMetaData 关联)
+--------------------------------------------------------------------------------
+Raw bytes:
+  0x001c3334: 6e 7a 7a 1a 90 28 75 13 7f 58 5b 8a 73 75 70 32 3b a6 63 68 65 63 6b 41 70 70 4d 65 74 61 44 61
+              ascii: nzz..(u..X[.sup2;.checkAppMetaDa
+  0x001c3354: 74 61 3a 3a 0a 9e 41 72 72 61 79 2e 5f 40 38 30 35 30 30 37 31 86 73 64 64 90 67 65 74 50 73 3a
+              ascii: ta::..Array._@8050071.sdd.getPs:
+  0x001c3374: 3a 0a 86 74 6e 66 84 70 47 86 69 66 63 98 2d 3f 5c 77 2b 5c 73 2a 5c 3d 5c 3e 86 4a 62 66 86 70
+              ascii: :..tnf.pG.ifc.-?\w+\s*\=\>.Jbf.p
+  0x001c3394: 73 31 86 66 75 6e a0 67 65 74 3a 5f 71 64 62 40 34 30 34 38 34 35 38 92 2f 2e 63 6f 6e 74 65 6e
+              ascii: s1.fun.get:_qdb@4048458./.conten
+  0x001c33b4: 74 a4 66 6c 75 74 74 65 72 2f 6e 61
+              ascii: t.flutter/na
+
+解读:正文结束后 19 字节即出现 "checkAppMetaData::\n" Code 注释(0x1c3346),
+紧随其后是 "Array._@8050071"、"getPs::\n" 等其他 Code 注释。
+这种紧邻关系强烈提示 checkAppMetaData 函数的 Code 对象直接引用了长版正文。
+
+四、Dart 函数 prologue 模式(.text 节起点 0x464d18,首个有效指令)
+--------------------------------------------------------------------------------
+IsolateSnapshotInstructions 节起点 0x464ce0 的 56 字节为节头部,不是代码。
+首个有效指令在 0x464d18。节头部内容(参考):
+  0x00464ce0: d029b30000000000 (u64 LE = 0xb329d0)
+  0x00464ce8: 1000000000000000 (u64 LE = 0x10)
+  0x00464cf0: 1800130000000000 (u64 LE = 0x130018)
+  0x00464cf8: 9029b30000000000 (u64 LE = 0xb32990)
+  0x00464d00: 2833b30000000000 (u64 LE = 0xb33328)
+  0x00464d08: e04c460000000000 (u64 LE = 0x464ce0)
+  0x00464d10: b0b4b9ffffffffff (u64 LE = 0xffffffffffb9b4b0)
+  注:0x464d08 处的 8 字节 = 0x464ce0,是节起点的自引用。
+
+首个函数(0x464d18)的反汇编:
+  0x00464d18: stp      x29, x30, [x15, #-0x10]!
+  0x00464d1c: mov      x29, x15
+  0x00464d20: ldr      x16, [x26, #0x38]
+  0x00464d24: cmp      x15, x16
+  0x00464d28: b.ls     #0x464db4
+  0x00464d2c: ldr      x16, [x29, #0x18]
+  0x00464d30: str      x16, [x15, #-8]!
+  0x00464d34: bl       #0xf0e254
+  0x00464d38: add      x15, x15, #8
+  0x00464d3c: mov      x1, x0
+  0x00464d40: ldr      x0, [x29, #0x10]
+  0x00464d44: sbfx     x2, x0, #1, #0x1f
+  0x00464d48: tbz      w0, #0, #0x464d50
+  0x00464d4c: ldur     x2, [x0, #7]
+  0x00464d50: sbfx     x0, x1, #1, #0x1f
+  0x00464d54: cmp      x2, x0
+  0x00464d58: b.lt     #0x464d6c
+  0x00464d5c: mov      x0, x22
+  0x00464d60: mov      x15, x29
+  0x00464d64: ldp      x29, x30, [x15], #0x10
+  0x00464d68: ret      
+  0x00464d6c: tbnz     x2, #0x3f, #0x464d94
+  0x00464d70: ldr      x16, [x29, #0x18]
+  0x00464d74: stp      x2, x16, [x15, #-0x10]!
+
+五、候选聚合判定函数 0x0068603c (中等大小、高 cmp 密度,典型谓词函数特征)
+--------------------------------------------------------------------------------
+前 80 条指令:
+  0x0068603c: stp      x29, x30, [x15, #-0x10]!
+  0x00686040: mov      x29, x15
+  0x00686044: sub      x15, x15, #0x98
+  0x00686048: ldr      x16, [x26, #0x38]
+  0x0068604c: cmp      x15, x16
+  0x00686050: b.ls     #0x68731c
+  0x00686054: mov      x1, #3
+  0x00686058: bl       #0xf82f38
+  0x0068605c: mov      x3, x0
+  0x00686060: ldr      x0, [x29, #0x10]
+  0x00686064: stur     x3, [x29, #-8]
+  0x00686068: stur     w0, [x3, #0xf]
+  0x0068606c: mov      x17, #0
+  0x00686070: stur     w17, [x3, #0x13]
+  0x00686074: add      x1, x27, #0x1d, lsl #12
+  0x00686078: ldr      x1, [x1, #0xfd0]
+  0x0068607c: mov      x2, x22
+  0x00686080: bl       #0xf83044
+  0x00686084: mov      x3, x0
+  0x00686088: ldur     x0, [x29, #-8]
+  0x0068608c: stur     x3, [x29, #-0x10]
+  0x00686090: stur     w3, [x0, #0x17]
+  0x00686094: mov      x2, x0
+  0x00686098: add      x1, x27, #0x1d, lsl #12
+  0x0068609c: ldr      x1, [x1, #0xfd8]
+  0x006860a0: bl       #0xf83044
+  0x006860a4: stur     x0, [x29, #-0x18]
+  0x006860a8: mov      x16, #0
+  0x006860ac: stp      x16, x22, [x15, #-0x10]!
+  0x006860b0: bl       #0x46792c
+  0x006860b4: add      x15, x15, #0x10
+  0x006860b8: stur     x0, [x29, #-0x20]
+  0x006860bc: ldur     x1, [x29, #-8]
+  0x006860c0: ldr      x16, [x26, #0x38]
+  0x006860c4: cmp      x15, x16
+  0x006860c8: b.ls     #0x687324
+  0x006860cc: ldur     w2, [x1, #0x13]
+  0x006860d0: add      x2, x2, x28, lsl #32
+  0x006860d4: ldur     w3, [x1, #0xf]
+  0x006860d8: add      x3, x3, x28, lsl #32
+  0x006860dc: cmp      w3, w22
+  0x006860e0: b.eq     #0x68732c
+  0x006860e4: ldur     w4, [x3, #7]
+  0x006860e8: add      x4, x4, x28, lsl #32
+  0x006860ec: cmp      w2, w4
+  0x006860f0: b.eq     #0x6865a0
+  0x006860f4: ldr      x16, [x26, #0x38]
+  0x006860f8: cmp      x15, x16
+  0x006860fc: b.ls     #0x687330
+  0x00686100: ldur     w3, [x1, #0xf]
+  0x00686104: add      x3, x3, x28, lsl #32
+  0x00686108: cmp      w3, w22
+  0x0068610c: b.eq     #0x687338
+  0x00686110: ldur     w4, [x3, #7]
+  0x00686114: add      x4, x4, x28, lsl #32
+  0x00686118: cmp      w2, w4
+  0x0068611c: b.eq     #0x686214
+  0x00686120: stp      x2, x3, [x15, #-0x10]!
+  0x00686124: bl       #0x46dc48
+  0x00686128: add      x15, x15, #0x10
+  0x0068612c: ldurh    w1, [x0, #1]
+  0x00686130: mov      x16, #0
+  0x00686134: stp      x16, x0, [x15, #-0x10]!
+  0x00686138: mov      x0, x1
+  0x0068613c: sub      x30, x0, #0xfff
+  0x00686140: ldr      x30, [x21, x30, lsl #3]
+  0x00686144: blr      x30
+  0x00686148: add      x15, x15, #0x10
+  0x0068614c: cmp      w0, #0x12
+  0x00686150: b.eq     #0x686198
+  0x00686154: sbfx     x1, x0, #1, #0x1f
+  0x00686158: cmp      x1, #0x20
+  0x0068615c: b.lt     #0x686168
+  0x00686160: cmp      x1, #0x2f
+  0x00686164: b.le     #0x686198
+  0x00686168: cmp      x1, #0x3b
+  0x0068616c: b.lt     #0x686178
+  0x00686170: cmp      x1, #0x40
+  0x00686174: b.le     #0x686198
+  0x00686178: cmp      x1, #0x5b
+
+五、候选聚合判定函数 0x009c1220 (cond 分支密度高,可能是带状态机的异步聚合判定)
+--------------------------------------------------------------------------------
+前 80 条指令:
+  0x009c1220: stp      x29, x30, [x15, #-0x10]!
+  0x009c1224: mov      x29, x15
+  0x009c1228: sub      x15, x15, #0x98
+  0x009c122c: ldr      x16, [x26, #0x38]
+  0x009c1230: cmp      x15, x16
+  0x009c1234: b.ls     #0x9c3780
+  0x009c1238: mov      x1, #0xc
+  0x009c123c: bl       #0xf82f38
+  0x009c1240: mov      x1, x0
+  0x009c1244: ldr      x0, [x29, #0x10]
+  0x009c1248: stur     x1, [x29, #-0x10]
+  0x009c124c: stur     w0, [x1, #0xf]
+  0x009c1250: ldur     w2, [x0, #0x63]
+  0x009c1254: add      x2, x2, x28, lsl #32
+  0x009c1258: stur     x2, [x29, #-8]
+  0x009c125c: add      x16, x22, #0x30
+  0x009c1260: stp      x16, x2, [x15, #-0x10]!
+  0x009c1264: bl       #0x9bdd34
+  0x009c1268: add      x15, x15, #0x10
+  0x009c126c: ldr      x3, [x29, #0x10]
+  0x009c1270: ldur     w4, [x3, #0x6b]
+  0x009c1274: add      x4, x4, x28, lsl #32
+  0x009c1278: stur     x4, [x29, #-0x20]
+  0x009c127c: ldur     w5, [x3, #0x2f]
+  0x009c1280: add      x5, x5, x28, lsl #32
+  0x009c1284: stur     x5, [x29, #-0x18]
+  0x009c1288: cmp      w5, w22
+  0x009c128c: b.eq     #0x9c3690
+  0x009c1290: ldur     x6, [x29, #-0x10]
+  0x009c1294: mov      x0, x5
+  0x009c1298: mov      x2, x22
+  0x009c129c: mov      x1, x22
+  0x009c12a0: ldurh    w4, [x0, #1]
+  0x009c12a4: subs     x4, x4, #0x4fd
+  0x009c12a8: b.eq     #0x9c12c0
+  0x009c12ac: add      x8, x27, #0x41, lsl #12
+  0x009c12b0: ldr      x8, [x8, #0x820]
+  0x009c12b4: add      x3, x27, #0x4f, lsl #12
+  0x009c12b8: ldr      x3, [x3, #0xa40]
+  0x009c12bc: bl       #0xf82264
+  0x009c12c0: ldur     x0, [x29, #-0x20]
+  0x009c12c4: ldur     x2, [x0, #7]
+  0x009c12c8: stur     x2, [x29, #-0x28]
+  0x009c12cc: sbfiz    x0, x2, #1, #0x1f
+  0x009c12d0: cmp      x2, x0, asr #1
+  0x009c12d4: b.eq     #0x9c12e0
+  0x009c12d8: bl       #0xf841ec
+  0x009c12dc: stur     x2, [x0, #7]
+  0x009c12e0: mov      x3, x0
+  0x009c12e4: ldur     x1, [x29, #-0x10]
+  0x009c12e8: stur     x3, [x29, #-0x20]
+  0x009c12ec: stur     w0, [x1, #0x13]
+  0x009c12f0: tbz      w0, #0, #0x9c130c
+  0x009c12f4: ldurb    w16, [x1, #-1]
+  0x009c12f8: ldurb    w17, [x0, #-1]
+  0x009c12fc: and      x16, x17, x16, lsr #2
+  0x009c1300: tst      x16, x28, lsr #32
+  0x009c1304: b.eq     #0x9c130c
+  0x009c1308: bl       #0xf82b48
+  0x009c130c: ldur     x0, [x29, #-0x18]
+  0x009c1310: ldur     w4, [x0, #0x37]
+  0x009c1314: add      x4, x4, x28, lsl #32
+  0x009c1318: str      x4, [x15, #-8]!
+  0x009c131c: bl       #0x55ecf4
+  0x009c1320: add      x15, x15, #8
+  0x009c1324: mov      x1, x0
+  0x009c1328: stur     x1, [x29, #-0x18]
+  0x009c132c: tbnz     w0, #5, #0x9c1334
+  0x009c1330: bl       #0xf8250c
+  0x009c1334: ldur     x0, [x29, #-0x18]
+  0x009c1338: tbnz     w0, #4, #0x9c1350
+  0x009c133c: ldur     x2, [x29, #-0x10]
+  0x009c1340: add      x1, x27, #0x4f, lsl #12
+  0x009c1344: ldr      x1, [x1, #0xa50]
+  0x009c1348: bl       #0xf83044
+  0x009c134c: b        #0x9c1360
+  0x009c1350: add      x1, x27, #0x4f, lsl #12
+  0x009c1354: ldr      x1, [x1, #0xa58]
+  0x009c1358: mov      x2, x22
+  0x009c135c: bl       #0xf83044
+
+五、候选聚合判定函数 0x00ca3940 (cmp 数高,字符串比较风格)
+--------------------------------------------------------------------------------
+前 80 条指令:
+  0x00ca3940: stp      x29, x30, [x15, #-0x10]!
+  0x00ca3944: mov      x29, x15
+  0x00ca3948: sub      x15, x15, #0x10
+  0x00ca394c: ldr      x16, [x26, #0x38]
+  0x00ca3950: cmp      x15, x16
+  0x00ca3954: b.ls     #0xca4b94
+  0x00ca3958: ldr      x1, [x29, #0x10]
+  0x00ca395c: ldurh    w2, [x1, #1]
+  0x00ca3960: lsl      x2, x2, #1
+  0x00ca3964: stur     x2, [x29, #-8]
+  0x00ca3968: cmp      w2, #0xa42
+  0x00ca396c: b.ne     #0xca397c
+  0x00ca3970: ldur     d0, [x1, #0x17]
+  0x00ca3974: mov      v1.16b, v0.16b
+  0x00ca3978: b        #0xca3994
+  0x00ca397c: cmp      w2, #0xa44
+  0x00ca3980: b.ne     #0xca3990
+  0x00ca3984: ldur     d0, [x1, #7]
+  0x00ca3988: mov      v1.16b, v0.16b
+  0x00ca398c: b        #0xca3994
+  0x00ca3990: eor      v1.16b, v1.16b, v1.16b
+  0x00ca3994: eor      v0.16b, v0.16b, v0.16b
+  0x00ca3998: fcmp     d1, d0
+  0x00ca399c: b.vs     #0xca4310
+  0x00ca39a0: b.ne     #0xca4310
+  0x00ca39a4: cmp      w2, #0xa42
+  0x00ca39a8: b.ne     #0xca39b4
+  0x00ca39ac: ldur     d1, [x1, #0x1f]
+  0x00ca39b0: b        #0xca39c8
+  0x00ca39b4: cmp      w2, #0xa44
+  0x00ca39b8: b.ne     #0xca39c4
+  0x00ca39bc: ldur     d1, [x1, #0x17]
+  0x00ca39c0: b        #0xca39c8
+  0x00ca39c4: eor      v1.16b, v1.16b, v1.16b
+  0x00ca39c8: fcmp     d1, d0
+  0x00ca39cc: b.vs     #0xca4304
+  0x00ca39d0: b.ne     #0xca4304
+  0x00ca39d4: cmp      w2, #0xa42
+  0x00ca39d8: b.ne     #0xca3a0c
+  0x00ca39dc: ldur     d0, [x1, #7]
+  0x00ca39e0: ldp      x0, x3, [x26, #0x60]
+  0x00ca39e4: add      x0, x0, #0x10
+  0x00ca39e8: cmp      x3, x0
+  0x00ca39ec: b.ls     #0xca4b9c
+  0x00ca39f0: str      x0, [x26, #0x60]
+  0x00ca39f4: sub      x0, x0, #0xf
+  0x00ca39f8: mov      x3, #0x104
+  0x00ca39fc: movk     x3, #0x38, lsl #16
+  0x00ca3a00: stur     x3, [x0, #-1]
+  0x00ca3a04: stur     d0, [x0, #7]
+  0x00ca3a08: b        #0xca3a24
+  0x00ca3a0c: cmp      w2, #0xa44
+  0x00ca3a10: b.ne     #0xca3a1c
+  0x00ca3a14: ldr      x0, [x27, #0xe80]
+  0x00ca3a18: b        #0xca3a24
+  0x00ca3a1c: ldur     w0, [x1, #7]
+  0x00ca3a20: add      x0, x0, x28, lsl #32
+  0x00ca3a24: ldurh    w3, [x0, #1]
+  0x00ca3a28: ldr      x16, [x27, #0xe80]
+  0x00ca3a2c: stp      x16, x0, [x15, #-0x10]!
+  0x00ca3a30: mov      x0, x3
+  0x00ca3a34: mov      x17, #0x61a3
+  0x00ca3a38: add      x30, x0, x17
+  0x00ca3a3c: ldr      x30, [x21, x30, lsl #3]
+  0x00ca3a40: blr      x30
+  0x00ca3a44: add      x15, x15, #0x10
+  0x00ca3a48: tbnz     w0, #4, #0xca3c18
+  0x00ca3a4c: ldur     x1, [x29, #-8]
+  0x00ca3a50: cmp      w1, #0xa42
+  0x00ca3a54: b.ne     #0xca3a8c
+  0x00ca3a58: ldr      x2, [x29, #0x10]
+  0x00ca3a5c: ldur     d0, [x2, #0xf]
+  0x00ca3a60: ldp      x0, x3, [x26, #0x60]
+  0x00ca3a64: add      x0, x0, #0x10
+  0x00ca3a68: cmp      x3, x0
+  0x00ca3a6c: b.ls     #0xca4bb4
+  0x00ca3a70: str      x0, [x26, #0x60]
+  0x00ca3a74: sub      x0, x0, #0xf
+  0x00ca3a78: mov      x3, #0x104
+  0x00ca3a7c: movk     x3, #0x38, lsl #16
+
+六、对象池中的 Code 注释(函数名)— check* 与 get* 函数清单
+--------------------------------------------------------------------------------
+已确认的 check* / filter* / shell* 函数(出现在 IsolateSnapshotData 中,以 "::\n" 结尾):
+
+  0x000a7c23: 'checkAppComponentFactory::'
+  0x000b58a8: 'checkPMProxy::'
+  0x000e9b22: 'checkIO::'
+  0x0019d7a1: 'checkApk::'
+  0x001b75f7: 'checkApplication::'
+  0x001bcc87: 'checkJiagu::'
+  0x001c3346: 'checkAppMetaData::'
+
+对应的硬编码期望字符串(用于和检测结果比对):
+  checkAppComponentFactory -> android.app.AppComponentFactory (0x9dbe8)
+                              org.lsposed.lspatch.metaloader.LSPAppComponentFactoryStub (0x59f85)
+  checkPMProxy            -> android.content.pm.IPackageManager$Stub$Proxy (0x57480)
+                              android.os.BinderProxy (0x42998)
+  checkApplication        -> com.gentle.ppcat.BaseApplication (0x17ca0c)
+                              com.stub.StubApp (0x908b6)
+  checkJiagu              -> libjiagu_x64.so (0xb570b), .jiagu (0x4c59a)
+  checkAppMetaData        -> LIVE_API_VERSION_CODE (0x1cebc9)
+  checkApk                -> (signature SHA1 2db4d2dbcdc4cdbe4aa4240bdb5eaaa7a16226ed)
