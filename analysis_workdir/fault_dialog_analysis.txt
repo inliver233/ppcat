@@ -1,0 +1,349 @@
+============================================================================
+FAULT DIALOG TRIGGER ANALYSIS
+============================================================================
+Date: 2026-06-20
+Target: ad-failure detection mechanism that shows "故障" (fault) dialog
+Binary: /root/ppcat/lib/arm64-v8a/libapp.so (16,352,152 bytes, vaddr==file offset)
+.text start: 0x460000 | Snapshot data at: 0x3330
+
+============================================================================
+1. POOL SLOT 0x013c68 (ref=27673, FAULT BODY TEXT) — ALL ACCESSES
+============================================================================
+
+Exactly TWO instructions load from pool slot 0x013c68:
+
+  PC         Pool Slot   Instruction                     Function Context
+  ---------- ----------- ------------------------------- ----------------
+  0x00913d3c 0x013c68    LDR X16, [X16,#3176]           String list builder (22-string, FALSE POSITIVE)
+  0x00bbc31c 0x013c68    LDR X16, [X16,#3176]           FAULT BODY TEXT BUILDER (function 0xbbc22c)
+
+The slot is loaded via: ADD X16, X27, #0x13, LSL #12  ->  X16 = X27 + 0x13000
+Followed by: LDR X16, [X16, #3176]  ->  effective pool address = X27 + 0x13C68
+
+============================================================================
+2. FUNCTION 0xbbc22c — FAULT BODY TEXT BUILDER (588 bytes)
+============================================================================
+
+Entry: 0xbbc22c, Size: ~588 bytes (0xbbc22c to 0xbbc47c approximately)
+Type: Text/string builder — constructs the fault dialog body message
+
+Pool accesses:
+  - 0xbbc31c: pool slot 0x013c68 (ref=27673, fault body string)
+
+BL targets (internal calls):
+  - 0xbbc2e4 -> 0xf8250c  (init/helper)
+  - 0xbbc328 -> 0x905260  (string allocation helper)
+  - 0xbbc358 -> 0x147369c  (string building helper, same as called from orchestrator)
+  - 0xbbc3b8 -> 0xf83044  (init/helper)
+  - 0xbbc3c4 -> 0x4daf2c  (common helper, ALSO called from orchestrator!)
+  - 0xbbc3f0 -> 0x4670b0  (helper)
+
+Key structure:
+  - 0xbbc22c-0xbbc2bc: Argument extraction and stack frame setup
+  - 0xbbc2c0-0xbbc300: State check (CBNZ W0 on field offset 15), field initialization
+  - 0xbbc308-0xbbc314: Load Thread field, check null -> B EQ to skip to 0xbbc47c
+  - 0xbbc318-0xbbc31c: ADD X16, X27, #0x13 LSL #12; LDR pool slot 0x13c68 (fault body)
+  - 0xbbc320-0xbbc32c: Push args, BL to string allocation
+  - 0xbbc330-0xbbc35c: Load more fields, BL to string builder
+  - 0xbbc360-0xbbc36c: MOV X0, X22 (null); return
+  - 0xbbc370-0xbbc404: Alternative path (for different dialog types?)
+
+Callers:
+  - 0x8b6204: BL directly to 0xbbc31c (NOT the function entry 0xbbc22c)
+    This is in function 0x8b6100, which is a dialog builder.
+  - No direct BL to 0xbbc22c function entry found in asm.txt
+    (Function is likely called via indirect dispatch or BLR)
+
+============================================================================
+3. VLE ENCODING FOR ref=29112 ("故障" TITLE)
+============================================================================
+
+VLE encode of 29112:
+  Hex bytes: 38 63 81
+  Decimal bytes: [56, 99, 129]
+
+Format: first byte = val & 0x7f, then subsequent bytes, last byte with bit7=1
+Decoding: val = 0x38 | (0x63 << 7) | ((0x81 & 0x7f) << 14)
+              = 56 | (99 * 128) | (1 * 16384)
+              = 56 + 12672 + 16384
+              = 29112
+
+VLE encode of 27673 (for reference):
+  Hex bytes: 19 58 81
+
+String "故障" in binary:
+  UTF-16LE bytes: 45 65 9c 96
+  Found at file offset: 0x1bb928 (in snapshot data section)
+  Context: 70 45 3b 85 | 45 65 9c 96 | 8d 07 68 7e 7b f2 5d 20
+  Note: The pointer to 0x1bb928 was NOT found as an 8-byte value in the pool area
+  (0x3330-0x460000). The string might be referenced through a code object or
+  typed data view at a different pool slot.
+
+Estimated pool slot for ref=29112:
+  - If 8-byte slots, sequential: slot ~ 0x13c68 + (29112-27673)*8 = 0x16960
+  - If linear proportional: slot ~ 0x13c68 * 29112/27673 = 0x14cdc
+  - Pool slots in range 0x14000-0x17000 are mostly accessed from 0x91xxxx functions
+    (the FALSE POSITIVE 22-string list builder area)
+
+============================================================================
+4. FUNCTION 0xbc0f40 — CANDIDATE ORCHESTRATOR (ASYNC STATE MACHINE)
+============================================================================
+
+Entry: 0xbc0f40 (preceded by code at 0xbc0f38, function at 0xbc0f30 ends with RET)
+Type: Async state machine — has state field at [X0,#15], state transitions
+
+Pool accesses used by this function:
+  - 0xbc0ff8: pool slot 0x000028  LDR X16, [X27,#40]    (null/bool sentinel)
+  - 0xbc1004: pool slot 0x0035a0  LDR X16, [X27,#13728] (check value)
+  - 0xbc1014: pool slot 0x0248d0  LDR X0, [X0,#2256]    (object for virtual dispatch)
+  - 0xbc1094: pool slot 0x000028  LDR X16, [X27,#40]
+  - 0xbc10a0: pool slot 0x0035a0  LDR X16, [X27,#13728]
+  - 0xbc10b0: pool slot 0x013d48  LDR X0, [X0,#3400]    (near fault body slot!)
+  - 0xbc10fc: pool slot 0x014280  LDR X16, [X16,#640]
+  - 0xbc1184: pool slot 0x044ef0  LDR X1, [X1,#3824]
+  - 0xbc11a8: pool slot 0x044ef8  LDR X16, [X16,#3832]
+  - 0xbc11b0: pool slot 0x000068  LDR X4, [X27,#104]
+  - 0xbc12bc: pool slot 0x000ed8  LDR X1, [X27,#3800]
+  - 0xbc12dc: pool slot 0x000028  LDR X16, [X27,#40]
+  - 0xbc12e8: pool slot 0x000088  LDR X0, [X27,#136]
+  - 0xbc1324: pool slot 0x044f00  LDR X1, [X1,#3840]
+  - 0xbc136c: pool slot 0x000068  LDR X4, [X27,#104]
+
+BL targets (internal calls):
+  - 0xbc1018 -> 0xf82494   (virtual dispatch stub — KEY: returns null for dialog)
+  - 0xbc1028 -> 0x62d2ec   (timer/future callback setup)
+  - 0xbc1058 -> 0x47369c   (string processing helper)
+  - 0xbc10b4 -> 0xf82494   (virtual dispatch stub, with pool slot 0x013d48)
+  - 0xbc1104 -> 0x904dc4   (helper)
+  - 0xbc1134 -> 0x47369c   (same string processing helper)
+  - 0xbc118c -> 0xf83044   (helper)
+  - 0xbc1198 -> 0x4daf2c   (shared helper, ALSO called from fault body builder)
+
+CRITICAL STATE MACHINE FLOW:
+  ┌───────────────────────────────────────────────────────────┐
+  │ STATE 0 (initial):                                        │
+  │  - 0xbc0fdc: CBNZ W4, .+0x94  (if state != 0, jump)      │
+  │  - 0xbc0fe4-0xbc0fec: Set state=2 (MOV X17,#2)            │
+  │  - 0xbc0ff0-0xbc1014: Load Thread field, check sentinel   │
+  │  - 0xbc1018: BL 0xf82494 (virtual dispatch)               │
+  │  - 0xbc101c: CMP W0, W22 (check if result is null)        │
+  │  - 0xbc1020: B EQ, .+0x254  --> IF NULL: JUMP TO 0xbc1274 │
+  │              (THE FAULT DIALOG BRANCH!)                    │
+  │  - If NOT null: continue to 0xbc1024, send result, return │
+  │                                                           │
+  │ STATE 2 (callback after await/timer):                     │
+  │  - 0xbc1070-0xbc1088: Load state fields, check conditions │
+  │  - 0xbc1084: CMP W3, W22 (null check)                     │
+  │  - 0xbc1088: B NE, .+0x1c4 -> error/other path            │
+  │  - 0xbc10b0: Load pool slot 0x013d48 (near fault strings) │
+  │  - 0xbc10b4: BL 0xf82494 (virtual dispatch with string)   │
+  │  - 0xbc10b8-0xbc10d0: Lookup table dispatch (BLR X30)     │
+  │  - 0xbc10d8-0xbc10e4: Set state=4, fields                 │
+  │  - 0xbc10e8-0xbc1138: Load pool, build strings, call      │
+  │              BL 0x47369c (string helper), return           │
+  └───────────────────────────────────────────────────────────┘
+
+THE FAULT DIALOG BRANCH (0xbc1274):
+  When the virtual dispatch at 0xbc1018 returns null (W0 == X22):
+  - 0xbc1274: BL 0x3c35b8 (init call)
+  - 0xbc1278: BL 0x3c35b4 (init call)
+  - 0xbc127c: Start of NEW FUNCTION (STP X29, X30)
+  - 0xbc12a4: MOV X1, #0x6           (dialog type/action code = 6)
+  - 0xbc12a8: BL 0x3c1c90            (create object with parameter 6)
+  - 0xbc12b8: STUR W0, [X2,#11]      (store something)
+  - 0xbc12bc-0xbc12c0: Load pool, BL string helper
+  - 0xbc12c8-0xbc12d0: Set fields on created object
+  - 0xbc12d4-0xbc12ec: Thread access, pool load, BL dispatch
+  - 0xbc12f4-0xbc1314: Set multiple fields (state setup)
+  - 0xbc1304: ADD X17, X22, #0x30    (value = 0x30 = 48)
+  - 0xbc1318: STUR W22, [X3,#31]     (store null)
+  - 0xbc1324: Load pool slot 0x044f00
+  - 0xbc1328: BL 0x3c1d1c            (key function call)
+  - 0xbc133c: BL 0x8b1390            (LDR X8, [X27,#13040] — likely showDialog)
+
+  This branch constructs a dialog object with type=6 and calls
+  0x8b1390 which loads pool slot 0x032f0 and likely invokes showDialog.
+
+============================================================================
+5. FUNCTION 0x62d2ec — TIMER/FUTURE CALLBACK SETUP
+============================================================================
+
+Called from orchestrator at 0xbc1028 (in the non-null path after virtual dispatch)
+  - 0x62d308: MOV X1, #0xa           (create object type = 10)
+  - 0x62d30c: BL 0x955c30            (object allocation)
+  - 0x62d318: STUR W0, [X2,#27]      (store field)
+  - 0x62d31c: LDR X1, [X27,#13168]   (pool slot 0x3370)
+  - 0x62d320: BL callback setup function
+  - 0x62d324-0x62d330: Set fields on timer/future object
+  - 0x62d334-0x62d350: Thread check, pool load, BL dispatch
+  This function sets up a timed callback/future mechanism.
+  MOX X1, #0xa (= 10) likely creates a Duration or Timer object.
+
+============================================================================
+6. FUNCTION 0xf82494 — VIRTUAL DISPATCH STUB
+============================================================================
+
+Called from orchestrator at 0xbc1018 (returns null to trigger dialog branch)
+  - 0xf824a4: LDR X5, [X26,#1120]    (load method table from Thread)
+  - 0xf824a8: MOV X4, #0x1           (argument count = 1)
+  - 0xf824ac: LDR X30, [X26,#528]    (load dispatch target)
+  - 0xf824b0: BLR X30                (call virtual method)
+  - Returns result in X0
+  When called with pool slot 0x0248d0 object: returns null = show dialog
+  When result is non-null: normal path (no dialog)
+
+============================================================================
+7. DIALOG BUILDER FUNCTION 0x8b6100 (CALLS FAULT BODY BUILDER)
+============================================================================
+
+Entry: 0x8b6100
+Calls: BL to 0xbbc31c (fault body text, directly into the builder function)
+       This function builds a dialog widget by assembling:
+       - String fields (via 0xbbc31c for fault body text)
+       - UI component fields (at object offsets #51, #31, #35, #23)
+       - BLR X2 at 0x8b6240 (indirect call to widget build method)
+
+Pool accesses:
+  - 0x8b61b8: pool slot via ADD X1, X27, #0x21 LSL #12; LDR [X1,#2680]
+  - 0x8b61d0: BL to 0xbbc4fc (another text builder)
+  - 0x8b6204: BL to 0xbbc31c (fault body text, mid-function)
+  - 0x8b6238: LDR X4, [X27,#104]     (pool slot 0x68)
+
+============================================================================
+8. FUNCTION 0x47369c — SHARED STRING PROCESSING HELPER
+============================================================================
+
+Called from BOTH the fault body builder (0xbbc358) AND the orchestrator
+(0xbc1058 and 0xbc1134). This is a common string manipulation function:
+  - Checks string tag bit (TBZ W0, #0)
+  - Reads string length via LDURH
+  - Processes string characters
+  - Used for both dialog text building and other string operations
+
+============================================================================
+9. TIMER/DELAY PATTERN ANALYSIS
+============================================================================
+
+The fault dialog appears after 60-90 seconds. The mechanism involves:
+
+a) Async state machine in 0xbc0f40:
+   - State 0: Initial setup, sets state=2, calls virtual dispatch
+   - State 2: After timer fires, dispatches via lookup table (BLR X30)
+
+b) Timer setup function 0x62d2ec:
+   - MOV X1, #0xa (creates Duration or Timer with parameter 10)
+   - The value 0xa = 10 might represent seconds for Duration(seconds: 10)
+     or some other timer parameter
+   - Sets up a Future-based callback
+
+c) Callback chain:
+   - Timer expires -> async state machine resumes at state 2
+   - State 2 dispatches via BLR X30 to check functions
+   - If check fails (returns null from virtual dispatch), dialog is shown
+
+d) Likely Dart pattern:
+   Future.delayed(Duration(seconds: 60), () {
+     if (checkAdFailed()) {
+       showFaultDialog();
+     }
+   });
+
+============================================================================
+10. KEY FUNCTIONS SUMMARY TABLE
+============================================================================
+
+Address     Size     Type                  Purpose
+----------- -------- --------------------- -----------------------------------
+0xbbc22c    588B     Text Builder          Builds fault dialog body text
+                                            accesses pool slot 0x013c68 (ref=27673)
+0xbc0f40    ~600B    Async State Machine   Orchestrator — checks ad status,
+                                            branches to show dialog on failure
+0xbc1274    ~150B    Dialog Builder        NEW FUNCTION (inside 0xbc0f40 code)
+                                            Builds and shows the fault dialog
+0x8b6100    ~400B    Dialog Builder        Calls 0xbbc31c for fault body text,
+                                            builds dialog widget
+0xf82494    36B      Virtual Dispatch      Thunk — dispatches to virtual method,
+                                            returns null -> trigger dialog
+0x62d2ec    ~120B    Timer Setup           Creates Duration/Timer (MOV X1,#0xa),
+                                            sets up future callback
+0x47369c    ~80B     String Helper         Shared string processing (tag check,
+                                            length extraction, char iteration)
+0x4daf2c    ?        Shared Helper         Called from BOTH fault body builder
+                                            AND orchestrator
+
+============================================================================
+11. PRIMARY PATCH TARGETS
+============================================================================
+
+A) PATCH 0xbc1020: Change B EQ, .+0x254 to NOP (or B always to non-dialog path)
+   Effect: Prevents the fault dialog from ever being shown
+   Risk: The orchestrator is an async state machine — patching the branch
+         might cause state corruption or crash on next state transition
+   Bytes at 0xbc1020: a0 12 00 54 -> change to 1f 20 03 d5 (NOP)
+
+B) PATCH 0xbc101c: Change CMP W0, W22 to CMP W0, W0 (always equal)
+   Effect: The null check always passes, so dialog branch is never taken
+   Alternative: Change CMP W0,W22 to always set Z flag
+   Bytes at 0xbc101c: 1f 00 16 6b -> change to 1f 00 00 6b (CMP W0, W0)
+
+C) PATCH 0x62d308: Change MOV X1, #0xa to MOV X1, #0x0 (or larger timer value)
+   Effect: Modifies timer duration
+   Bytes at 0x62d308: 41 01 80 d2 -> change to 21 00 80 d2 (MOV X1, #0x1)
+
+D) PATCH 0xbbc22c entry: Patch to return null immediately
+   Effect: Prevents fault body text from being built
+   Standard patch: MOV X0, X22; RET (e0 03 16 aa c0 03 5f d6)
+
+E) PATCH 0x8b6100: Prevent the dialog builder from calling the fault body
+   Patch the BL at 0x8b6204 to skip string loading
+
+============================================================================
+12. OPEN QUESTIONS
+============================================================================
+
+1. Pool slot for ref=29112 (fault title "故障"):
+   - String found at file offset 0x1bb928 (UTF-16LE: 45 65 9c 96)
+   - Pointer to this string NOT found in pool area (0x3330-0x460000)
+   - May be referenced through an indirect typed data structure
+   - Estimated pool slot range: 0x14cdc to 0x16960
+   - Need to search for 32-bit relative offsets or code object references
+
+2. Who calls 0xbc0f40 (the orchestrator):
+   - Direct BL to 0xbc0f40 not found in asm.txt
+   - Likely called via indirect dispatch (BLR Xreg or virtual table)
+   - May be registered as a timer callback through the Future API
+
+3. The 7 check* functions:
+   - The orchestrator at state 2 uses BLR X30 dispatch (lookup table)
+   - BLR target computed as: X30 = [X21, (X0 + 0xbf9c) * 8]
+   - This could dispatch to any of the 7 check functions
+   - Each check function returns a result; null results trigger the dialog
+
+4. Timer duration:
+   - 0xa (10) is set as parameter to timer creation
+   - Could be seconds * some multiplier
+   - If 6 timer cycles: 6 * 10 = 60 seconds
+   - Need to analyze the timer loop logic to confirm exact delay
+
+============================================================================
+13. COMPARISON WITH KNOWN TAMPER DIALOG (ALREADY PATCHED)
+============================================================================
+
+Tamper dialog orchestrators (0x8e1dd0, 0x8ef2b8) — already successfully patched
+Fault dialog orchestrator (0xbc0f40) — DIFFERENT mechanism
+
+Differences:
+- Tamper dialogs: use pool slot 0xad90 (different string set)
+- Fault dialog: uses pool slots near 0x13c68 (fault body) and 0x13d48
+- Both use async state machine pattern
+- Both use the same virtual dispatch stub (0xf82494)
+- Both share the string helper 0x47369c
+
+============================================================================
+14. FILE LOCATIONS
+============================================================================
+
+Binary:         /root/ppcat/lib/arm64-v8a/libapp.so
+Disassembly:    /root/ppcat/analysis_workdir/friend_unflutter/asm.txt
+Pool accesses:  /root/ppcat/analysis_workdir/pool_accesses.txt
+This analysis:  /root/ppcat/analysis_workdir/fault_dialog_analysis.txt
