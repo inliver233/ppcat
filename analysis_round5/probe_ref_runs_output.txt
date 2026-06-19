@@ -1,0 +1,97 @@
+isolate_data: file_offset=0x3330 size=0x45c930
+
+ref=21707 rel=0x2f5951 file=0x2f8c81 bytes=80 4b 29 81
+ref=22466 rel=0x30292a file=0x305c5a bytes=80 42 2f 81
+ref=26842 rel=0x2e820c file=0x2eb53c bytes=80 5a 51 81
+ref=27673 rel=0x2ebb9a file=0x2eeeca bytes=80 19 58 81
+ref=29112 rel=0x2e9ad5 file=0x2ece05 bytes=80 38 63 81
+ref=30922 rel=0x2ed0e5 file=0x2f0415 bytes=80 4a 71 81
+ref=30947 rel=0x2e8210 file=0x2eb540 bytes=80 63 71 81
+
+== ref=21707 neighborhood ==
+  rel=0x2f594d delta=-4 tag=0x80 ref=22939 next=0x2f5951
+  rel=0x2f594e delta=-3 tag=0x1b
+  rel=0x2f594f delta=-2 tag=0x33
+  rel=0x2f5950 delta=-1 tag=0x81 imm=-64 next=0x2f5952
+  rel=0x2f5951 delta=+0 tag=0x80 ref=21707 next=0x2f5955
+  rel=0x2f5952 delta=+1 tag=0x4b
+  rel=0x2f5953 delta=+2 tag=0x29
+  rel=0x2f5954 delta=+3 tag=0x81 imm=-64 next=0x2f5956
+  rel=0x2f5955 delta=+4 tag=0x80 ref=28525 next=0x2f5959
+
+== ref=22466 neighborhood ==
+  rel=0x302926 delta=-4 tag=0x80 ref=93509 next=0x30292a
+  rel=0x302927 delta=-3 tag=0x45
+  rel=0x302928 delta=-2 tag=0x5a
+  rel=0x302929 delta=-1 tag=0x85
+  rel=0x30292a delta=+0 tag=0x80 ref=22466 next=0x30292e
+  rel=0x30292b delta=+1 tag=0x42
+  rel=0x30292c delta=+2 tag=0x2f
+  rel=0x30292d delta=+3 tag=0x81 imm=-64 next=0x30292f
+  rel=0x30292e delta=+4 tag=0x80 ref=93511 next=0x302932
+
+== ref=26842 neighborhood ==
+  rel=0x2e8208 delta=-4 tag=0x80 ref=50837 next=0x2e820c
+  rel=0x2e8209 delta=-3 tag=0x15
+  rel=0x2e820a delta=-2 tag=0x0d
+  rel=0x2e820b delta=-1 tag=0x83
+  rel=0x2e820c delta=+0 tag=0x80 ref=26842 next=0x2e8210
+  rel=0x2e820d delta=+1 tag=0x5a
+  rel=0x2e820e delta=+2 tag=0x51
+  rel=0x2e820f delta=+3 tag=0x81 imm=-64 next=0x2e8211
+  rel=0x2e8210 delta=+4 tag=0x80 ref=30947 next=0x2e8214
+
+== ref=27673 neighborhood ==
+  rel=0x2ebb96 delta=-4 tag=0x81 imm=-936704 next=0x2ebb9a
+  rel=0x2ebb97 delta=-3 tag=0x00
+  rel=0x2ebb98 delta=-2 tag=0x6a
+  rel=0x2ebb99 delta=-1 tag=0x86
+  rel=0x2ebb9a delta=+0 tag=0x80 ref=27673 next=0x2ebb9e
+  rel=0x2ebb9b delta=+1 tag=0x19
+  rel=0x2ebb9c delta=+2 tag=0x58
+  rel=0x2ebb9d delta=+3 tag=0x81 imm=-8064 next=0x2ebba0
+  rel=0x2ebb9e delta=+4 tag=0x00
+
+== ref=29112 neighborhood ==
+  rel=0x2e9ad1 delta=-4 tag=0x80 ref=32301 next=0x2e9ad5
+  rel=0x2e9ad2 delta=-3 tag=0x2d
+  rel=0x2e9ad3 delta=-2 tag=0x7c
+  rel=0x2e9ad4 delta=-1 tag=0x81 imm=-64 next=0x2e9ad6
+  rel=0x2e9ad5 delta=+0 tag=0x80 ref=29112 next=0x2e9ad9
+  rel=0x2e9ad6 delta=+1 tag=0x38
+  rel=0x2e9ad7 delta=+2 tag=0x63
+  rel=0x2e9ad8 delta=+3 tag=0x81 imm=-64 next=0x2e9ada
+  rel=0x2e9ad9 delta=+4 tag=0x80 ref=32290 next=0x2e9add
+
+== ref=30922 neighborhood ==
+  rel=0x2ed0e1 delta=-4 tag=0x80 ref=89900 next=0x2ed0e5
+  rel=0x2ed0e2 delta=-3 tag=0x2c
+  rel=0x2ed0e3 delta=-2 tag=0x3e
+  rel=0x2ed0e4 delta=-1 tag=0x85
+  rel=0x2ed0e5 delta=+0 tag=0x80 ref=30922 next=0x2ed0e9
+  rel=0x2ed0e6 delta=+1 tag=0x4a
+  rel=0x2ed0e7 delta=+2 tag=0x71
+  rel=0x2ed0e8 delta=+3 tag=0x81 imm=-64 next=0x2ed0ea
+  rel=0x2ed0e9 delta=+4 tag=0x80 ref=89902 next=0x2ed0ed
+
+== ref=30947 neighborhood ==
+  rel=0x2e820c delta=-4 tag=0x80 ref=26842 next=0x2e8210
+  rel=0x2e820d delta=-3 tag=0x5a
+  rel=0x2e820e delta=-2 tag=0x51
+  rel=0x2e820f delta=-1 tag=0x81 imm=-64 next=0x2e8211
+  rel=0x2e8210 delta=+0 tag=0x80 ref=30947 next=0x2e8214
+  rel=0x2e8211 delta=+1 tag=0x63
+  rel=0x2e8212 delta=+2 tag=0x71
+  rel=0x2e8213 delta=+3 tag=0x81 imm=-64 next=0x2e8215
+  rel=0x2e8214 delta=+4 tag=0x80 ref=100769 next=0x2e8218
+
+== relaxed old-pool counts ==
+26842 -> 30947 parsed_entries=1     rel=0x2e820c->0x2e8210  known_slot_delta=1     diff=+0
+30947 -> 29112 parsed_entries=1867  rel=0x2e8210->0x2e9ad5
+29112 -> 27673 parsed_entries=2673  rel=0x2e9ad5->0x2ebb9a
+27673 -> 30922 parsed_entries=1727  rel=0x2ebb9a->0x2ed0e5  known_slot_delta=1696  diff=+31
+30922 -> 21707 parsed_entries=11150 rel=0x2ed0e5->0x2f5951
+21707 -> 22466 parsed_entries=16215 rel=0x2f5951->0x30292a
+
+candidate slot window for ref=29112: slot_idx=0x1cfd..0x1d1c (slot_off=0xe7e8..0xe8e0)
+phase-shift check 30947->30922: parsed_entries=6267 known_slot_delta=6267 diff=+0
