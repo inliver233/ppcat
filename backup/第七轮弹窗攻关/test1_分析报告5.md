@@ -1,0 +1,541 @@
+# 第五轮分析报告: 残留弹窗收口
+
+> 分支: `test1`
+>  
+> 本轮继续遵守“纯静态分析”。只读取仓库文件，产出报告与辅助脚本，不修改原始 APK / so / dex。
+
+## 1. 范围与输入
+
+- 当前任务书来源:
+  - 用户本轮指令
+  - `origin/main:任务文档4.md`
+  - `origin/backup:backup/第六轮-去广告故障窗/分析报告4_test1.md`
+  - `origin/backup:backup/第六轮-去广告故障窗/分析报告4_test2.md`
+  - `origin/test2:分析报告5.md`
+- 说明: `origin/main:任务文档5.md` **不存在**，因此本轮以用户指令和 backup/test2 第五轮材料为准。
+- 实际使用的工具:
+  - `unflutter` 现有产物: `unflutter_dump/asm.txt`, `unflutter_dump/snapshot.json`, `unflutter_strings.txt`
+  - `unflutter/internal/cluster` 自带测试: 校验 pre-pool 解析与 ObjectPool 卡点
+  - `python3` 脚本: 重算 `BL .+...` 的**绝对目标**，提取候选函数的 pool 访问与返回尾声
+  - `origin/test2:analysis_workdir/pool_accesses.txt`
+
+## 2. 本轮关键纠偏
+
+### 2.1 `BL .+0xffff...` 不能当成绝对地址
+
+前几轮不少推断把 `asm.txt` 里的 `BL .+0xffffffffff...` 后缀直接当作目标地址，这个解释是错的。  
+本轮全部调用链都按：
+
+```text
+target = pc + signed_relative_offset
+```
+
+重算后再分析。
+
+本轮新增脚本:
+
+- [analysis_round5/extract_dialog_candidates.py](/root/ppcat_repo/analysis_round5/extract_dialog_candidates.py)
+- [analysis_round5/dialog_candidates_summary.txt](/root/ppcat_repo/analysis_round5/dialog_candidates_summary.txt)
+
+### 2.2 `ppcat-hybrid` 的 fill-phase `ReadRef()` 走 `ReadUnsigned()`
+
+`unflutter` 当前 profile 明确显示:
+
+- `FillRefUnsigned = true`
+- `PreV32Format = true`
+- `OldPoolFormat = true`
+
+这意味着 **ObjectPool fill 阶段的 ref 编码** 不是 `ReadRefId()`，而是 `ReadUnsigned()`。  
+因此前几轮按 `ReadRefId()` 逆编码去搜 pool fill 的做法，本质上不适用于当前样本。
+
+已复核的 `ReadUnsigned()` 编码:
+
+| ref | 编码 | snapshot 命中 |
+|---|---|---|
+| 27673 | `19 58 81` | `0x2eeecb` |
+| 29112 | `38 63 81` | `0x2ece06` |
+| 21707 | `4b 29 81` | `0x2f8c82` |
+| 22466 | `42 2f 81` | `0x305c5b` |
+| 30922 | `4a 71 81` | `0x2f0416` |
+| 30947 | `63 71 81` | `0x2eb541` |
+| 26842 | `5a 51 81` | `0x2eb53d` |
+
+## 3. ObjectPool 现状
+
+### 3.1 已确认
+
+`unflutter` pre-pool 解析稳定可复现:
+
+- `strings=32135`
+- `named=22173`
+- `codes=31387`
+- `classes=5079`
+- `fields=1543`
+- `functypes=3615`
+
+### 3.2 仍然卡住的位置
+
+ObjectPool cluster:
+
+- cluster index `572`
+- CID `21`
+- count `1`
+- alloc length `[51140]`
+- fill start `0x2e0bfb`
+
+标准旧格式解析在第 2 个 entry 就失败:
+
+```text
+standard parser err=pool 0 entry 1: unknown type 103 (bits=0x67 pos=0x2e0bfe)
+```
+
+原始前缀:
+
+```text
+891b6788848410c1c0030a6a8638d2166c89003b8981435a867063...
+```
+
+结论:
+
+- 目前仍**无法**把 `ref=21707 / 22466 / 29112` 精确正向反序列化成 `slot=?`
+- 因此本轮仍不能给出“每日喂喵标题/正文”和“残留故障标题”的**最终 slot 号**
+- 但已能继续靠 `.text + pool_accesses + 调用链` 给出高置信 patch 候选
+
+## 4. 已验证锚点
+
+### 4.1 故障窗正文 / 同族标题 builder
+
+`pool_accesses.txt` 复核:
+
+- `ref=27673` 故障正文 → `slot 0x13c68`
+  - `0x00913d3c`
+  - `0x00bbc31c`
+- 相邻 `slot 0x13c70`
+  - `0x00913ddc`
+  - `0x00bbc748`
+
+对应 builder:
+
+- `0x00bbc22c` 访问 `slot 0x13c68`
+- `0x00bbc5e0` 访问 `slot 0x13c70`
+
+### 4.2 启动故障窗编排器
+
+用户已验证有效:
+
+- `0x00bc0f40` 入口改 `MOV X0, X22; RET`
+
+本轮复核的关键分支:
+
+- `0x00bc101c  1f 00 16 6b  CMP W0, W22`
+- `0x00bc1020  a0 12 00 54  B.EQ .+0x254`
+
+已知稳定替代 patch:
+
+- `0x00bc1020: a0 12 00 54 -> 00 02 00 54`
+- 含义: 从“跳到弹窗构造支路”改成“跳到现成 `return null` 尾声 `0xbc1060`”
+
+## 5. 残留故障窗: 高置信候选 `0xbd5a24`
+
+### 5.1 交叉验证
+
+与 `origin/test2:分析报告5.md` 一致:
+
+- `0xbd5a24` 是 `0xbc0f40` 同型 async 状态机
+- 访问共享 `slot 0x13740`
+- 入口 `return null` 是候选 patch
+
+本分支补充 / 修正:
+
+- 重新按**绝对 BL 目标**复核调用链
+- 把函数内真实 pool 访问范围重新界定
+
+### 5.2 反汇编证据
+
+入口序言与 `0xbc0f40` 同型:
+
+```asm
+0x00bd5a24  fd 79 bf a9  STP X29, X30, [X15,#-16]!
+0x00bd5a28  fd 03 0f aa  MOV X29, X15
+0x00bd5a2c  ef a1 05 d1  SUB X15, X15, #0x168
+```
+
+函数内 pool 访问:
+
+```text
+0x00bd5e34  0x013740
+0x00bd5e98  0x013740
+0x00bd5bd0  0x0316f0
+0x00bd5ec8  0x031700
+```
+
+绝对 BL 目标摘要:
+
+```text
+0x00bd5adc -> 0x00f82f38
+0x00bd5b80 -> 0x00f82b48
+0x00bd5bd4 -> 0x004aad50
+0x00bd5be8 -> 0x0047acc0
+0x00bd5c5c -> 0x004823e4
+0x00bd5ce0 -> 0x00908f30
+0x00bd5ecc -> 0x004aad50
+0x00bd5edc -> 0x0047acc0
+0x00bd5f54 -> 0x00908f30
+0x00bd60ac -> 0x0047369c
+0x00bd6130 -> 0x004670b0
+0x00bd6300 -> 0x00472c98
+```
+
+null gate / return:
+
+```asm
+0x00bd5e50  1f 00 16 6b  CMP W0, W22
+0x00bd606c  1f 00 16 6b  CMP W0, W22
+0x00bd60b4  e0 03 16 aa  MOV X0, X22
+0x00bd60c0  c0 03 5f d6  RET X30
+0x00bd6138  e0 03 16 aa  MOV X0, X22
+0x00bd6144  c0 03 5f d6  RET X30
+0x00bd626c  e0 03 16 aa  MOV X0, X22
+0x00bd6278  c0 03 5f d6  RET X30
+0x00bd6308  e0 03 16 aa  MOV X0, X22
+0x00bd6314  c0 03 5f d6  RET X30
+```
+
+### 5.3 结论
+
+高置信结论:
+
+- `0xbd5a24` 与已确认故障窗编排器 `0xbc0f40` 结构非常接近
+- 它共享一组“字符串/状态机构造”下游 helper
+- 它两次访问共享 `slot 0x13740`
+- 该函数可见出口均返回 `null`
+
+仍未最终证实的点:
+
+- 由于 ObjectPool 未解开，**还不能把 `slot 0x13740` 精确绑定为 `ref=29112`**
+- 因此它目前应标记为“残留故障窗第二编排器的高置信候选”，不是 100% 最终归属
+
+### 5.4 Patch 候选
+
+```text
+地址: 0x00bd5a24
+原始: fd 79 bf a9 fd 03 0f aa
+改为: e0 03 16 aa c0 03 5f d6
+含义: MOV X0, X22; RET X30
+```
+
+评估:
+
+- 适合 patch-and-test
+- 风险低于改内部条件分支
+- 但仍建议把它明确当作“候选补丁”，不是已证明的唯一来源
+
+## 6. 每日喂喵窗: 高置信候选 `0x7e1464`
+
+### 6.1 交叉验证
+
+与 `origin/test2:分析报告5.md` 一致:
+
+- `0x7e1464` 是另一条同型 async 状态机
+- 访问共享 `slot 0x13740`
+- 入口 `return null` 是候选 patch
+
+本分支修正:
+
+- `test2` 报告中“`0x7e1464` 访问 `0x13728-0x13788` 共 13 个连续 slot”这个说法**过宽**
+- 重新按函数边界 `0x7e1464-0x7e1d64` 过滤后，函数内稳定可见的目标 slot 主要是:
+  - `0x13730`
+  - `0x13740` (两次)
+  - `0x13748`
+- `0x13758+` 的不少访问落在后续相邻函数，不宜直接算进 `0x7e1464`
+
+### 6.2 反汇编证据
+
+入口:
+
+```asm
+0x007e1464  fd 79 bf a9  STP X29, X30, [X15,#-16]!
+0x007e1468  fd 03 0f aa  MOV X29, X15
+0x007e146c  ef 41 05 d1  SUB X15, X15, #0x150
+```
+
+函数内 pool 访问:
+
+```text
+0x007e1618  0x013730
+0x007e1884  0x013740
+0x007e18e8  0x013740
+0x007e1918  0x013748
+```
+
+绝对 BL 目标摘要:
+
+```text
+0x007e151c -> 0x00f82f38
+0x007e15c8 -> 0x00f82b48
+0x007e161c -> 0x004aad50
+0x007e1630 -> 0x0047acc0
+0x007e16a4 -> 0x004823e4
+0x007e1728 -> 0x00908f30
+0x007e18cc -> 0x00f82b48
+0x007e191c -> 0x004aad50
+0x007e192c -> 0x0047acc0
+0x007e1958 -> 0x00f82b48
+0x007e19a4 -> 0x00908f30
+0x007e19cc -> 0x004823e4
+0x007e1acc -> 0x005d33d4
+0x007e1afc -> 0x004670b0
+0x007e1b80 -> 0x00485530
+```
+
+null gate / return:
+
+```asm
+0x007e18a0  1f 00 16 6b  CMP W0, W22
+0x007e1abc  1f 00 16 6b  CMP W0, W22
+0x007e1b04  e0 03 16 aa  MOV X0, X22
+0x007e1b10  c0 03 5f d6  RET X30
+0x007e1b88  e0 03 16 aa  MOV X0, X22
+0x007e1b94  c0 03 5f d6  RET X30
+0x007e1cbc  e0 03 16 aa  MOV X0, X22
+0x007e1cc8  c0 03 5f d6  RET X30
+0x007e1d58  e0 03 16 aa  MOV X0, X22
+0x007e1d64  c0 03 5f d6  RET X30
+```
+
+### 6.3 结论
+
+高置信结论:
+
+- `0x7e1464` 与 `0xbd5a24` / `0xbc0f40` 属于同一类 async 状态机
+- 它同样使用共享 `slot 0x13740`
+- 它更像“每日喂喵 / reward 失败”编排器候选，而不是正文 builder
+
+仍未最终证实的点:
+
+- 由于 ObjectPool 未解开，**还不能把 `slot 0x13730 / 0x13740 / 0x13748` 精确绑定到 `ref=21707 / 22466`**
+- 因此它当前仍是“每日喂喵窗编排器高置信候选”
+
+### 6.4 Patch 候选
+
+```text
+地址: 0x007e1464
+原始: fd 79 bf a9 fd 03 0f aa
+改为: e0 03 16 aa c0 03 5f d6
+含义: MOV X0, X22; RET X30
+```
+
+评估:
+
+- 适合 patch-and-test
+- 目前是消灭“每日喂喵 / reward 失败弹窗”的最佳静态候选
+
+## 7. 与故障窗 builder 链的关系
+
+本轮重新按绝对地址复核后，以下链条仍然稳固:
+
+- `0x00bbc22c` = 故障正文 builder
+- `0x00bbc5e0` = 同族 sibling builder
+- `0x008b6100` = widget builder，内部直接调用:
+  - `0x004726cc`
+  - `0x00472520`
+- `0x00bc0f40` = 已验证可 patch 的启动故障窗编排器
+
+对应 `0x008b6100` 关键片段:
+
+```text
+0x008b61d0 -> 0x004726cc
+0x008b6204 -> 0x00472520
+```
+
+这再次说明:
+
+- 旧报告里把 `0x8b1390` 直接当 showDialog 唯一入口的说法不可靠
+- 本轮应以**重算后的绝对 BL 目标**为准
+
+## 8. 当前最可执行的 patch 清单
+
+### 8.1 已验证有效
+
+| 地址 | Patch | 作用 |
+|---|---|---|
+| `0x8e1dd0` | `e0 03 16 aa c0 03 5f d6` | 篡改窗不弹 |
+| `0x8ef2b8` | `e0 03 16 aa c0 03 5f d6` | 篡改窗不弹 |
+| `0x00bc0f40` | `e0 03 16 aa c0 03 5f d6` | 启动故障窗不弹 |
+| `0x00bc1020` | `a0 12 00 54 -> 00 02 00 54` | 失败条件重定向到 `return null` 尾声 |
+
+### 8.2 本轮新增高置信候选
+
+| 地址 | Patch | 目标 | 置信度 |
+|---|---|---|---|
+| `0x00bd5a24` | `e0 03 16 aa c0 03 5f d6` | 残留故障窗第二编排器候选 | 高 |
+| `0x007e1464` | `e0 03 16 aa c0 03 5f d6` | 每日喂喵窗编排器候选 | 高 |
+
+### 8.3 推荐 patch-and-test 顺序
+
+1. 已有:
+   - 去广告 smali patch
+   - `0xbc0f40` patch
+2. 若仍有“故障”偶发弹窗:
+   - patch `0xbd5a24`
+3. 若点“喵喵饿了”仍反复弹 reward 失败窗:
+   - patch `0x7e1464`
+
+## 9. 本轮未完成项
+
+- **未能**给出:
+  - `ref=29112 -> slot=?`
+  - `ref=21707 -> slot=?`
+  - `ref=22466 -> slot=?`
+- 原因:
+  - `ObjectPool` fill 在 `0x2e0bfe` 即遇到未知 type `103`
+  - 仍缺这一步，无法把候选函数内部的 `slot 0x13730 / 0x13740 / 0x13748` 最终绑定到具体标题/正文 ref
+
+## 10. 交付物
+
+- [分析报告5.md](/root/ppcat_repo/分析报告5.md)
+- [analysis_round5/extract_dialog_candidates.py](/root/ppcat_repo/analysis_round5/extract_dialog_candidates.py)
+- [analysis_round5/dialog_candidates_summary.txt](/root/ppcat_repo/analysis_round5/dialog_candidates_summary.txt)
+- [analysis_round5/probe_ref_runs.py](/root/ppcat_repo/analysis_round5/probe_ref_runs.py)
+- [analysis_round5/probe_ref_runs_output.txt](/root/ppcat_repo/analysis_round5/probe_ref_runs_output.txt)
+
+## 11. 与 `test2` 的交叉验证与修正
+
+### 11.1 可直接复用的部分
+
+- `origin/test2:analysis_workdir/pool_accesses.txt` 仍然有用。它可靠地给出 `.text PC -> pool slot offset` 访问映射。
+- `origin/test2:analysis_workdir/cluster_data.json` 也可复核 cluster 元信息:
+  - ObjectPool cluster = `ci=572`
+  - `cid=21`
+  - `count=1`
+  - alloc `length=[51140]`
+
+### 11.2 本轮确认 `test2` 尚未解决的问题
+
+- `test2` 新增内容没有补出可运行的 ObjectPool 正向反序列化器。
+- `analysis_workdir/dart_parser.py` 仍只停在 String cluster / pre-pool。
+- `analysis_workdir/dump_object_pool.py` 本质仍是字符串扫描，不是 pool fill 解析。
+
+### 11.3 本轮对 `test2` 结论的修正
+
+- `test2` 报告把 `0x7e1464` 说成“访问 `0x13728-0x13788` 一长串 slot”的说法过宽。
+  - 本分支按函数边界重算后，应收窄为:
+    - `0x13730`
+    - `0x13740` x2
+    - `0x13748`
+- `test2` / 旧几轮中反复出现的 `slot 0x13740 ~= 故障标题或每日喂喵标题`，目前**不再有锚点级支持**。
+  - 新脚本 `analysis_round5/probe_ref_runs.py` 证明:
+    - `ref=26842 -> slot 0x15b1`
+    - `ref=30947 -> slot 0x15b2`
+    - `ref=27673 -> slot 0x278d`
+    - `ref=30922 -> slot 0x2e2d`
+  - 在这四个锚点之间做 relaxed old-pool 连续计数时:
+    - `30947 -> 30922` 总区间 entry 数与已知 slot 差值**完全相等**
+    - 唯独 `27673 -> 30922` 子区间出现 `+31` 偏差
+  - 由此可反推 `ref=29112` 的候选 slot 只会落在:
+    - `slot_idx = 0x1cfd .. 0x1d1c`
+    - `slot_off = 0xe7e8 .. 0xe8e0`
+  - 这与 `0x13740` 不在同一量级，因此 `0x13740 = ref29112/ref21707` 目前应降级为**待证伪旧假设**，不能再当锚点。
+
+## 12. 对象池局部反序列化的新进展
+
+### 12.1 新的可复现证据
+
+本轮新增脚本 `analysis_round5/probe_ref_runs.py` 与对应输出 `analysis_round5/probe_ref_runs_output.txt`，把之前临时写在 `unflutter` 测试里的观察落成了仓库内可复跑产物。
+
+已复现的 7 个关键 ref 命中:
+
+| ref | isolate rel | file offset | bytes |
+|---|---:|---:|---|
+| 26842 | `0x2e820c` | `0x2eb53c` | `80 5a 51 81` |
+| 30947 | `0x2e8210` | `0x2eb540` | `80 63 71 81` |
+| 29112 | `0x2e9ad5` | `0x2ece05` | `80 38 63 81` |
+| 27673 | `0x2ebb9a` | `0x2eeeca` | `80 19 58 81` |
+| 30922 | `0x2ed0e5` | `0x2f0415` | `80 4a 71 81` |
+| 21707 | `0x2f5951` | `0x2f8c81` | `80 4b 29 81` |
+| 22466 | `0x30292a` | `0x305c5a` | `80 42 2f 81` |
+
+这说明:
+
+- 这些 ref 并不是“字符串偶然命中”
+- 它们确实位于 isolate tail 中**对齐的 `0x80 + ReadUnsigned(ref)` entry 起点**
+- 阻塞点不在 ref 编码本身，而在 ObjectPool fill 前/中间混入的其他结构
+
+### 12.2 relaxed old-pool 计数结果
+
+脚本将 `0x80(ref) / 0x81(imm) / 0x03(nop)` 等旧格式 entry 当作“局部可解析流”连续计数，结果如下:
+
+| 区间 | 计数结果 | 与已知 slot 对比 |
+|---|---:|---|
+| `26842 -> 30947` | `1` | 与 `0x15b1 -> 0x15b2` 完全一致 |
+| `30947 -> 29112` | `1867` | `ref=29112` 尚无最终 slot |
+| `29112 -> 27673` | `2673` | `ref=29112` 尚无最终 slot |
+| `27673 -> 30922` | `1727` | 比已知 `0x278d -> 0x2e2d = 1696` 多 `31` |
+| `30947 -> 30922` | `6267` | 与已知 slot 差值 `6267` 完全一致 |
+
+关键结论:
+
+- **整段方法不是错的**，因为 `30947 -> 30922` 总区间与锚点完全自洽。
+- 偏差集中出现在 `27673` 附近，表现为局部 `+31` 的“相位偏差”。
+- 更合理的解释是:
+  - 中间混入少量 pseudo-entry / 子段头
+  - 或定制 VM 在该局部子段插入了标准 old-pool 之外的辅助结构
+- 这比“整个 ObjectPool 完全不可解析”要前进很多。
+
+### 12.3 `ref=29112` 的新 slot 约束
+
+利用两端锚点:
+
+- `ref=30947 -> slot 0x15b2`
+- `ref=30922 -> slot 0x2e2d`
+
+再结合 `30947 -> 30922` 总区间无偏差、而 `27673 -> 30922` 子区间有 `+31` 偏差，可将 `ref=29112` 收窄到:
+
+```text
+slot_idx = 0x1cfd .. 0x1d1c
+slot_off = 0x00e7e8 .. 0x00e8e0
+```
+
+这仍不是唯一 slot，但已经把“候选范围”从完全未知压缩到了 32 个条目。
+
+### 12.4 为什么这一步仍未闭环
+
+本轮还不能把 `ref=29112 / 21707 / 22466` 直接绑定到唯一 slot，原因已缩小为一个很具体的缺口:
+
+- `unflutter` 当前 `readFillObjectPool()` 只认识:
+  - `kTaggedObject`
+  - `kImmediate`
+  - `kNativeFunction`
+  - `kSwitchableCallMissEntryPoint`
+  - `kMegamorphicCallEntryPoint`
+  - `kImmediate128`
+- 但在 ppcat 样本的 ObjectPool fill 起点 `0x2e0bfb`，标准解析会立刻遇到:
+  - `bits=0x67`
+  - `typeBits=103`
+- 本地 Dart runtime 源码 `/root/dartsdk/runtime/vm/app_snapshot.cc` 中，标准 2.19 `ObjectPoolSerializationCluster::WriteFill()` / `ReadFill()` 也只支持有限枚举。
+
+因此当前最可能的两条技术路线是:
+
+1. 这个定制引擎真的改过 `ObjectPool` entry 类型或子段布局。
+2. `0x2e0bfb` 处并不是“纯 entry 数组起点”，而是 pool 对象 fill 前还有一层标准外包装，`unflutter` 现在从错误边界切入。
+
+## 13. 结论
+
+本轮没有完全打通 ObjectPool 局部反序列化，但新增了三条足够重要的可复现进展:
+
+- 把前几轮对 `BL .+...` 的错误解释全部纠正为绝对目标分析
+- 把两个残留弹窗收敛到两个**高置信、可直接 patch-and-test** 的入口候选:
+  - `0x00bd5a24`
+  - `0x007e1464`
+- 把 ObjectPool 攻关从“完全卡死”推进到:
+  - 7 个关键 ref 的对齐 `0x80 + ReadUnsigned(ref)` 命中已证实
+  - `30947 -> 30922` 区间与已知 slot 锚点完全自洽
+  - `ref=29112` 已缩到 `0xe7e8 .. 0xe8e0` 的 32-slot 窗口
+  - `slot 0x13740 = 标题字符串` 旧假设失去锚点支持，应降级
+
+如果目标是尽快恢复本地可用版本，这两个入口补丁已经足够进入下一轮装机验证。  
+如果目标是把 ref→slot→.text 链条补成完全闭环，下一步最有效的方向已经明确:
+
+- 直接对照 `/root/dartsdk/runtime/vm/app_snapshot.cc` 的 `ObjectPoolSerializationCluster` / `ObjectPoolDeserializationCluster`
+- 查清 `0x2e0bfb` 前后是否存在 ppcat 定制引擎插入的额外包装
+- 或扩展 `unflutter` 的 `readFillObjectPool()`，让它能识别当前样本局部出现的 pseudo-entry / 子段边界
