@@ -4,3 +4,4 @@ blutter/
 # Python cache
 __pycache__/
 *.pyc
+analysis_workdir/friend_unflutter/asm.txt

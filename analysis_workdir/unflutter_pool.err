@@ -1,0 +1,4 @@
+warning: skipping cluster 138 (CID 2) unknown fill kind 21 at pos 0x1104
+warning: skipping cluster 347 (CID 20) unknown fill kind 21 at pos 0x7fb5
+vm snapshot: 6 clusters, 0 strings, 0 named
+pool: 0 entries (0 resolved)
