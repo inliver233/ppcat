@@ -1,0 +1,330 @@
+== fault_orchestrator_patched @ 0x00bc0f40-0x00bc1394 ==
+entry: fd 79 bf a9 fd 03 0f aa -> e0 03 16 aa c0 03 5f d6
+
+BL targets:
+  0x00bc1018 -> 0x00f82494
+  0x00bc1028 -> 0x0062d2ec
+  0x00bc1058 -> 0x0047369c
+  0x00bc10b4 -> 0x00f82494
+  0x00bc1104 -> 0x00904dc4
+  0x00bc1134 -> 0x0047369c
+  0x00bc118c -> 0x00f83044
+  0x00bc1198 -> 0x004daf2c
+  0x00bc11b4 -> 0x00906424
+  0x00bc11e0 -> 0x004670b0
+  0x00bc1234 -> 0x00472c98
+  0x00bc1254 -> 0x00f82530
+  0x00bc1264 -> 0x00f82530
+  0x00bc126c -> 0x00f83fec
+  0x00bc1274 -> 0x00f8482c
+  0x00bc1278 -> 0x00f8482c
+  0x00bc12a8 -> 0x00f82f38
+  0x00bc12c0 -> 0x00476898
+  0x00bc12ec -> 0x00f82494
+  0x00bc1328 -> 0x00f83044
+  0x00bc133c -> 0x004726cc
+  0x00bc1354 -> 0x00472520
+
+Null gates / null returns:
+  0x00bc0fa8  e0 03 16 aa  MOV X0, X22
+  0x00bc101c  1f 00 16 6b  CMP W0, W22
+  0x00bc1060  e0 03 16 aa  MOV X0, X22
+  0x00bc106c  c0 03 5f d6  RET X30
+  0x00bc113c  e0 03 16 aa  MOV X0, X22
+  0x00bc1148  c0 03 5f d6  RET X30
+  0x00bc11e8  e0 03 16 aa  MOV X0, X22
+  0x00bc11f4  c0 03 5f d6  RET X30
+  0x00bc123c  e0 03 16 aa  MOV X0, X22
+  0x00bc1248  c0 03 5f d6  RET X30
+  0x00bc1394  c0 03 5f d6  RET X30
+
+Pool accesses in range:
+  0x00bc0ff8  0x000028  0x00bc0ff8  70 17 40 f9  LDR X16, [X27,#40]
+  0x00bc1004  0x0035a0  0x00bc1004  70 d3 5a f9  LDR X16, [X27,#13728]
+  0x00bc1014  0x0248d0  0x00bc1014  00 68 44 f9  LDR X0, [X0,#2256]
+  0x00bc1094  0x000028  0x00bc1094  70 17 40 f9  LDR X16, [X27,#40]
+  0x00bc10a0  0x0035a0  0x00bc10a0  70 d3 5a f9  LDR X16, [X27,#13728]
+  0x00bc10b0  0x013d48  0x00bc10b0  00 a4 46 f9  LDR X0, [X0,#3400]
+  0x00bc10fc  0x014280  0x00bc10fc  10 42 41 f9  LDR X16, [X16,#640]
+  0x00bc1184  0x044ef0  0x00bc1184  21 78 47 f9  LDR X1, [X1,#3824]
+  0x00bc11a8  0x044ef8  0x00bc11a8  10 7e 47 f9  LDR X16, [X16,#3832]
+  0x00bc11b0  0x000068  0x00bc11b0  64 37 40 f9  LDR X4, [X27,#104]
+  0x00bc12bc  0x000ed8  0x00bc12bc  61 6f 47 f9  LDR X1, [X27,#3800]
+  0x00bc12dc  0x000028  0x00bc12dc  70 17 40 f9  LDR X16, [X27,#40]
+  0x00bc12e8  0x000088  0x00bc12e8  60 47 40 f9  LDR X0, [X27,#136]
+  0x00bc1324  0x044f00  0x00bc1324  21 80 47 f9  LDR X1, [X1,#3840]
+  0x00bc136c  0x000068  0x00bc136c  64 37 40 f9  LDR X4, [X27,#104]
+
+== fault_dialog_body_builder @ 0x00bbc22c-0x00bbc578 ==
+entry: fd 79 bf a9 fd 03 0f aa -> e0 03 16 aa c0 03 5f d6
+
+BL targets:
+  0x00bbc2e4 -> 0x00f8250c
+  0x00bbc328 -> 0x00905260
+  0x00bbc358 -> 0x0047369c
+  0x00bbc3b8 -> 0x00f83044
+  0x00bbc3c4 -> 0x004daf2c
+  0x00bbc3f0 -> 0x004670b0
+  0x00bbc444 -> 0x00472c98
+  0x00bbc464 -> 0x00f82530
+  0x00bbc46c -> 0x00f83fec
+  0x00bbc474 -> 0x00f8482c
+  0x00bbc4a4 -> 0x00f82f38
+  0x00bbc4bc -> 0x00476898
+  0x00bbc4e8 -> 0x00f82494
+  0x00bbc530 -> 0x00f83044
+  0x00bbc544 -> 0x004726cc
+  0x00bbc568 -> 0x00f82b48
+  0x00bbc578 -> 0x00472520
+
+Null gates / null returns:
+  0x00bbc294  e0 03 16 aa  MOV X0, X22
+  0x00bbc360  e0 03 16 aa  MOV X0, X22
+  0x00bbc36c  c0 03 5f d6  RET X30
+  0x00bbc3a4  1f 00 16 6b  CMP W0, W22
+  0x00bbc3f8  e0 03 16 aa  MOV X0, X22
+  0x00bbc404  c0 03 5f d6  RET X30
+  0x00bbc44c  e0 03 16 aa  MOV X0, X22
+  0x00bbc458  c0 03 5f d6  RET X30
+
+Pool accesses in range:
+  0x00bbc31c  0x013c68  0x00bbc31c  10 36 46 f9  LDR X16, [X16,#3176]
+  0x00bbc3b0  0x044c98  0x00bbc3b0  21 4c 46 f9  LDR X1, [X1,#3224]
+  0x00bbc4b8  0x000ed8  0x00bbc4b8  61 6f 47 f9  LDR X1, [X27,#3800]
+  0x00bbc4d8  0x000028  0x00bbc4d8  70 17 40 f9  LDR X16, [X27,#40]
+  0x00bbc4e4  0x000088  0x00bbc4e4  60 47 40 f9  LDR X0, [X27,#136]
+  0x00bbc52c  0x044ca0  0x00bbc52c  21 50 46 f9  LDR X1, [X1,#3232]
+
+== fault_dialog_sibling_builder @ 0x00bbc5e0-0x00bbc91c ==
+entry: fd 79 bf a9 fd 03 0f aa -> e0 03 16 aa c0 03 5f d6
+
+BL targets:
+  0x00bbc698 -> 0x00f8250c
+  0x00bbc6c0 -> 0x006559e8
+  0x00bbc6e8 -> 0x0047369c
+  0x00bbc754 -> 0x00905260
+  0x00bbc784 -> 0x0047369c
+  0x00bbc7dc -> 0x00f83044
+  0x00bbc7e8 -> 0x004daf2c
+  0x00bbc814 -> 0x004670b0
+  0x00bbc868 -> 0x00472c98
+  0x00bbc888 -> 0x00f82530
+  0x00bbc898 -> 0x00f82530
+  0x00bbc8a0 -> 0x00f83fec
+  0x00bbc8a8 -> 0x00f8482c
+  0x00bbc8d8 -> 0x00f82f38
+  0x00bbc8f0 -> 0x00476898
+  0x00bbc91c -> 0x00f82494
+
+Null gates / null returns:
+  0x00bbc648  e0 03 16 aa  MOV X0, X22
+  0x00bbc6f0  e0 03 16 aa  MOV X0, X22
+  0x00bbc6fc  c0 03 5f d6  RET X30
+  0x00bbc73c  1f 00 16 6b  CMP W0, W22
+  0x00bbc78c  e0 03 16 aa  MOV X0, X22
+  0x00bbc798  c0 03 5f d6  RET X30
+  0x00bbc81c  e0 03 16 aa  MOV X0, X22
+  0x00bbc828  c0 03 5f d6  RET X30
+  0x00bbc870  e0 03 16 aa  MOV X0, X22
+  0x00bbc87c  c0 03 5f d6  RET X30
+
+Pool accesses in range:
+  0x00bbc6bc  0x002bb0  0x00bbc6bc  64 db 55 f9  LDR X4, [X27,#11184]
+  0x00bbc748  0x013c70  0x00bbc748  10 3a 46 f9  LDR X16, [X16,#3184]
+  0x00bbc7d4  0x044ca8  0x00bbc7d4  21 54 46 f9  LDR X1, [X1,#3240]
+  0x00bbc8ec  0x000ed8  0x00bbc8ec  61 6f 47 f9  LDR X1, [X27,#3800]
+  0x00bbc90c  0x000028  0x00bbc90c  70 17 40 f9  LDR X16, [X27,#40]
+  0x00bbc918  0x000088  0x00bbc918  60 47 40 f9  LDR X0, [X27,#136]
+
+== fault_dialog_widget_builder @ 0x008b6100-0x008b646c ==
+entry: fd 79 bf a9 fd 03 0f aa -> e0 03 16 aa c0 03 5f d6
+
+BL targets:
+  0x008b612c -> 0x00f82f38
+  0x008b6144 -> 0x00476898
+  0x008b6170 -> 0x00f82494
+  0x008b61bc -> 0x00f83044
+  0x008b61d0 -> 0x004726cc
+  0x008b61f4 -> 0x00f82b48
+  0x008b6204 -> 0x00472520
+  0x008b6228 -> 0x00f82b48
+  0x008b6264 -> 0x00f83fec
+  0x008b6374 -> 0x0056ba44
+  0x008b637c -> 0x007e8534
+  0x008b63ac -> 0x00f82f38
+  0x008b63dc -> 0x00f82b48
+  0x008b63e4 -> 0x008b6ef4
+  0x008b6414 -> 0x0047369c
+  0x008b646c -> 0x00f82b48
+
+Null gates / null returns:
+  0x008b6260  c0 03 5f d6  RET X30
+  0x008b62e8  e0 03 16 aa  MOV X0, X22
+  0x008b62f0  e0 03 16 aa  MOV X0, X22
+  0x008b641c  e0 03 16 aa  MOV X0, X22
+  0x008b6428  c0 03 5f d6  RET X30
+
+Pool accesses in range:
+  0x008b6140  0x000ed8  0x008b6140  61 6f 47 f9  LDR X1, [X27,#3800]
+  0x008b6160  0x000028  0x008b6160  70 17 40 f9  LDR X16, [X27,#40]
+  0x008b616c  0x000088  0x008b616c  60 47 40 f9  LDR X0, [X27,#136]
+  0x008b61b8  0x021a78  0x008b61b8  21 3c 45 f9  LDR X1, [X1,#2680]
+  0x008b6238  0x000068  0x008b6238  64 37 40 f9  LDR X4, [X27,#104]
+  0x008b6368  0x00b518  0x008b6368  10 8e 42 f9  LDR X16, [X16,#1304]
+  0x008b6370  0x000618  0x008b6370  64 0f 43 f9  LDR X4, [X27,#1560]
+  0x008b63e0  0x002bb0  0x008b63e0  64 db 55 f9  LDR X4, [X27,#11184]
+
+== fault_dialog_residual_candidate @ 0x00bd5a24-0x00bd6314 ==
+entry: fd 79 bf a9 fd 03 0f aa -> e0 03 16 aa c0 03 5f d6
+
+BL targets:
+  0x00bd5adc -> 0x00f82f38
+  0x00bd5b80 -> 0x00f82b48
+  0x00bd5bd4 -> 0x004aad50
+  0x00bd5be8 -> 0x0047acc0
+  0x00bd5c5c -> 0x004823e4
+  0x00bd5ce0 -> 0x00908f30
+  0x00bd5dbc -> 0x00f82b88
+  0x00bd5de0 -> 0x00f82b88
+  0x00bd5e7c -> 0x00f82b48
+  0x00bd5ecc -> 0x004aad50
+  0x00bd5edc -> 0x0047acc0
+  0x00bd5f08 -> 0x00f82b48
+  0x00bd5f54 -> 0x00908f30
+  0x00bd5f7c -> 0x004823e4
+  0x00bd5fc0 -> 0x00f82b48
+  0x00bd6014 -> 0x00908f30
+  0x00bd6058 -> 0x00f82b68
+  0x00bd607c -> 0x005d33d4
+  0x00bd60ac -> 0x0047369c
+  0x00bd60ec -> 0x005d33d4
+  0x00bd6130 -> 0x004670b0
+  0x00bd6184 -> 0x00f82ba8
+  0x00bd61a8 -> 0x00f82ba8
+  0x00bd61e4 -> 0x00f82bc8
+  0x00bd6210 -> 0x00f82ba8
+  0x00bd6234 -> 0x005d33d4
+  0x00bd6264 -> 0x0047369c
+  0x00bd62a8 -> 0x00f82b88
+  0x00bd62cc -> 0x00f82b88
+  0x00bd6300 -> 0x00472c98
+
+Null gates / null returns:
+  0x00bd5a90  e0 03 16 aa  MOV X0, X22
+  0x00bd5b00  1f 00 16 6b  CMP W0, W22
+  0x00bd5b50  1f 00 16 6b  CMP W0, W22
+  0x00bd5e50  1f 00 16 6b  CMP W0, W22
+  0x00bd606c  1f 00 16 6b  CMP W0, W22
+  0x00bd60b4  e0 03 16 aa  MOV X0, X22
+  0x00bd60c0  c0 03 5f d6  RET X30
+  0x00bd6138  e0 03 16 aa  MOV X0, X22
+  0x00bd6144  c0 03 5f d6  RET X30
+  0x00bd6224  1f 00 16 6b  CMP W0, W22
+  0x00bd626c  e0 03 16 aa  MOV X0, X22
+  0x00bd6278  c0 03 5f d6  RET X30
+  0x00bd6308  e0 03 16 aa  MOV X0, X22
+  0x00bd6314  c0 03 5f d6  RET X30
+
+Pool accesses in range:
+  0x00bd5b34  0x010ad8  0x00bd5b34  10 6e 45 f9  LDR X16, [X16,#2776]
+  0x00bd5b9c  0x010ad8  0x00bd5b9c  10 6e 45 f9  LDR X16, [X16,#2776]
+  0x00bd5bc8  0x003568  0x00bd5bc8  68 b7 5a f9  LDR X8, [X27,#13672]
+  0x00bd5bd0  0x0316f0  0x00bd5bd0  63 78 43 f9  LDR X3, [X3,#1776]
+  0x00bd5be4  0x000100  0x00bd5be4  64 83 40 f9  LDR X4, [X27,#256]
+  0x00bd5c00  0x001038  0x00bd5c00  70 1f 48 f9  LDR X16, [X27,#4152]
+  0x00bd5c08  0x000100  0x00bd5c08  64 83 40 f9  LDR X4, [X27,#256]
+  0x00bd5c58  0x000068  0x00bd5c58  64 37 40 f9  LDR X4, [X27,#104]
+  0x00bd5c98  0x000100  0x00bd5c98  64 83 40 f9  LDR X4, [X27,#256]
+  0x00bd5cdc  0x012938  0x00bd5cdc  84 9c 44 f9  LDR X4, [X4,#2360]
+  0x00bd5e34  0x013740  0x00bd5e34  10 a2 43 f9  LDR X16, [X16,#1856]
+  0x00bd5e98  0x013740  0x00bd5e98  10 a2 43 f9  LDR X16, [X16,#1856]
+  0x00bd5ec0  0x003568  0x00bd5ec0  68 b7 5a f9  LDR X8, [X27,#13672]
+  0x00bd5ec8  0x031700  0x00bd5ec8  63 80 43 f9  LDR X3, [X3,#1792]
+  0x00bd5ed8  0x000100  0x00bd5ed8  64 83 40 f9  LDR X4, [X27,#256]
+  0x00bd5f10  0x001038  0x00bd5f10  70 1f 48 f9  LDR X16, [X27,#4152]
+  0x00bd5f18  0x000100  0x00bd5f18  64 83 40 f9  LDR X4, [X27,#256]
+  0x00bd5f50  0x012938  0x00bd5f50  84 9c 44 f9  LDR X4, [X4,#2360]
+  0x00bd5f78  0x000068  0x00bd5f78  64 37 40 f9  LDR X4, [X27,#104]
+  0x00bd5fd8  0x000100  0x00bd5fd8  64 83 40 f9  LDR X4, [X27,#256]
+  0x00bd6010  0x012938  0x00bd6010  84 9c 44 f9  LDR X4, [X4,#2360]
+  0x00bd6078  0x000100  0x00bd6078  64 83 40 f9  LDR X4, [X27,#256]
+  0x00bd60e8  0x000100  0x00bd60e8  64 83 40 f9  LDR X4, [X27,#256]
+  0x00bd6230  0x000100  0x00bd6230  64 83 40 f9  LDR X4, [X27,#256]
+
+== reward_dialog_candidate @ 0x007e1464-0x007e1d64 ==
+entry: fd 79 bf a9 fd 03 0f aa -> e0 03 16 aa c0 03 5f d6
+
+BL targets:
+  0x007e151c -> 0x00f82f38
+  0x007e15c8 -> 0x00f82b48
+  0x007e161c -> 0x004aad50
+  0x007e1630 -> 0x0047acc0
+  0x007e16a4 -> 0x004823e4
+  0x007e1728 -> 0x00908f30
+  0x007e1804 -> 0x00f82b88
+  0x007e1828 -> 0x00f82b88
+  0x007e18cc -> 0x00f82b48
+  0x007e191c -> 0x004aad50
+  0x007e192c -> 0x0047acc0
+  0x007e1958 -> 0x00f82b48
+  0x007e19a4 -> 0x00908f30
+  0x007e19cc -> 0x004823e4
+  0x007e1a10 -> 0x00f82b48
+  0x007e1a64 -> 0x00908f30
+  0x007e1aa8 -> 0x00f82b68
+  0x007e1acc -> 0x005d33d4
+  0x007e1afc -> 0x0047369c
+  0x007e1b3c -> 0x005d33d4
+  0x007e1b80 -> 0x004670b0
+  0x007e1bd4 -> 0x00f82ba8
+  0x007e1bf8 -> 0x00f82ba8
+  0x007e1c34 -> 0x00f82bc8
+  0x007e1c60 -> 0x00f82ba8
+  0x007e1c84 -> 0x005d33d4
+  0x007e1cb4 -> 0x0047369c
+  0x007e1cf8 -> 0x00f82b88
+  0x007e1d1c -> 0x00f82b88
+  0x007e1d50 -> 0x00472c98
+
+Null gates / null returns:
+  0x007e14d0  e0 03 16 aa  MOV X0, X22
+  0x007e1540  1f 00 16 6b  CMP W0, W22
+  0x007e1598  1f 00 16 6b  CMP W0, W22
+  0x007e18a0  1f 00 16 6b  CMP W0, W22
+  0x007e1abc  1f 00 16 6b  CMP W0, W22
+  0x007e1b04  e0 03 16 aa  MOV X0, X22
+  0x007e1b10  c0 03 5f d6  RET X30
+  0x007e1b88  e0 03 16 aa  MOV X0, X22
+  0x007e1b94  c0 03 5f d6  RET X30
+  0x007e1c74  1f 00 16 6b  CMP W0, W22
+  0x007e1cbc  e0 03 16 aa  MOV X0, X22
+  0x007e1cc8  c0 03 5f d6  RET X30
+  0x007e1d58  e0 03 16 aa  MOV X0, X22
+  0x007e1d64  c0 03 5f d6  RET X30
+
+Pool accesses in range:
+  0x007e157c  0x010ad8  0x007e157c  10 6e 45 f9  LDR X16, [X16,#2776]
+  0x007e15e4  0x010ad8  0x007e15e4  10 6e 45 f9  LDR X16, [X16,#2776]
+  0x007e1610  0x003568  0x007e1610  68 b7 5a f9  LDR X8, [X27,#13672]
+  0x007e1618  0x013730  0x007e1618  63 98 43 f9  LDR X3, [X3,#1840]
+  0x007e162c  0x000100  0x007e162c  64 83 40 f9  LDR X4, [X27,#256]
+  0x007e1648  0x001038  0x007e1648  70 1f 48 f9  LDR X16, [X27,#4152]
+  0x007e1650  0x000100  0x007e1650  64 83 40 f9  LDR X4, [X27,#256]
+  0x007e16a0  0x000068  0x007e16a0  64 37 40 f9  LDR X4, [X27,#104]
+  0x007e16e0  0x000100  0x007e16e0  64 83 40 f9  LDR X4, [X27,#256]
+  0x007e1724  0x012938  0x007e1724  84 9c 44 f9  LDR X4, [X4,#2360]
+  0x007e1884  0x013740  0x007e1884  10 a2 43 f9  LDR X16, [X16,#1856]
+  0x007e18e8  0x013740  0x007e18e8  10 a2 43 f9  LDR X16, [X16,#1856]
+  0x007e1910  0x003568  0x007e1910  68 b7 5a f9  LDR X8, [X27,#13672]
+  0x007e1918  0x013748  0x007e1918  63 a4 43 f9  LDR X3, [X3,#1864]
+  0x007e1928  0x000100  0x007e1928  64 83 40 f9  LDR X4, [X27,#256]
+  0x007e1960  0x001038  0x007e1960  70 1f 48 f9  LDR X16, [X27,#4152]
+  0x007e1968  0x000100  0x007e1968  64 83 40 f9  LDR X4, [X27,#256]
+  0x007e19a0  0x012938  0x007e19a0  84 9c 44 f9  LDR X4, [X4,#2360]
+  0x007e19c8  0x000068  0x007e19c8  64 37 40 f9  LDR X4, [X27,#104]
+  0x007e1a28  0x000100  0x007e1a28  64 83 40 f9  LDR X4, [X27,#256]
+  0x007e1a60  0x012938  0x007e1a60  84 9c 44 f9  LDR X4, [X4,#2360]
+  0x007e1ac8  0x000100  0x007e1ac8  64 83 40 f9  LDR X4, [X27,#256]
+  0x007e1b38  0x000100  0x007e1b38  64 83 40 f9  LDR X4, [X27,#256]
+  0x007e1c80  0x000100  0x007e1c80  64 83 40 f9  LDR X4, [X27,#256]
+
