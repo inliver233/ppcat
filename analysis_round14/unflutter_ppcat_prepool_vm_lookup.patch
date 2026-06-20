@@ -1,0 +1,26 @@
+diff --git a/internal/pipeline/helpers.go b/internal/pipeline/helpers.go
+index b786a2a..119c55a 100644
+--- a/internal/pipeline/helpers.go
++++ b/internal/pipeline/helpers.go
+@@ -130,6 +130,9 @@ func (l *PoolLookups) ResolveName(no *cluster.NamedObject) string {
+ 		if s, ok := l.RefToStr[no.NameRefID]; ok {
+ 			return s
+ 		}
++		if s, ok := l.VmRefToStr[no.NameRefID]; ok {
++			return s
++		}
+ 	}
+ 	return ""
+ }
+@@ -150,6 +153,11 @@ func (l *PoolLookups) ResolveOwnerName(no *cluster.NamedObject) string {
+ 	if owner, ok := l.RefToNamed[no.OwnerRefID]; ok {
+ 		return l.ResolveName(owner)
+ 	}
++	if owner, ok := l.VmRefToNamed[no.OwnerRefID]; ok {
++		if name := l.ResolveVMName(owner); name != "" {
++			return name
++		}
++	}
+ 	return ""
+ }
+ 

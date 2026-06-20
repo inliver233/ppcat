@@ -261,3 +261,100 @@ target=0xb9fc84 fn=None ins=None
 - `VIP` 线没有被新工具推翻，反而再次支持：
   - `0xa54178` 不是单点 VIP 函数
   - `0xb9fc84 / 0x911788 / 0x8cf36c` 才是应继续投入的三层
+
+## 7. 第十四轮工具实验：联网筛选 + 本地实测结果
+
+### 7.1 `Doldrums` 已实测，不适合当前样本
+
+联网筛选后，我实际拉取并本地测试了：
+
+- `https://github.com/rscloura/Doldrums`
+
+直接运行：
+
+```bash
+python3 /tmp/Doldrums/src/main.py libapp.so /tmp/doldrums_ppcat.txt
+```
+
+结果是明确失败：
+
+```text
+Exception: Unsupported Dart SDK, snapshot hash:
+```
+
+这不是环境问题，而是它依赖 `snapshot hash` 做版本识别；而 `ppcat` 当前样本的 `snapshot_hash` 已被清空。再结合其 README 只宣称支持 Dart 2.10，可得出务实结论：
+
+- `Doldrums` 对这个定制 Dart 2.19 样本不适合作为主线工具
+- 这类“依赖官方 hash 识别版本”的工具，面对 `ppcat` 这种 hash 被抹掉的样本时会直接失效
+- 后续不应再在 `test1` 重复投入这条路
+
+### 7.2 `unflutter ppcat-prepool` 做了本地增强，确有净提升
+
+本轮没有只停留在“跑通 `ppcat-prepool`”，而是直接在本地 `unflutter` 实验性补了两点：
+
+1. `PoolLookups.ResolveName()` 对 `NameRefID` 增加 `VM snapshot` 字符串回退
+2. `ppcat-prepool` 命令补接 `vmResult` lookups，再重导 `named.json / codes.json`
+
+对应改动文件：
+
+- `unflutter/internal/pipeline/helpers.go`
+- `unflutter/cmd/unflutter/cmd_ppcat_prepool.go`
+
+并已用：
+
+```bash
+cd unflutter && go test ./...
+cd unflutter && go run ./cmd/unflutter ppcat-prepool ../lib/arm64-v8a/libapp.so --out /tmp/ppcat-prepool-vm2
+```
+
+验证通过。
+
+### 7.3 量化结果：对 `NamedObject` 层有提升，但还没打通到 `Code -> full_name`
+
+增强前后对比：
+
+| 产物 | 指标 | 旧 | 新 |
+|---|---:|---:|---:|
+| `named.json` | `name_nonempty` | 4763 | 6576 |
+| `named.json` | `owner_name_nonempty` | 455 | 560 |
+| `codes.json` | `name_nonempty` | 0 | 0 |
+| `codes.json` | `owner_name_nonempty` | 0 | 1 |
+| `codes.json` | `full_name_nonempty` | 0 | 0 |
+
+含义很直接：
+
+- 这轮增强对 `NamedObject` 层确实有**实质净提升**
+- 说明 `ppcat` 里相当一部分 `name_ref_id` 原本就需要回退到 `VM/base refs`
+- 但它还**没有**把最关键的 `Code -> owner -> full_name` 真正打通
+
+### 7.4 当前已经新增能恢复出的命名对象样本
+
+本轮增强后，`named.json` 中新增能看到一些此前没有的 owner/name 关系，例如：
+
+- `owner_name = "opaque"`
+- `owner_name = "floatingActionButton"`
+- `owner_name = "Uint8List"`
+- `name = "皮皮喵"`
+
+这证明增强路线是有效的，但同时也暴露出当前边界：
+
+- `remoteConfigSign`
+- `rewardTime`
+- `showSplashAd`
+- `onReward`
+- `expiresDate`
+
+这些与业务恢复最相关的名字，**仍没有**通过这条链直接恢复进 `named.json`
+
+### 7.5 对后续的实际意义
+
+这轮工具实验的价值，不是“已经恢复出 VIP/reward 业务函数名”，而是把边界压得更清楚了：
+
+1. `Doldrums` 这条路可以排除，不必再重复踩坑
+2. `PyGhidra` 仍是最值得继续投入的外部工具层
+3. `unflutter ppcat-prepool` 不是死路，它对 `NamedObject` 层仍有提升空间
+4. 但真正要恢复 `VIP / reward / noAd / remoteConfigSign` 这类业务层函数名，下一步需要继续处理：
+   - `owner_ref_id` 大量落在 `res.Named` 之外的问题
+   - `Code.owner_ref` 与 `NamedObject` 之间的跨快照/跨对象桥接
+
+因此，这轮更适合把 `ppcat-prepool` 视为一个**仍在进化中的 test1 本地增强工具层**，而不是已完成的函数名恢复器。
