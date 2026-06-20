@@ -1,0 +1,31 @@
+2026-06-20 TargetedDecompile.java summary
+
+create 0x920d7c..0x921320 -> 00920d7c
+create 0xae71bc..0xae7dfc -> 00ae71bc
+create 0xb68234..0xb68304 -> 00b68234
+create 0x913bf8..0x914ff8 -> 00913bf8
+create 0xbc0f40..0xbc1278 -> 00bc0f40
+create 0xbd5a24..0xbd6350 -> 00bd5a24
+
+decompile target 0x920d7c fn=00920d7c
+completed=true
+
+decompile target 0xae71bc fn=00ae71bc
+completed=true
+
+decompile target 0xb68234 fn=00b68234
+completed=true
+
+decompile target 0x913bf8 fn=00913bf8
+completed=true
+WARNING: Possible PIC construction at 0x00913d04
+WARNING: Removing unreachable block (ram,0x00913d08)
+WARNING: Removing unreachable block (ram,0x00913d28)
+WARNING: Removing unreachable block (ram,0x00913d60)
+WARNING: Removing unreachable block (ram,0x00913d6c)
+
+decompile target 0xbc0f40 fn=00bc0f40
+completed=true
+
+decompile target 0xbd5a24 fn=00bd5a24
+completed=true
