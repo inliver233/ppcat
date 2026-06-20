@@ -1,0 +1,129 @@
+== reward / anti-cheat / noAd 关键 ref ==
+ref= 5996 slot=0x1e39 off=0xf1c8 pcs=['0x839f3c'] funcs=['0x839e80'] text=noAdAllowSourceList
+ref= 6278 slot=0x275a off=0x13ad0 pcs=['0x890d04', '0x920a94'] funcs=['0x890c6c', '0x920a60'] text=noAdRegex
+ref= 6808 slot=0x3891 off=0x1c488 pcs=['0x88ad64'] funcs=['0x88aacc'] text=onReward
+ref= 7606 slot=0x27a2 off=0x13d10 pcs=['0x914274', '0xa7fddc'] funcs=['0x913bf8', '0xa7fcd4'] text=rewardTime
+ref= 8067 slot=0x2a57 off=0x152b8 pcs=['0x59d964'] funcs=[] text=getRewardTime
+ref=11366 slot=0x1cf7 off=0xe7b8 pcs=['0x8a10d0'] funcs=['0x8a0fd4'] text=可以捐赠
+ref=11545 slot=0x320f off=0x19078 pcs=['0x875ee8', '0x89219c', '0xaa62f4', '0xaacee8'] funcs=['0x8758bc', '0x8920d0', '0xaa5848', '0xaace80'] text=onReward Cheat Triggered!
+ref=12372 slot=0x321b off=0x190d8 pcs=['0x891a74'] funcs=['0x891930'] text=展示RewardVideo广告失败
+ref=14719 slot=0x8a1 off=0x4508 pcs=['0x878fa4'] funcs=['0x878da8'] text=rewardVideo
+ref=16427 slot=0xa38 off=0x51c0 pcs=['0x88043c'] funcs=['0x8802a4'] text=rewardItem
+ref=21707 slot=0x59bb off=0x2cdd8 pcs=['0x846b60', '0xa55c80', '0xae72b0', '0xae72f8', '0xae7524'] funcs=['0x846b1c', '0xa54178', '0xae71bc'] text=每日喂喵
+ref=22466 slot=0x9912 off=0x4c890 pcs=['0xb682d4'] funcs=['0xb68234'] text=无法加载数据，请稍后再试！\\n如果开启了屏蔽广告的相关软件或插件，请关闭然后重试！\\n每天喂一次喵，喵喵就不来找你了~
+ref=28346 slot=0xa816 off=0x540b0 pcs=['0xaa5c2c'] funcs=['0xaa5848'] text=JsTest
+ref=32387 slot=0x325e off=0x192f0 pcs=['0x882254', '0x883748', '0x884158'] funcs=['0x882128', '0x88361c', '0x88402c'] text=earned reward: 
+
+== 高价值函数直接 BL 调用者 ==
+0x59d964: callers=0 []
+0x8758bc: callers=1 ['0x875794']
+0x88aacc: callers=0 []
+0x891930: callers=0 []
+0x8920d0: callers=0 []
+0x8cf36c: callers=17 ['0x59d998', '0x7e813c', '0x7e8618', '0x838970', '0x86f154', '0x89b004', '0x8a0448', '0x8a05ec', '0x8a4368', '0x8d6c68', '0xa541c8', '0xb1748c', '0xb43884', '0xb9fe74', '0xbca364', '0xc4c6c4', '0xf85d00']
+0x839e80: callers=1 ['0x8391d4']
+0x890c6c: callers=1 ['0x87598c']
+0x920a60: callers=0 []
+0xaa5848: callers=0 []
+
+== 关键片段 ==
+-- cheat-hit in 0x8758bc 0x875eb8..0x875f24 --
+0x00875eb8  3d351094 bl     #0xc833ac
+0x00875ebc  ef410091 add    x15, x15, #0x10
+0x00875ec0  20012037 tbnz   w0, #4, #0x875ee4
+0x00875ec4  b0035ef8 ldur   x16, [x29, #-0x20]
+0x00875ec8  be035ff8 ldur   x30, [x29, #-0x10]
+0x00875ecc  fe41bfa9 stp    x30, x16, [x15, #-0x10]!
+0x00875ed0  b0835df8 ldur   x16, [x29, #-0x28]
+0x00875ed4  f08d1ff8 str    x16, [x15, #-8]!
+0x00875ed8  37140094 bl     #0x87afb4
+0x00875edc  ef610091 add    x15, x15, #0x18
+0x00875ee0  1a000014 b      #0x875f48
+0x00875ee4  70674091 add    x16, x27, #0x19, lsl #12
+0x00875ee8  103e40f9 ldr    x16, [x16, #0x78]
+0x00875eec  be035df8 ldur   x30, [x29, #-0x30]
+0x00875ef0  fe41bfa9 stp    x30, x16, [x15, #-0x10]!
+0x00875ef4  2e351094 bl     #0xc833ac
+0x00875ef8  ef410091 add    x15, x15, #0x10
+0x00875efc  40012037 tbnz   w0, #4, #0x875f24
+0x00875f00  b0835cf8 ldur   x16, [x29, #-0x38]
+0x00875f04  be035ef8 ldur   x30, [x29, #-0x20]
+0x00875f08  fe41bfa9 stp    x30, x16, [x15, #-0x10]!
+0x00875f0c  b0035ff8 ldur   x16, [x29, #-0x10]
+0x00875f10  be835df8 ldur   x30, [x29, #-0x28]
+0x00875f14  fe41bfa9 stp    x30, x16, [x15, #-0x10]!
+0x00875f18  18000094 bl     #0x875f78
+0x00875f1c  ef810091 add    x15, x15, #0x20
+0x00875f20  0a000014 b      #0x875f48
+-- cheat-hit in 0x8920d0 0x892170..0x8921d8 --
+0x00892170  117003b8 stur   w17, [x0, #0x37]
+0x00892174  71674091 add    x17, x27, #0x19, lsl #12
+0x00892178  319246f9 ldr    x17, [x17, #0xd20]
+0x0089217c  11b003b8 stur   w17, [x0, #0x3b]
+0x00892180  71674091 add    x17, x27, #0x19, lsl #12
+0x00892184  313640f9 ldr    x17, [x17, #0x68]
+0x00892188  11f003b8 stur   w17, [x0, #0x3f]
+0x0089218c  71674091 add    x17, x27, #0x19, lsl #12
+0x00892190  313a40f9 ldr    x17, [x17, #0x70]
+0x00892194  113004b8 stur   w17, [x0, #0x43]
+0x00892198  71674091 add    x17, x27, #0x19, lsl #12
+0x0089219c  313e40f9 ldr    x17, [x17, #0x78]
+0x008921a0  117004b8 stur   w17, [x0, #0x47]
+0x008921a4  e059bfa9 stp    x0, x22, [x15, #-0x10]!
+0x008921a8  fd55ef97 bl     #0x46799c
+0x008921ac  ef410091 add    x15, x15, #0x10
+0x008921b0  d10380d2 mov    x17, #0x1e
+0x008921b4  11b000b8 stur   w17, [x0, #0xb]
+0x008921b8  ef031daa mov    x15, x29
+0x008921bc  fd79c1a8 ldp    x29, x30, [x15], #0x10
+0x008921c0  c0035fd6 ret    
+0x008921c4  8ac71b94 bl     #0xf83fec
+0x008921c8  c7ffff17 b      #0x8920e4
+0x008921cc  fd79bfa9 stp    x29, x30, [x15, #-0x10]!
+0x008921d0  fd030faa mov    x29, x15
+0x008921d4  501f40f9 ldr    x16, [x26, #0x38]
+-- reward privilege call in 0xb9fc84 0xb9fe5c..0xb9fe84 --
+0x00b9fe5c  7a8c0f94 bl     #0xf83044
+0x00b9fe60  b0835ef8 ldur   x16, [x29, #-0x18]
+0x00b9fe64  e041bfa9 stp    x0, x16, [x15, #-0x10]!
+0x00b9fe68  5add0d94 bl     #0xf173d0
+0x00b9fe6c  ef410091 add    x15, x15, #0x10
+0x00b9fe70  64db55f9 ldr    x4, [x27, #0x2bb0]
+0x00b9fe74  3ebdf497 bl     #0x8cf36c
+0x00b9fe78  a0831ef8 stur   x0, [x29, #-0x18]
+0x00b9fe7c  d110f197 bl     #0x7e41c0
+0x00b9fe80  e10316aa mov    x1, x22
+-- reward privilege call in 0xa54178 0xa541bc..0xa541d4 --
+0x00a541bc  ef210091 add    x15, x15, #8
+0x00a541c0  a0031ff8 stur   x0, [x29, #-0x10]
+0x00a541c4  64db55f9 ldr    x4, [x27, #0x2bb0]
+0x00a541c8  69ecf997 bl     #0x8cf36c
+0x00a541cc  a0831ef8 stur   x0, [x29, #-0x18]
+0x00a541d0  404340f9 ldr    x0, [x26, #0x80]
+-- hidden test panel strings 0xaa62b0..0xaa6318 --
+0x00aa62b0  31f005b8 stur   w17, [x1, #0x5f]
+0x00aa62b4  e00301aa mov    x0, x1
+0x00aa62b8  b10307d1 sub    x17, x29, #0x1c0
+0x00aa62bc  210240f9 ldr    x1, [x17]
+0x00aa62c0  399c0091 add    x25, x1, #0x27
+0x00aa62c4  200300b9 str    w0, [x25]
+0x00aa62c8  e0000036 tbz    w0, #0, #0xaa62e4
+0x00aa62cc  30f05f38 ldurb  w16, [x1, #-1]
+0x00aa62d0  11f05f38 ldurb  w17, [x0, #-1]
+0x00aa62d4  300a508a and    x16, x17, x16, lsr #2
+0x00aa62d8  1f825cea tst    x16, x28, lsr #32
+0x00aa62dc  40000054 b.eq   #0xaa62e4
+0x00aa62e0  a7701394 bl     #0xf8257c
+0x00aa62e4  47bfe997 bl     #0x516000
+0x00aa62e8  b12307d1 sub    x17, x29, #0x1c8
+0x00aa62ec  200200f9 str    x0, [x17]
+0x00aa62f0  71674091 add    x17, x27, #0x19, lsl #12
+0x00aa62f4  313e40f9 ldr    x17, [x17, #0x78]
+0x00aa62f8  11b000b8 stur   w17, [x0, #0xb]
+0x00aa62fc  61534191 add    x1, x27, #0x54, lsl #12
+0x00aa6300  218c40f9 ldr    x1, [x1, #0x118]
+0x00aa6304  e20316aa mov    x2, x22
+0x00aa6308  4f731394 bl     #0xf83044
+0x00aa630c  b14307d1 sub    x17, x29, #0x1d0
+0x00aa6310  200200f9 str    x0, [x17]
+0x00aa6314  b69bf597 bl     #0x80d1ec
