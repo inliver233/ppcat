@@ -1,0 +1,339 @@
+# libapp = lib/arm64-v8a/libapp.so
+# focus: ad gate / noAd settings / VIP content-page connection
+# note: this probe does not collapse VIP into a single bool; it only anchors the shared ad-control path
+
+== key refs ==
+ref=19035 slot=0x2028 off=0x10140 pcs=['0x7e8660'] funcs=['0x7e8534'] text=isNoAdLock
+ref= 2855 slot=0x32e2 off=0x19710 pcs=['0x8864f8', '0x890d58', '0x890d88', '0xaa242c'] funcs=['0x8863e8', '0x890c6c', '0xaa23f8'] text=showSplashAd
+ref=18367 slot=0x1e3f off=0xf1f8 pcs=['0x83a11c'] funcs=['0x83a060'] text=noAdDisableSourceList
+ref= 5996 slot=0x1e39 off=0xf1c8 pcs=['0x839f3c'] funcs=['0x839e80'] text=noAdAllowSourceList
+ref=11283 slot=0x1e45 off=0xf228 pcs=['0x838d10'] funcs=['0x838c74'] text=noAdSourceNumLimit
+ref= 6278 slot=0x275a off=0x13ad0 pcs=['0x890d04', '0x920a94'] funcs=['0x890c6c', '0x920a60'] text=noAdRegex
+ref= 7559 slot=0x85f off=0x42f8 pcs=['0x7e3eec', '0x7e5c80', '0x7e8190', '0x7e8688', '0x89c050', '0x89c14c', '0x8a115c', '0x8cfa70', '0x8cfbd8', '0x8e5d40', '0x92117c', '0xa541f0'] funcs=['0x7e2adc', '0x7e56b4', '0x7e8054', '0x7e8534', '0x89b5d0', '0x8a0fd4', '0x8cf36c', '0x8e589c', '0x920d7c', '0xa54178'] text=adNum:
+ref=11244 slot=0x451 off=0x2288 pcs=['0x4a0ac8'] funcs=['0x4a0a00'] text=readCount
+ref=21707 slot=0x59bb off=0x2cdd8 pcs=['0x846b60', '0xa55c80', '0xae72b0', '0xae72f8', '0xae7524'] funcs=['0x846b1c', '0xa54178', '0xae71bc'] text=每日喂喵
+ref=28525 slot=0x59bc off=0x2cde0 pcs=['0xa55cbc', '0xae36fc'] funcs=['0xa54178', '0xae30e0'] text=喵喵饿了
+ref= 8910 slot=0x59a5 off=0x2cd28 pcs=['0xa54d3c', '0xba007c'] funcs=['0xa54178', '0xb9fc84'] text=通过捐赠绑定设备获取
+ref=13169 slot=0x59ab off=0x2cd58 pcs=['0xa55130', '0xba0070'] funcs=['0xa54178', '0xb9fc84'] text=功能，通过捐赠绑定账号获取
+ref= 7406 slot=0x2605 off=0x13028 pcs=['0x8ba8e0'] funcs=['0x8ba3d0'] text=expiresDate
+ref=26968 slot=0x6b5 off=0x35a8 pcs=['0x5926c4', '0x66a808', '0x66a9e0', '0x8591ec', '0x85a6f0', '0x85eb68', '0x860c24', '0x860cf0', '0x8665b8', '0x8673cc', '0x86c688', '0x86eed0'] funcs=['0x592034', '0x66a704', '0x858d3c', '0x85a6bc', '0x85eac4', '0x860b04', '0x8663bc', '0x8671d0', '0x86c504', '0x8bc3c8'] text=remoteConfigSign
+
+== selected function string hits ==
+-- 广告总闸 0x7e8534 @ 0x7e8534 --
+  0x7e8644 off=0x10138 ref=16625 text=才能使用！
+  0x7e8660 off=0x10140 ref=19035 text=isNoAdLock
+  0x7e8688 off=0x42f8 ref=7559 text=adNum:
+  0x7e86c0 off=0x10148 ref=14162 text=Abd
+-- 广告门控 caller 0x7e8054 @ 0x7e8054 --
+  0x7e8190 off=0x42f8 ref=7559 text=adNum:
+  0x7e81e0 off=0x3ccd8 ref=8092 text=ePb
+  0x7e81ec off=0xe690 ref=23406 text=，而且广告无法正常显示，此功能
+  0x7e8310 off=0x100 ref=1579 text=Invalid internet address 
+-- noAdAllowSourceList helper 0x839e80 @ 0x839e80 --
+  0x839f3c off=0xf1c8 ref=5996 text=noAdAllowSourceList
+-- noAdDisableSourceList helper 0x83a060 @ 0x83a060 --
+  0x83a11c off=0xf1f8 ref=18367 text=noAdDisableSourceList
+-- noAdSourceNumLimit helper 0x838c74 @ 0x838c74 --
+  0x838d10 off=0xf228 ref=11283 text=noAdSourceNumLimit
+-- noAdRegex + showSplashAd helper 0x890c6c @ 0x890c6c --
+  0x890c98 off=0x100 ref=1579 text=Invalid internet address 
+  0x890cc8 off=0x100 ref=1579 text=Invalid internet address 
+  0x890d04 off=0x13ad0 ref=6278 text=noAdRegex
+  0x890d0c off=0x100 ref=1579 text=Invalid internet address 
+  0x890d58 off=0x19710 ref=2855 text=showSplashAd
+  0x890d88 off=0x19710 ref=2855 text=showSplashAd
+-- noAdRegex companion 0x920a60 @ 0x920a60 --
+  0x920a94 off=0x13ad0 ref=6278 text=noAdRegex
+  0x920a9c off=0x100 ref=1579 text=Invalid internet address 
+-- showSplashAd object builder 0x8863e8 @ 0x8863e8 --
+  0x8864f8 off=0x19710 ref=2855 text=showSplashAd
+-- 奖励特权状态对象 0x8cf36c @ 0x8cf36c --
+  0x8cf38c off=0x4218 ref=20877 text=adNum
+  0x8cf4c8 off=0x4230 ref=26144 text=lastTime
+  0x8cf534 off=0x4248 ref=21490 text=today
+  0x8cf590 off=0x4260 ref=3599 text=totalNum
+  0x8cf5e8 off=0x4278 ref=25994 text=totalTime
+  0x8cf7bc off=0x42d8 ref=22322 text=leaveTime:
+-- VIP 内容页 builder 0xa54178 @ 0xa54178 --
+  0xa541f0 off=0x42f8 ref=7559 text=adNum:
+  0xa54228 off=0xe80 ref=10127 text=QMb
+  0xa54230 off=0xe80 ref=10127 text=QMb
+  0xa54238 off=0x2ce8 ref=25911 text=webBgColor
+  0xa54240 off=0xe80 ref=10127 text=QMb
+  0xa5424c off=0xad90 ref=30947 text=非法篡改
+  0xa54278 off=0x2bc0 ref=29683 text=19
+  0xa542b0 off=0x2ce8 ref=25911 text=webBgColor
+  0xa542c4 off=0x2ce8 ref=25911 text=webBgColor
+  0xa542dc off=0x2cd0 ref=5257 text=fontSize
+  0xa54428 off=0x2ce8 ref=25911 text=webBgColor
+  0xa5443c off=0x2ce8 ref=25911 text=webBgColor
+  0xa54454 off=0x2cd0 ref=5257 text=fontSize
+  0xa545a8 off=0xd9d8 ref=5597 text=gXc
+  0xa545b4 off=0xd630 ref=2617 text=忽略
+  0xa545c0 off=0xda00 ref=20794 text=iXc
+  0xa545cc off=0xda08 ref=23361 text=forceVersion
+  0xa545d8 off=0xad88 ref=26842 text=无法更改设置，应用已被非法篡改！请重新下载正版！
+  0xa54620 off=0xad90 ref=30947 text=非法篡改
+  0xa5469c off=0xe80 ref=10127 text=QMb
+  0xa546a4 off=0xe80 ref=10127 text=QMb
+  0xa546ac off=0xe80 ref=10127 text=QMb
+  0xa546c4 off=0x2ce8 ref=25911 text=webBgColor
+  0xa546d8 off=0x2ce8 ref=25911 text=webBgColor
+  0xa546e0 off=0xe80 ref=10127 text=QMb
+  0xa546f4 off=0x20e50 ref=9619 text=站点类型
+  0xa54700 off=0x20e50 ref=9619 text=站点类型
+  0xa54760 off=0x2cd0 ref=5257 text=fontSize
+  0xa5478c off=0x2c48 ref=28072 text=fVb
+  0xa54798 off=0x20e50 ref=9619 text=站点类型
+  0xa547a0 off=0x20e50 ref=9619 text=站点类型
+  0xa547b4 off=0x2ccd8 ref=10754 text=http://q.qlogo.cn/headimg_dl?bs=qq&dst_uin=
+  0xa547dc off=0x2cce0 ref=12640 text=&fid=blog&spec=100
+  0xa54874 off=0x2c48 ref=28072 text=fVb
+  0xa54930 off=0x2ccf8 ref=4505 text=点击头像绑定账号
+  0xa54970 off=0x20e50 ref=9619 text=站点类型
+  0xa5497c off=0x20e50 ref=9619 text=站点类型
+  0xa54994 off=0x2cd00 ref=24111 text=解绑
+  0xa54a28 off=0xad90 ref=30947 text=非法篡改
+  0xa54be0 off=0xd9d8 ref=5597 text=gXc
+  0xa54bec off=0xd630 ref=2617 text=忽略
+  0xa54bf8 off=0xda00 ref=20794 text=iXc
+  0xa54c04 off=0xda08 ref=23361 text=forceVersion
+  0xa54c10 off=0xad88 ref=26842 text=无法更改设置，应用已被非法篡改！请重新下载正版！
+  0xa54cb8 off=0xad90 ref=30947 text=非法篡改
+  0xa54d3c off=0x2cd28 ref=8910 text=通过捐赠绑定设备获取
+  0xa54d68 off=0xad90 ref=30947 text=非法篡改
+  0xa54d9c off=0xd9d8 ref=5597 text=gXc
+  0xa54db4 off=0xda00 ref=20794 text=iXc
+  0xa54dc0 off=0xda08 ref=23361 text=forceVersion
+  0xa54dcc off=0xad88 ref=26842 text=无法更改设置，应用已被非法篡改！请重新下载正版！
+  0xa54e28 off=0x26168 ref=1014 text=‘
+  0xa54e54 off=0x2cd38 ref=9292 text=已获取
+  0xa54e80 off=0x2cd40 ref=29757 text=未获得
+  0xa54f24 off=0x2cd50 ref=30162 text=、更多来源和各种
+  0xa55130 off=0x2cd58 ref=13169 text=功能，通过捐赠绑定账号获取
+  0xa5515c off=0xad90 ref=30947 text=非法篡改
+  0xa55190 off=0xd9d8 ref=5597 text=gXc
+  0xa551a8 off=0xda00 ref=20794 text=iXc
+  0xa551b4 off=0xda08 ref=23361 text=forceVersion
+  0xa551c0 off=0xad88 ref=26842 text=无法更改设置，应用已被非法篡改！请重新下载正版！
+  0xa55314 off=0x2cd50 ref=30162 text=、更多来源和各种
+  0xa55424 off=0xd9d8 ref=5597 text=gXc
+  0xa55430 off=0xd630 ref=2617 text=忽略
+  0xa5543c off=0xda00 ref=20794 text=iXc
+  0xa55448 off=0xda08 ref=23361 text=forceVersion
+  0xa55454 off=0xad88 ref=26842 text=无法更改设置，应用已被非法篡改！请重新下载正版！
+  0xa554a0 off=0xad90 ref=30947 text=非法篡改
+  0xa555ac off=0x2cd90 ref=2878 text=24小时内累计浏览
+  0xa555e4 off=0x2cd98 ref=13199 text=次推荐信息，即可获取
+  0xa55610 off=0xad90 ref=30947 text=非法篡改
+  0xa55644 off=0xd9d8 ref=5597 text=gXc
+  0xa5565c off=0xda00 ref=20794 text=iXc
+  0xa55668 off=0xda08 ref=23361 text=forceVersion
+  0xa55674 off=0xad88 ref=26842 text=无法更改设置，应用已被非法篡改！请重新下载正版！
+  0xa556bc off=0xe80 ref=10127 text=QMb
+  0xa5571c off=0x2cda0 ref=13928 text=，未获得特权将在0点重置浏览次数！
+  0xa55858 off=0x2cdb8 ref=3524 text=已生效
+  0xa55a08 off=0xad90 ref=30947 text=非法篡改
+  0xa55ad4 off=0xd9d8 ref=5597 text=gXc
+  0xa55ae0 off=0xd630 ref=2617 text=忽略
+  0xa55aec off=0xda00 ref=20794 text=iXc
+  0xa55af8 off=0xda08 ref=23361 text=forceVersion
+  0xa55b04 off=0xad88 ref=26842 text=无法更改设置，应用已被非法篡改！请重新下载正版！
+  0xa55b58 off=0x2cdd0 ref=22939 text=img/kamm.jpg
+  0xa55c3c off=0xe80 ref=10127 text=QMb
+  0xa55c44 off=0xe80 ref=10127 text=QMb
+  0xa55c4c off=0xe80 ref=10127 text=QMb
+  0xa55c54 off=0xe80 ref=10127 text=QMb
+  0xa55c80 off=0x2cdd8 ref=21707 text=每日喂喵
+  0xa55cbc off=0x2cde0 ref=28525 text=喵喵饿了
+  0xa55cd0 off=0x22070 ref=15612 text=渲染代码
+  0xa55d8c off=0x2cd0 ref=5257 text=fontSize
+  0xa55dcc off=0x2cd0 ref=5257 text=fontSize
+  0xa55dec off=0x2cdf0 ref=6939 text=img/status.jpg
+  0xa55e20 off=0xad90 ref=30947 text=非法篡改
+  0xa55e54 off=0xd9d8 ref=5597 text=gXc
+  0xa55e60 off=0xd630 ref=2617 text=忽略
+  0xa55e6c off=0xda00 ref=20794 text=iXc
+  0xa55e78 off=0xda08 ref=23361 text=forceVersion
+  0xa55e84 off=0xad88 ref=26842 text=无法更改设置，应用已被非法篡改！请重新下载正版！
+  0xa55ecc off=0x220b0 ref=9888 text=浏览器设置
+  0xa55f30 off=0x2cdf8 ref=21925 text=训练喵喵
+  0xa55f8c off=0x2ce00 ref=31475 text=让喵喵更智能
+  0xa55fa0 off=0x22070 ref=15612 text=渲染代码
+  0xa5605c off=0x2cd0 ref=5257 text=fontSize
+  0xa5609c off=0x2cd0 ref=5257 text=fontSize
+  0xa560bc off=0x2ce10 ref=3838 text=分享喵喵
+  0xa560f0 off=0xad90 ref=30947 text=非法篡改
+  0xa56124 off=0xd9d8 ref=5597 text=gXc
+  0xa56130 off=0xd630 ref=2617 text=忽略
+  0xa5613c off=0xda00 ref=20794 text=iXc
+  0xa56148 off=0xda08 ref=23361 text=forceVersion
+  0xa56154 off=0xad88 ref=26842 text=无法更改设置，应用已被非法篡改！请重新下载正版！
+  0xa5619c off=0x220b0 ref=9888 text=浏览器设置
+  0xa56200 off=0x2ce18 ref=17788 text=每日一次
+-- VIP/绑定/reward 混合状态机 0xb9fc84 @ 0xb9fc84 --
+  0xb9fdb8 off=0x43488 ref=17423 text=isDaily:
+  0xb9fe54 off=0x43490 ref=26299 text=未获取
+  0xb9fe94 off=0x43498 ref=3877 text=未登录
+  0xb9feb8 off=0xe80 ref=10127 text=QMb
+  0xb9fec0 off=0xe80 ref=10127 text=QMb
+  0xb9fec8 off=0xe80 ref=10127 text=QMb
+  0xb9fed0 off=0xe80 ref=10127 text=QMb
+  0xb9fedc off=0xad90 ref=30947 text=非法篡改
+  0xb9ff08 off=0x2bc0 ref=29683 text=19
+  0xb9ffb4 off=0x42f8 ref=7559 text=adNum:
+  0xb9ffe4 off=0xad90 ref=30947 text=非法篡改
+  0xba0070 off=0x2cd58 ref=13169 text=功能，通过捐赠绑定账号获取
+  0xba007c off=0x2cd28 ref=8910 text=通过捐赠绑定设备获取
+  0xba01b8 off=0x2c48 ref=28072 text=fVb
+  0xba027c off=0x2ccf8 ref=4505 text=点击头像绑定账号
+  0xba02e0 off=0x2cd00 ref=24111 text=解绑
+  0xba03b0 off=0xe80 ref=10127 text=QMb
+  0xba03b8 off=0xe80 ref=10127 text=QMb
+  0xba03c0 off=0xe80 ref=10127 text=QMb
+  0xba052c off=0xd9d8 ref=5597 text=gXc
+  0xba0538 off=0xd630 ref=2617 text=忽略
+  0xba0544 off=0xda00 ref=20794 text=iXc
+  0xba0550 off=0xda08 ref=23361 text=forceVersion
+  0xba055c off=0xad88 ref=26842 text=无法更改设置，应用已被非法篡改！请重新下载正版！
+  0xba07d0 off=0x2cd98 ref=13199 text=次推荐信息，即可获取
+  0xba07fc off=0x2cd90 ref=2878 text=24小时内累计浏览
+  0xba09e8 off=0x434d8 ref=8726 text=喵喵喵~
+
+== direct BL callers ==
+广告总闸 0x7e8534: ['0x7e80f8', '0x80b290', '0x895490', '0x8aae80', '0x8b42a8', '0x8b637c', '0x921640', '0xa5a228', '0xa7ad28', '0xa7be0c', '0xa7ce08', '0xa8b314', '0xa94c4c', '0xaa36bc', '0xaa4f54', '0xaba5f8', '0xb11d54', '0xb124bc', '0xb130bc', '0xb136d8', '0xb14320', '0xb14f00', '0xb15254', '0xb155d0', '0xb15c28', '0xb36ed0', '0xb5f358', '0xb63158', '0xb65718', '0xb70910', '0xb7e3f8', '0xb87600', '0xb88234', '0xbab7f8', '0xbac0e0', '0xbb427c', '0xbb6da8', '0xbb8b28', '0xbbce6c', '0xbcabe4', '0xbcf1b8']
+奖励特权状态对象 0x8cf36c: ['0x59d998', '0x7e813c', '0x7e8618', '0x838970', '0x86f154', '0x89b004', '0x8a0448', '0x8a05ec', '0x8a4368', '0x8d6c68', '0xa541c8', '0xb1748c', '0xb43884', '0xb9fe74', '0xbca364', '0xc4c6c4', '0xf85d00']
+noAdAllowSourceList helper 0x839e80: ['0x8391d4']
+noAdDisableSourceList helper 0x83a060: ['0x839110']
+noAdSourceNumLimit helper 0x838c74: ['0x838b84']
+noAdRegex helper 0x890c6c: ['0x87598c']
+
+== branch bytes ==
+0x7e85f4 00082036 ad gate 内：0x911788 返回后的 tbz
+0x7e8610 20072036 ad gate 内：0x7e41c0 返回后的 tbz
+0x7e861c c0062036 ad gate 内：0x8cf36c 返回后的 tbz
+0x7e80fc e0002036 caller 0x7e8054：广告总闸返回后的 tbz
+0x7e8140 c0072036 caller 0x7e8054：奖励特权对象返回后的 tbz
+
+== snippets ==
+-- 0x7e8534 内部：0x911788 -> 0x8cf36c -> 分支 0x7e85dc..0x7e8620 --
+0x007e85dc  6ba40494 bl      #0x911788
+0x007e85e0  e10300aa mov     x1, x0
+0x007e85e4  a1831ff8 stur    x1, [x29, #-8]
+0x007e85e8  40002837 tbnz    w0, #5, #0x7e85f0
+0x007e85ec  c8671e94 bl      #0xf8250c
+0x007e85f0  a0835ff8 ldur    x0, [x29, #-8]
+0x007e85f4  00082036 tbz     w0, #4, #0x7e86f4
+0x007e85f8  f2eeff97 bl      #0x7e41c0
+0x007e85fc  e10300aa mov     x1, x0
+0x007e8600  a1831ff8 stur    x1, [x29, #-8]
+0x007e8604  40002837 tbnz    w0, #5, #0x7e860c
+0x007e8608  c1671e94 bl      #0xf8250c
+0x007e860c  a0835ff8 ldur    x0, [x29, #-8]
+0x007e8610  20072036 tbz     w0, #4, #0x7e86f4
+0x007e8614  64db55f9 ldr     x4, [x27, #0x2bb0]
+0x007e8618  559b0394 bl      #0x8cf36c
+0x007e861c  c0062036 tbz     w0, #4, #0x7e86f4
+-- 0x7e8534 内部：isNoAdLock + adNum: 0x7e8640..0x7e8698 --
+0x007e8640  60434091 add     x0, x27, #0x10, lsl #12
+0x007e8644  009c40f9 ldr     x0, [x0, #0x138]
+0x007e8648  23000014 b       #0x7e86d4
+0x007e864c  e10316aa mov     x1, x22
+0x007e8650  c20080d2 mov     x2, #6
+0x007e8654  d56d1e94 bl      #0xf83da8
+0x007e8658  a0831ff8 stur    x0, [x29, #-8]
+0x007e865c  71434091 add     x17, x27, #0x10, lsl #12
+0x007e8660  31a240f9 ldr     x17, [x17, #0x140]
+0x007e8664  11f000b8 stur    w17, [x0, #0xf]
+0x007e8668  404340f9 ldr     x0, [x26, #0x80]
+0x007e866c  001854f9 ldr     x0, [x0, #0x2830]
+0x007e8670  701740f9 ldr     x16, [x27, #0x28]
+0x007e8674  1f00106b cmp     w0, w16
+0x007e8678  80000054 b.eq    #0x7e8688
+0x007e867c  70d35af9 ldr     x16, [x27, #0x35a0]
+0x007e8680  1f00106b cmp     w0, w16
+0x007e8684  61000054 b.ne    #0x7e8690
+0x007e8688  607f61f9 ldr     x0, [x27, #0x42f8]
+0x007e868c  82671e94 bl      #0xf82494
+0x007e8690  a1835ff8 ldur    x1, [x29, #-8]
+0x007e8694  394c0091 add     x25, x1, #0x13
+-- 0x7e8054 caller：先过广告总闸，再过奖励特权对象 0x7e80f8..0x7e8148 --
+0x007e80f8  0f010094 bl      #0x7e8534
+0x007e80fc  e0002036 tbz     w0, #4, #0x7e8118
+0x007e8100  a08359f8 ldur    x0, [x29, #-0x68]
+0x007e8104  d1c20091 add     x17, x22, #0x30
+0x007e8108  11b001b8 stur    w17, [x0, #0x1b]
+0x007e810c  e10300aa mov     x1, x0
+0x007e8110  c0c20091 add     x0, x22, #0x30
+0x007e8114  93000014 b       #0x7e8360
+0x007e8118  a08359f8 ldur    x0, [x29, #-0x68]
+0x007e811c  29f0ff97 bl      #0x7e41c0
+0x007e8120  e10300aa mov     x1, x0
+0x007e8124  a18318f8 stur    x1, [x29, #-0x78]
+0x007e8128  40002837 tbnz    w0, #5, #0x7e8130
+0x007e812c  f8681e94 bl      #0xf8250c
+0x007e8130  a08358f8 ldur    x0, [x29, #-0x78]
+0x007e8134  60082036 tbz     w0, #4, #0x7e8240
+0x007e8138  64db55f9 ldr     x4, [x27, #0x2bb0]
+0x007e813c  8c9c0394 bl      #0x8cf36c
+0x007e8140  c0072036 tbz     w0, #4, #0x7e8238
+0x007e8144  a08359f8 ldur    x0, [x29, #-0x68]
+-- 0x839e80：noAdAllowSourceList 装载 0x839f34..0x839f44 --
+0x00839f34  68bb5cf9 ldr     x8, [x27, #0x3970]
+0x00839f38  633f4091 add     x3, x27, #0xf, lsl #12
+0x00839f3c  63e440f9 ldr     x3, [x3, #0x1c8]
+0x00839f40  715a0394 bl      #0x910904
+-- 0x83a060：noAdDisableSourceList 装载 0x83a114..0x83a124 --
+0x0083a114  68bb5cf9 ldr     x8, [x27, #0x3970]
+0x0083a118  633f4091 add     x3, x27, #0xf, lsl #12
+0x0083a11c  63fc40f9 ldr     x3, [x3, #0x1f8]
+0x0083a120  f9590394 bl      #0x910904
+-- 0x838c74：noAdSourceNumLimit 装载 0x838d08..0x838d18 --
+0x00838d08  68c75af9 ldr     x8, [x27, #0x3588]
+0x00838d0c  633f4091 add     x3, x27, #0xf, lsl #12
+0x00838d10  631441f9 ldr     x3, [x3, #0x228]
+0x00838d14  b0651d94 bl      #0xf923d4
+-- 0x890c6c：noAdRegex + showSplashAd 装载 0x890d00..0x890d90 --
+0x00890d00  704f4091 add     x16, x27, #0x13, lsl #12
+0x00890d04  106a45f9 ldr     x16, [x16, #0xad0]
+0x00890d08  f005bfa9 stp     x16, x1, [x15, #-0x10]!
+0x00890d0c  648340f9 ldr     x4, [x27, #0x100]
+0x00890d10  1eec3fd1 sub     x30, x0, #0xffb
+0x00890d14  be7a7ef8 ldr     x30, [x21, x30, lsl #3]
+0x00890d18  c0033fd6 blr     x30
+0x00890d1c  ef410091 add     x15, x15, #0x10
+0x00890d20  1f0400b1 cmn     x0, #1
+0x00890d24  60000054 b.eq    #0x890d30
+0x00890d28  800780d2 mov     x0, #0x3c
+0x00890d2c  03000014 b       #0x890d38
+0x00890d30  b18306d1 sub     x17, x29, #0x1a0
+0x00890d34  200240f9 ldr     x0, [x17]
+0x00890d38  b18306d1 sub     x17, x29, #0x1a0
+0x00890d3c  200200f9 str     x0, [x17]
+0x00890d40  a755fd97 bl      #0x7e63dc
+0x00890d44  1f00166b cmp     w0, w22
+0x00890d48  600b0054 b.eq    #0x890eb4
+0x00890d4c  a455fd97 bl      #0x7e63dc
+0x00890d50  01104078 ldurh   w1, [x0, #1]
+0x00890d54  70674091 add     x16, x27, #0x19, lsl #12
+0x00890d58  108a43f9 ldr     x16, [x16, #0x710]
+0x00890d5c  f001bfa9 stp     x16, x0, [x15, #-0x10]!
+0x00890d60  e00301aa mov     x0, x1
+0x00890d64  1e0440d1 sub     x30, x0, #1, lsl #12
+0x00890d68  be7a7ef8 ldr     x30, [x21, x30, lsl #3]
+0x00890d6c  c0033fd6 blr     x30
+0x00890d70  ef410091 add     x15, x15, #0x10
+0x00890d74  1f00166b cmp     w0, w22
+0x00890d78  80090054 b.eq    #0x890ea8
+0x00890d7c  9855fd97 bl      #0x7e63dc
+0x00890d80  01104078 ldurh   w1, [x0, #1]
+0x00890d84  70674091 add     x16, x27, #0x19, lsl #12
+0x00890d88  108a43f9 ldr     x16, [x16, #0x710]
+0x00890d8c  f001bfa9 stp     x16, x0, [x15, #-0x10]!
+-- 0x8863e8：showSplashAd 装载 0x8864f0..0x886508 --
+0x008864f0  16b001b8 stur    w22, [x0, #0x1b]
+0x008864f4  71674091 add     x17, x27, #0x19, lsl #12
+0x008864f8  318a43f9 ldr     x17, [x17, #0x710]
+0x008864fc  11f001b8 stur    w17, [x0, #0x1f]
+0x00886500  71674091 add     x17, x27, #0x19, lsl #12
+0x00886504  318e43f9 ldr     x17, [x17, #0x718]
