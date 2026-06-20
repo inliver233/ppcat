@@ -35,6 +35,15 @@ P_SPLASH_NOP = [  # test2 §5.9 开屏控制器 0x8863e8 内4个 dialog BL NOP (
 
 P_FAULT_BODY = [(0x920d90, bytes.fromhex("29000014"))]  # ★test3突破: 截断故障body唯一源0x920d7c入口->null尾声
 P_MIAO_NOCIRCLE = [(0xae312c, bytes.fromhex("c10d0014"))]  # test2: 喵喵饿了builder B.NE->B(走PATH_B)
+
+
+
+P_MIAO_A54178 = [(0xa5418c, bytes.fromhex("e00316aa")), (0xa54190, bytes.fromhex("92090014"))]  # 第八轮实验: 0xa54178 VIP/喵喵页build入口return null(定位喵喵块)
+
+P_MIAO_PATHA = [(0xae312c, bytes.fromhex("1f2003d5"))]  # 第八轮: b.ne->NOP 强制总走PATH_A(配合PATH_A return null=块消失)
+
+P_MIAO_NULL = [(0xae32d4, bytes.fromhex("e00316aa"))]  # test3方案B: 喵喵build return null(0xae32d4 mov x0,x1->mov x0,x22)
+
 P_MIAO_NOCLICK = [(0xbc5dd0, bytes.fromhex("e00316aa")),(0xbc5dd4, bytes.fromhex("fd79c1a8")),(0xbc5dd8, bytes.fromhex("c0035fd6"))]  # test3方案C: reward-prompt不可点击(已验证)
 
 P_ADFAIL_NOP = [
@@ -74,7 +83,10 @@ CONFIGS = {
     "testC":        P_TAMPER + P_FAULT_GATE + P_DIALOG_NOP,
     "testC_fault3": P_TAMPER + P_FAULT_GATE + P_DIALOG_NOP + P_FAULT3_NOP,
     "testC_faultbody": P_TAMPER + P_FAULT_GATE + P_DIALOG_NOP + P_FAULT_BODY,  # ★test3故障弹窗根治
-    "testC_faultbody_miao": P_TAMPER + P_FAULT_GATE + P_DIALOG_NOP + P_FAULT_BODY + P_MIAO_NOCLICK,  # 故障根治+喵喵不可点击
+    "testC_faultbody_miao": P_TAMPER + P_FAULT_GATE + P_DIALOG_NOP + P_FAULT_BODY + P_MIAO_NOCLICK,
+    "testC_miao_all": P_TAMPER + P_FAULT_GATE + P_DIALOG_NOP + P_FAULT_BODY + P_MIAO_NULL + P_MIAO_NOCLICK,
+    "testC_miao_hide": P_TAMPER + P_FAULT_GATE + P_DIALOG_NOP + P_FAULT_BODY + P_MIAO_PATHA + P_MIAO_NULL,
+    "testC_miao_a54178": P_TAMPER + P_FAULT_GATE + P_DIALOG_NOP + P_FAULT_BODY + P_MIAO_A54178,  # ★实验: 故障根治+0xa54178 return null  # 故障根治+强制PATH_A+return null=喵喵块消失  # 故障根治+喵喵B(return null)+C(不可点击)  # 故障根治+喵喵不可点击
     "testC_adfail": P_TAMPER + P_FAULT_GATE + P_DIALOG_NOP + P_FAULT3_NOP + P_ADFAIL_NOP,
     "testC_master": P_TAMPER + P_FAULT_GATE + P_DIALOG_NOP + P_MASTER_TRUE,
     "master_only":  P_TAMPER + P_FAULT_GATE + P_MASTER_TRUE,
