@@ -1,0 +1,160 @@
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java> program=libapp.so  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java> == create function 0x911788 ==  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java>   disassemble=true  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java>   createFunction=null  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java> == create function with body 0x911788..0x911b24 ==  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java>   listing.createFunction=00911788  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java> == create function 0xb9fc84 ==  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java>   disassemble=true  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java>   createFunction=null  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java> == create function with body 0xb9fc84..0xba46ec ==  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java>   listing.createFunction=00b9fc84  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java> == create function 0xa54178 ==  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java>   disassemble=true  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java>   createFunction=null  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java> == create function with body 0xa54178..0xa56824 ==  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java>   listing.createFunction=00a54178  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java> == create function 0x8a0fd4 ==  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java>   disassemble=true  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java>   createFunction=null  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java> == create function with body 0x8a0fd4..0x8a130c ==  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java>   listing.createFunction=008a0fd4  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java> == create function 0x8ba3d0 ==  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java>   disassemble=true  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java>   createFunction=null  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java> == create function with body 0x8ba3d0..0x8bab8c ==  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java>   listing.createFunction=008ba3d0  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java> == create function 0x67994c ==  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java>   disassemble=true  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java>   createFunction=null  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java> == create function with body 0x67994c..0x679af8 ==  
+2026-06-20 14:15:10 INFO  (GhidraScript) VipStateProbe.java>   listing.createFunction=0067994c  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java> == refs to 0x911788 (0) ==  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java> == target 0x911788 fn=00911788 ==  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java> == decompile 0x911788 completed=true message= ==  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>   void FUN_00911788(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>                    long param_5)  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>   {  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     long in_x15;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     long unaff_x28;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>       
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     *(undefined8 *)(in_x15 + -0x10) = param_3;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     *(undefined8 *)(in_x15 + -8) = param_2;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     *(long *)(in_x15 + -0x20) = param_5 + (unaff_x28 << 0x20);  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     *(undefined8 *)(in_x15 + -0x18) = param_4;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     func_0x0057369c();  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     return;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>   }  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java> == refs to 0xb9fc84 (0) ==  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java> == target 0xb9fc84 fn=00b9fc84 ==  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java> == decompile 0xb9fc84 completed=true message= ==  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>   void FUN_00b9fc84(ulong param_1)  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>   {  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     undefined8 *puVar1;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     int iVar2;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     uint uVar3;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     bool bVar4;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     long lVar5;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     long lVar6;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     long extraout_x1;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     long extraout_x1_00;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     long lVar7;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     int iVar8;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     long lVar9;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     ulong uVar10;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     ulong uVar11;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     long extraout_x8;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     long extraout_x8_00;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     long extraout_x8_01;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java> == refs to 0xa54178 (0) ==  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java> == target 0xa54178 fn=00a54178 ==  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java> == decompile 0xa54178 completed=true message= ==  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>   undefined8 FUN_00a54178(undefined8 param_1,undefined8 param_2)  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>   {  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     long in_x15;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     undefined8 uVar1;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     long unaff_x29;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>       
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     uVar1 = *(undefined8 *)(unaff_x29 + -8);  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     *(undefined8 *)(in_x15 + -0x10) = param_2;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     *(undefined8 *)(in_x15 + -8) = uVar1;  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     func_0x010732e8();  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>     return *(undefined8 *)(unaff_x29 + -0x10);  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java>   }  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java> == refs to 0x8a0fd4 (0) ==  
+2026-06-20 14:15:11 INFO  (GhidraScript) VipStateProbe.java> == target 0x8a0fd4 fn=008a0fd4 ==  
+2026-06-20 14:15:21 INFO  (GhidraScript) VipStateProbe.java> == decompile 0x8a0fd4 completed=true message= ==  
+2026-06-20 14:15:22 INFO  (GhidraScript) VipStateProbe.java>     
+2026-06-20 14:15:22 INFO  (GhidraScript) VipStateProbe.java>   void FUN_008a0fd4(long param_1,undefined8 param_2,long param_3)  
+2026-06-20 14:15:22 INFO  (GhidraScript) VipStateProbe.java>     
+2026-06-20 14:15:22 INFO  (GhidraScript) VipStateProbe.java>   {  
+2026-06-20 14:15:22 INFO  (GhidraScript) VipStateProbe.java>     long in_x15;  
+2026-06-20 14:15:22 INFO  (GhidraScript) VipStateProbe.java>     undefined8 uVar1;  
+2026-06-20 14:15:22 INFO  (GhidraScript) VipStateProbe.java>     long unaff_x27;  
+2026-06-20 14:15:22 INFO  (GhidraScript) VipStateProbe.java>       
+2026-06-20 14:15:22 INFO  (GhidraScript) VipStateProbe.java>     *(undefined4 *)(param_3 + 0xf) = 0x1119a;  
+2026-06-20 14:15:22 INFO  (GhidraScript) VipStateProbe.java>     *(undefined4 *)(param_1 + 0x12d6f) = 0x1bfe8;  
+2026-06-20 14:15:22 INFO  (GhidraScript) VipStateProbe.java>     *(undefined4 *)(param_1 + 0x12d73) = 0x1119c;  
+2026-06-20 14:15:22 INFO  (GhidraScript) VipStateProbe.java>     *(undefined4 *)(param_1 + 0x12d77) = 0x1bfea;  
+2026-06-20 14:15:22 INFO  (GhidraScript) VipStateProbe.java>     *(undefined4 *)(param_1 + 0x12d7b) = 0x111bc;  
+2026-06-20 14:15:22 INFO  (GhidraScript) VipStateProbe.java>     *(undefined4 *)(param_1 + 0x12d7f) = 0x1bfec;  
+2026-06-20 14:15:22 INFO  (GhidraScript) VipStateProbe.java>     *(undefined4 *)(param_1 + 0x12d83) = 0x111b6;  
+2026-06-20 14:15:22 INFO  (GhidraScript) VipStateProbe.java>     *(undefined4 *)(param_1 + 0x12d87) = 0x1bfee;  
+2026-06-20 14:15:22 INFO  (GhidraScript) VipStateProbe.java>     *(undefined4 *)(param_1 + 0x12d8b) = 0x111b4;  
+2026-06-20 14:15:22 INFO  (GhidraScript) VipStateProbe.java>     *(undefined4 *)(param_1 + 0x12d8f) = 0x1bff0;  
+2026-06-20 14:15:22 INFO  (GhidraScript) VipStateProbe.java>     *(undefined4 *)(param_1 + 0x12d93) = 0x11198;  
+2026-06-20 14:15:22 INFO  (GhidraScript) VipStateProbe.java>     *(undefined4 *)(param_1 + 0x12d97) = 0x1bff2;  
+2026-06-20 14:15:22 INFO  (GhidraScript) VipStateProbe.java> == refs to 0x8ba3d0 (0) ==  
+2026-06-20 14:15:22 INFO  (GhidraScript) VipStateProbe.java> == target 0x8ba3d0 fn=008ba3d0 ==  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java> == decompile 0x8ba3d0 completed=true message= ==  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>   void FUN_008ba3d0(long param_1,undefined8 param_2,long param_3)  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>   {  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     long in_x15;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     undefined8 uVar1;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     uint in_w17;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     long unaff_x27;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>       
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     *(uint *)(param_3 + 0xf) = in_w17 & 0xffff | 0x10000;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     *(undefined4 *)(param_1 + 0x1827b) = 0x12768;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     *(undefined4 *)(param_1 + 0x1827f) = 0x1e2d4;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     *(undefined4 *)(param_1 + 0x18283) = 0x12746;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     *(undefined4 *)(param_1 + 0x18287) = 0x1e2d6;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     *(undefined4 *)(param_1 + 0x1828b) = 0x1274a;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     *(undefined4 *)(param_1 + 0x1828f) = 0x1e2d8;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     *(undefined4 *)(param_1 + 0x18293) = 0x12ba4;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     *(undefined4 *)(param_1 + 0x18297) = 0x1e2da;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     *(undefined4 *)(param_1 + 0x1829b) = 0x12ba6;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     *(undefined4 *)(param_1 + 0x1829f) = 0x1e2dc;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java> == refs to 0x67994c (0) ==  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java> == target 0x67994c fn=0067994c ==  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java> == decompile 0x67994c completed=true message= ==  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>   long FUN_0067994c(undefined1 param_1 [16],double param_2,undefined8 param_3,undefined8 param_4,  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>                    undefined8 param_5)  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>   {  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     undefined8 uVar1;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     long lVar2;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     long lVar3;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     long in_x15;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     long extraout_x15;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     long unaff_x22;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     ulong unaff_x28;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     long unaff_x29;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>       
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     *(undefined8 *)(in_x15 + -8) = param_5;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     *(double *)(in_x15 + -0x10) = -param_2;  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     func_0x0067a924();  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     uVar1 = *(undefined8 *)(unaff_x29 + 0x18);  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     *(undefined8 *)(extraout_x15 + 8) = *(undefined8 *)(unaff_x29 + 0x10);  
+2026-06-20 14:15:24 INFO  (GhidraScript) VipStateProbe.java>     lVar2 = func_0x00d6b23c(uVar1);  
+2026-06-20 14:15:24 INFO  (HeadlessAnalyzer) REPORT: Post-analysis succeeded for file: file:///root/ppcat_repo/libapp.so  
+2026-06-20 14:15:24 INFO  (HeadlessAnalyzer) REPORT: Import succeeded  

@@ -4,8 +4,10 @@ import ghidra.app.decompiler.DecompileOptions;
 import ghidra.app.decompiler.DecompileResults;
 import ghidra.app.decompiler.component.DecompilerUtils;
 import ghidra.program.model.address.Address;
+import ghidra.program.model.address.AddressSet;
 import ghidra.program.model.listing.Function;
 import ghidra.program.model.listing.Instruction;
+import ghidra.program.model.symbol.SourceType;
 import ghidra.program.model.symbol.Reference;
 import ghidra.program.model.symbol.ReferenceManager;
 import ghidra.program.model.symbol.ReferenceIterator;
@@ -13,6 +15,9 @@ import ghidra.program.model.symbol.ReferenceIterator;
 public class VipStateProbe extends GhidraScript {
     private static final long[] TARGETS = {
         0x911788L, 0xb9fc84L, 0xa54178L, 0x8a0fd4L, 0x8ba3d0L, 0x67994cL
+    };
+    private static final long[] NEXT_PROLOGUES = {
+        0x911b28L, 0xba46f0L, 0xa56828L, 0x8a1310L, 0x8bab90L, 0x679afcL
     };
 
     private DecompInterface setupDecompiler() {
@@ -70,6 +75,15 @@ public class VipStateProbe extends GhidraScript {
         println("  createFunction=" + (fn == null ? "null" : fn.getEntryPoint()));
     }
 
+    private void createKnownFunctionWithBody(long value, long next) throws Exception {
+        Address start = toAddr(value);
+        Address end = toAddr(next).subtract(4);
+        AddressSet body = new AddressSet(start, end);
+        println(String.format("== create function with body 0x%x..0x%x ==", value, end.getOffset()));
+        Function fn = currentProgram.getListing().createFunction(null, start, body, SourceType.USER_DEFINED);
+        println("  listing.createFunction=" + (fn == null ? "null" : fn.getEntryPoint()));
+    }
+
     private void decompileKnownFunction(DecompInterface decomp, long value) {
         Address addr = toAddr(value);
         Function fn = getFunctionAt(addr);
@@ -94,8 +108,10 @@ public class VipStateProbe extends GhidraScript {
     @Override
     protected void run() throws Exception {
         println("program=" + currentProgram.getName());
-        for (long target : TARGETS) {
+        for (int i = 0; i < TARGETS.length; i++) {
+            long target = TARGETS[i];
             createKnownFunction(target);
+            createKnownFunctionWithBody(target, NEXT_PROLOGUES[i]);
         }
         DecompInterface decomp = setupDecompiler();
         for (long target : TARGETS) {
