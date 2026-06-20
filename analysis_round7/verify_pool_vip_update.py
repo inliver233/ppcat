@@ -42,6 +42,14 @@ UPDATE_DIALOG_SITES = {
     0x8675BC: "发现新版本 caller@0x86758c 的 dialog-show BL",
 }
 
+VIP_FUNC_LINES = {
+    0xA54178: "VIP 内容页主构造区",
+    0xB9FC84: "VIP 页面上层混合状态机",
+    0x8A0FD4: "“可以捐赠”提示构造器",
+    0x8BA3D0: "expiresDate 读取链",
+    0x67994C: "expires 判定/格式化链",
+}
+
 
 def read_strings() -> dict[int, str]:
     out: dict[int, str] = {}
@@ -109,6 +117,23 @@ def read_pool_accesses() -> dict[int, list[int]]:
     return off_to_pcs
 
 
+def decode_bl_targets(data: bytes, targets: set[int]) -> dict[int, list[int]]:
+    out: dict[int, list[int]] = {target: [] for target in targets}
+    text_start = 0x460000
+    text_end = len(data) - 4
+    for addr in range(text_start, text_end, 4):
+        word = int.from_bytes(data[addr : addr + 4], "little")
+        if (word >> 26) != 0b100101:
+            continue
+        imm26 = word & 0x03FFFFFF
+        if imm26 & (1 << 25):
+            imm26 -= 1 << 26
+        target = addr + (imm26 << 2)
+        if target in out:
+            out[target].append(addr)
+    return out
+
+
 def main() -> int:
     data = LIBAPP.read_bytes()
     strings = read_strings()
@@ -130,6 +155,14 @@ def main() -> int:
         print(
             f"ref={ref} slot=0x{(off // 8):x} off=0x{off:x} pcs={[hex(x) for x in pcs[:8]]} text={strings.get(ref, '')}"
         )
+
+    print("\n== VIP function lines ==")
+    for addr, desc in VIP_FUNC_LINES.items():
+        print(f"0x{addr:x}: {desc}")
+
+    print("\n== Shared gate 0x911788 direct callers ==")
+    callers = decode_bl_targets(data, {0x911788})[0x911788]
+    print([hex(x) for x in callers])
 
     print("\n== Update dialog BL candidates ==")
     for addr, desc in UPDATE_DIALOG_SITES.items():
