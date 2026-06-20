@@ -38,6 +38,18 @@ P_MIAO_NOCIRCLE = [(0xae312c, bytes.fromhex("c10d0014"))]  # test2: 喵喵饿了
 
 
 
+
+# test3第九轮: 返回const SizedBox.shrink(slot0x3975)配方 - 5word
+def _sizedbox_patch(addr):
+    return [(addr, bytes.fromhex('60734091')),     # add x0,x27,#0x1c,lsl12
+            (addr+4, bytes.fromhex('00d445f9')),    # ldr x0,[x0,#0xba8]=SizedBox.shrink
+            (addr+8, bytes.fromhex('ef031daa')),    # mov x15,x29
+            (addr+12, bytes.fromhex('fd79c1a8')),   # ldp x29,x30,[x15],#0x10
+            (addr+16, bytes.fromhex('c0035fd6'))]   # ret
+P_OVERLAY = _sizedbox_patch(0xbd2e24)
+P_MIAO_B = [(0xc3def8, bytes.fromhex("e00316aa")),(0xc3defc, bytes.fromhex("fd79c1a8")),(0xc3df00, bytes.fromhex("c0035fd6"))]  # test3候选B: 浮窗选择器0xc3def0 entry-null
+  # 首页overlay编排器0xbd2e1c的func+8
+
 P_MIAO_A54178 = [(0xa5418c, bytes.fromhex("e00316aa")), (0xa54190, bytes.fromhex("92090014"))]  # 第八轮实验: 0xa54178 VIP/喵喵页build入口return null(定位喵喵块)
 
 P_MIAO_PATHA = [(0xae312c, bytes.fromhex("1f2003d5"))]  # 第八轮: b.ne->NOP 强制总走PATH_A(配合PATH_A return null=块消失)
@@ -86,7 +98,9 @@ CONFIGS = {
     "testC_faultbody_miao": P_TAMPER + P_FAULT_GATE + P_DIALOG_NOP + P_FAULT_BODY + P_MIAO_NOCLICK,
     "testC_miao_all": P_TAMPER + P_FAULT_GATE + P_DIALOG_NOP + P_FAULT_BODY + P_MIAO_NULL + P_MIAO_NOCLICK,
     "testC_miao_hide": P_TAMPER + P_FAULT_GATE + P_DIALOG_NOP + P_FAULT_BODY + P_MIAO_PATHA + P_MIAO_NULL,
-    "testC_miao_a54178": P_TAMPER + P_FAULT_GATE + P_DIALOG_NOP + P_FAULT_BODY + P_MIAO_A54178,  # ★实验: 故障根治+0xa54178 return null  # 故障根治+强制PATH_A+return null=喵喵块消失  # 故障根治+喵喵B(return null)+C(不可点击)  # 故障根治+喵喵不可点击
+    "testC_miao_a54178": P_TAMPER + P_FAULT_GATE + P_DIALOG_NOP + P_FAULT_BODY + P_MIAO_A54178,
+    "testC_overlay": P_TAMPER + P_FAULT_GATE + P_DIALOG_NOP + P_FAULT_BODY + P_OVERLAY,
+    "testC_miaoB": P_TAMPER + P_FAULT_GATE + P_DIALOG_NOP + P_FAULT_BODY + P_MIAO_B,  # 故障根治+喵喵块候选B(0xc3def0 entry-null)  # ★test3: 故障根治+首页overlay(SizedBox.shrink)  # ★实验: 故障根治+0xa54178 return null  # 故障根治+强制PATH_A+return null=喵喵块消失  # 故障根治+喵喵B(return null)+C(不可点击)  # 故障根治+喵喵不可点击
     "testC_adfail": P_TAMPER + P_FAULT_GATE + P_DIALOG_NOP + P_FAULT3_NOP + P_ADFAIL_NOP,
     "testC_master": P_TAMPER + P_FAULT_GATE + P_DIALOG_NOP + P_MASTER_TRUE,
     "master_only":  P_TAMPER + P_FAULT_GATE + P_MASTER_TRUE,
