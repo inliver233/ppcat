@@ -1,0 +1,39 @@
+2026-06-20 14:12:29 INFO  (GhidraScript) VipStateProbe.java> program=libapp.so  
+2026-06-20 14:12:29 INFO  (GhidraScript) VipStateProbe.java> == create function 0x911788 ==  
+2026-06-20 14:12:29 INFO  (GhidraScript) VipStateProbe.java>   disassemble=true  
+2026-06-20 14:12:29 INFO  (GhidraScript) VipStateProbe.java>   createFunction=null  
+2026-06-20 14:12:29 INFO  (GhidraScript) VipStateProbe.java> == create function 0xb9fc84 ==  
+2026-06-20 14:12:29 INFO  (GhidraScript) VipStateProbe.java>   disassemble=true  
+2026-06-20 14:12:29 INFO  (GhidraScript) VipStateProbe.java>   createFunction=null  
+2026-06-20 14:12:29 INFO  (GhidraScript) VipStateProbe.java> == create function 0xa54178 ==  
+2026-06-20 14:12:29 INFO  (GhidraScript) VipStateProbe.java>   disassemble=true  
+2026-06-20 14:12:29 INFO  (GhidraScript) VipStateProbe.java>   createFunction=null  
+2026-06-20 14:12:29 INFO  (GhidraScript) VipStateProbe.java> == create function 0x8a0fd4 ==  
+2026-06-20 14:12:29 INFO  (GhidraScript) VipStateProbe.java>   disassemble=true  
+2026-06-20 14:12:29 INFO  (GhidraScript) VipStateProbe.java>   createFunction=null  
+2026-06-20 14:12:29 INFO  (GhidraScript) VipStateProbe.java> == create function 0x8ba3d0 ==  
+2026-06-20 14:12:29 INFO  (GhidraScript) VipStateProbe.java>   disassemble=true  
+2026-06-20 14:12:29 INFO  (GhidraScript) VipStateProbe.java>   createFunction=null  
+2026-06-20 14:12:29 INFO  (GhidraScript) VipStateProbe.java> == create function 0x67994c ==  
+2026-06-20 14:12:29 INFO  (GhidraScript) VipStateProbe.java>   disassemble=true  
+2026-06-20 14:12:29 INFO  (GhidraScript) VipStateProbe.java>   createFunction=null  
+2026-06-20 14:12:30 INFO  (GhidraScript) VipStateProbe.java> == refs to 0x911788 (0) ==  
+2026-06-20 14:12:30 INFO  (GhidraScript) VipStateProbe.java> == target 0x911788 fn=null ==  
+2026-06-20 14:12:30 INFO  (GhidraScript) VipStateProbe.java> == decompile 0x911788 skipped (no function) ==  
+2026-06-20 14:12:30 INFO  (GhidraScript) VipStateProbe.java> == refs to 0xb9fc84 (0) ==  
+2026-06-20 14:12:30 INFO  (GhidraScript) VipStateProbe.java> == target 0xb9fc84 fn=null ==  
+2026-06-20 14:12:30 INFO  (GhidraScript) VipStateProbe.java> == decompile 0xb9fc84 skipped (no function) ==  
+2026-06-20 14:12:30 INFO  (GhidraScript) VipStateProbe.java> == refs to 0xa54178 (0) ==  
+2026-06-20 14:12:30 INFO  (GhidraScript) VipStateProbe.java> == target 0xa54178 fn=null ==  
+2026-06-20 14:12:30 INFO  (GhidraScript) VipStateProbe.java> == decompile 0xa54178 skipped (no function) ==  
+2026-06-20 14:12:30 INFO  (GhidraScript) VipStateProbe.java> == refs to 0x8a0fd4 (0) ==  
+2026-06-20 14:12:30 INFO  (GhidraScript) VipStateProbe.java> == target 0x8a0fd4 fn=null ==  
+2026-06-20 14:12:30 INFO  (GhidraScript) VipStateProbe.java> == decompile 0x8a0fd4 skipped (no function) ==  
+2026-06-20 14:12:30 INFO  (GhidraScript) VipStateProbe.java> == refs to 0x8ba3d0 (0) ==  
+2026-06-20 14:12:30 INFO  (GhidraScript) VipStateProbe.java> == target 0x8ba3d0 fn=null ==  
+2026-06-20 14:12:30 INFO  (GhidraScript) VipStateProbe.java> == decompile 0x8ba3d0 skipped (no function) ==  
+2026-06-20 14:12:30 INFO  (GhidraScript) VipStateProbe.java> == refs to 0x67994c (0) ==  
+2026-06-20 14:12:30 INFO  (GhidraScript) VipStateProbe.java> == target 0x67994c fn=null ==  
+2026-06-20 14:12:30 INFO  (GhidraScript) VipStateProbe.java> == decompile 0x67994c skipped (no function) ==  
+2026-06-20 14:12:30 INFO  (HeadlessAnalyzer) REPORT: Post-analysis succeeded for file: file:///root/ppcat_repo/libapp.so  
+2026-06-20 14:12:30 INFO  (HeadlessAnalyzer) REPORT: Import succeeded  
