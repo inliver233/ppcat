@@ -1,0 +1,600 @@
+# libapp = lib/arm64-v8a/libapp.so
+# note: Java-side p111/C1429.java also has an 'expiresDate' string,
+# but that is the inappwebview cookie manager plugin, not the VIP chain.
+
+== key refs ==
+ref= 2698 slot=0x2c93 off=0x16498 pcs=['0x8d11bc'] funcs=['0x8d10d0'] text=hwMd5
+ref= 4456 slot=0x26a2 off=0x13510 pcs=['0x803750', '0x817c78', '0x8181d4', '0x86b9cc', '0x86bdd4', '0x8bc658', '0xb2274c', '0xb3de1c', '0xb3fb60', '0xc4b060', '0xce5528'] funcs=['0x8032a8', '0x816500', '0x86b760', '0x8bc3c8', '0xb22630', '0xb3c638', '0xb3fabc', '0xc4ae78'] text=bootTime
+ref= 7406 slot=0x2605 off=0x13028 pcs=['0x8ba8e0'] funcs=['0x8ba3d0'] text=expiresDate
+ref=12022 slot=0x26a3 off=0x13518 pcs=['0x592724', '0x8bc744', '0x8d6670', '0x912c5c'] funcs=['0x592034', '0x8bc3c8', '0x8d10d0', '0x912b54'] text=isFirstRun
+ref=16829 slot=0x1a11 off=0xd088 pcs=['0x87198c'] funcs=['0x871320'] text=https://ppcat.gentle.com/?i=
+ref=26968 slot=0x6b5 off=0x35a8 pcs=['0x5926c4', '0x66a808', '0x66a9e0', '0x8591ec', '0x85a6f0', '0x85eb68', '0x860c24', '0x860cf0', '0x8665b8', '0x8673cc', '0x86c688', '0x86eed0'] funcs=['0x592034', '0x66a704', '0x858d3c', '0x85a6bc', '0x85eac4', '0x860b04', '0x8663bc', '0x8671d0'] text=remoteConfigSign
+ref=27170 slot=0x1a0e off=0xd070 pcs=['0x871454'] funcs=['0x871320'] text=https://ppcat.gentle.com/?u=
+ref=30874 slot=0x1bae off=0xdd70 pcs=['0x85d898', '0x8bc4bc', '0x8bc99c'] funcs=['0x85d3a4', '0x8bc3c8'] text=rule.bin
+
+== selected function string hits ==
+-- rule.bin / bootTime / isFirstRun / remoteConfigSign 簇 @ 0x8bc3c8 --
+  0x8bc4bc off=0xdd70 ref=30874 text=rule.bin
+  0x8bc658 off=0x13510 ref=4456 text=bootTime
+  0x8bc6b4 off=0xd0a0 ref=1380 text=https://ia.51.la/go1?id=21260551&rt=
+  0x8bc6f8 off=0x35a8 ref=26968 text=remoteConfigSign
+  0x8bc744 off=0x13518 ref=12022 text=isFirstRun
+  0x8bc77c off=0x13520 ref=7058 text=isAndroid
+  0x8bc7a0 off=0x2bb8 ref=24081 text=packageInfo.sdk:
+  0x8bc7c8 off=0x13528 ref=22181 text=isIos
+  0x8bc7f0 off=0x2bc0 ref=29683 text=19
+  0x8bc80c off=0x13530 ref=25402 text=isStore
+  0x8bc848 off=0x13538 ref=6874 text=isFree
+  0x8bc870 off=0x13540 ref=12841 text=AndroidSdk
+  0x8bc898 off=0x13548 ref=26161 text=operatingSystem
+  0x8bc8dc off=0x13550 ref=24545 text=operatingSystemVersion
+  0x8bc904 off=0x13558 ref=10115 text=left
+  0x8bc950 off=0x44d8 ref=2894 text=15228000019
+-- hwMd5 簇 @ 0x8d10d0 --
+  0x8d11bc off=0x16498 ref=2698 text=hwMd5
+-- 共享状态门控 0x911788 @ 0x911788 --
+  0x91185c off=0x35a8 ref=26968 text=remoteConfigSign
+  0x91191c off=0x19da0 ref=18250 text=Main
+-- VIP/绑定/reward 混合状态机 0xb9fc84 @ 0xb9fc84 --
+  0xb9fdb8 off=0x43488 ref=17423 text=isDaily:
+  0xb9fe54 off=0x43490 ref=26299 text=未获取
+  0xb9fe94 off=0x43498 ref=3877 text=未登录
+  0xb9feb8 off=0xe80 ref=10127 text=QMb
+  0xb9fec0 off=0xe80 ref=10127 text=QMb
+  0xb9fec8 off=0xe80 ref=10127 text=QMb
+  0xb9fed0 off=0xe80 ref=10127 text=QMb
+  0xb9fedc off=0xad90 ref=30947 text=非法篡改
+  0xb9ff08 off=0x2bc0 ref=29683 text=19
+  0xb9ffb4 off=0x42f8 ref=7559 text=adNum:
+  0xb9ffe4 off=0xad90 ref=30947 text=非法篡改
+  0xba0070 off=0x2cd58 ref=13169 text=功能，通过捐赠绑定账号获取
+  0xba007c off=0x2cd28 ref=8910 text=通过捐赠绑定设备获取
+  0xba01b8 off=0x2c48 ref=28072 text=fVb
+  0xba027c off=0x2ccf8 ref=4505 text=点击头像绑定账号
+  0xba02e0 off=0x2cd00 ref=24111 text=解绑
+  0xba03b0 off=0xe80 ref=10127 text=QMb
+  0xba03b8 off=0xe80 ref=10127 text=QMb
+  0xba03c0 off=0xe80 ref=10127 text=QMb
+  0xba052c off=0xd9d8 ref=5597 text=gXc
+  0xba0538 off=0xd630 ref=2617 text=忽略
+  0xba0544 off=0xda00 ref=20794 text=iXc
+  0xba0550 off=0xda08 ref=23361 text=forceVersion
+  0xba055c off=0xad88 ref=26842 text=无法更改设置，应用已被非法篡改！请重新下载正版！
+  0xba07d0 off=0x2cd98 ref=13199 text=次推荐信息，即可获取
+  0xba07fc off=0x2cd90 ref=2878 text=24小时内累计浏览
+  0xba09e8 off=0x434d8 ref=8726 text=喵喵喵~
+-- VIP 内容页 builder 0xa54178 @ 0xa54178 --
+  0xa541f0 off=0x42f8 ref=7559 text=adNum:
+  0xa54228 off=0xe80 ref=10127 text=QMb
+  0xa54230 off=0xe80 ref=10127 text=QMb
+  0xa54238 off=0x2ce8 ref=25911 text=webBgColor
+  0xa54240 off=0xe80 ref=10127 text=QMb
+  0xa5424c off=0xad90 ref=30947 text=非法篡改
+  0xa54278 off=0x2bc0 ref=29683 text=19
+  0xa542b0 off=0x2ce8 ref=25911 text=webBgColor
+  0xa542c4 off=0x2ce8 ref=25911 text=webBgColor
+  0xa542dc off=0x2cd0 ref=5257 text=fontSize
+  0xa54428 off=0x2ce8 ref=25911 text=webBgColor
+  0xa5443c off=0x2ce8 ref=25911 text=webBgColor
+  0xa54454 off=0x2cd0 ref=5257 text=fontSize
+  0xa545a8 off=0xd9d8 ref=5597 text=gXc
+  0xa545b4 off=0xd630 ref=2617 text=忽略
+  0xa545c0 off=0xda00 ref=20794 text=iXc
+  0xa545cc off=0xda08 ref=23361 text=forceVersion
+  0xa545d8 off=0xad88 ref=26842 text=无法更改设置，应用已被非法篡改！请重新下载正版！
+  0xa54620 off=0xad90 ref=30947 text=非法篡改
+  0xa5469c off=0xe80 ref=10127 text=QMb
+  0xa546a4 off=0xe80 ref=10127 text=QMb
+  0xa546ac off=0xe80 ref=10127 text=QMb
+  0xa546c4 off=0x2ce8 ref=25911 text=webBgColor
+  0xa546d8 off=0x2ce8 ref=25911 text=webBgColor
+  0xa546e0 off=0xe80 ref=10127 text=QMb
+  0xa546f4 off=0x20e50 ref=9619 text=站点类型
+  0xa54700 off=0x20e50 ref=9619 text=站点类型
+  0xa54760 off=0x2cd0 ref=5257 text=fontSize
+  0xa5478c off=0x2c48 ref=28072 text=fVb
+  0xa54798 off=0x20e50 ref=9619 text=站点类型
+  0xa547a0 off=0x20e50 ref=9619 text=站点类型
+  0xa547b4 off=0x2ccd8 ref=10754 text=http://q.qlogo.cn/headimg_dl?bs=qq&dst_uin=
+  0xa547dc off=0x2cce0 ref=12640 text=&fid=blog&spec=100
+  0xa54874 off=0x2c48 ref=28072 text=fVb
+  0xa54930 off=0x2ccf8 ref=4505 text=点击头像绑定账号
+  0xa54970 off=0x20e50 ref=9619 text=站点类型
+  0xa5497c off=0x20e50 ref=9619 text=站点类型
+  0xa54994 off=0x2cd00 ref=24111 text=解绑
+  0xa54a28 off=0xad90 ref=30947 text=非法篡改
+  0xa54be0 off=0xd9d8 ref=5597 text=gXc
+  0xa54bec off=0xd630 ref=2617 text=忽略
+  0xa54bf8 off=0xda00 ref=20794 text=iXc
+  0xa54c04 off=0xda08 ref=23361 text=forceVersion
+  0xa54c10 off=0xad88 ref=26842 text=无法更改设置，应用已被非法篡改！请重新下载正版！
+  0xa54cb8 off=0xad90 ref=30947 text=非法篡改
+  0xa54d3c off=0x2cd28 ref=8910 text=通过捐赠绑定设备获取
+  0xa54d68 off=0xad90 ref=30947 text=非法篡改
+  0xa54d9c off=0xd9d8 ref=5597 text=gXc
+  0xa54db4 off=0xda00 ref=20794 text=iXc
+  0xa54dc0 off=0xda08 ref=23361 text=forceVersion
+  0xa54dcc off=0xad88 ref=26842 text=无法更改设置，应用已被非法篡改！请重新下载正版！
+  0xa54e28 off=0x26168 ref=1014 text=‘
+  0xa54e54 off=0x2cd38 ref=9292 text=已获取
+  0xa54e80 off=0x2cd40 ref=29757 text=未获得
+  0xa54f24 off=0x2cd50 ref=30162 text=、更多来源和各种
+  0xa55130 off=0x2cd58 ref=13169 text=功能，通过捐赠绑定账号获取
+  0xa5515c off=0xad90 ref=30947 text=非法篡改
+  0xa55190 off=0xd9d8 ref=5597 text=gXc
+  0xa551a8 off=0xda00 ref=20794 text=iXc
+  0xa551b4 off=0xda08 ref=23361 text=forceVersion
+  0xa551c0 off=0xad88 ref=26842 text=无法更改设置，应用已被非法篡改！请重新下载正版！
+  0xa55314 off=0x2cd50 ref=30162 text=、更多来源和各种
+  0xa55424 off=0xd9d8 ref=5597 text=gXc
+  0xa55430 off=0xd630 ref=2617 text=忽略
+  0xa5543c off=0xda00 ref=20794 text=iXc
+  0xa55448 off=0xda08 ref=23361 text=forceVersion
+  0xa55454 off=0xad88 ref=26842 text=无法更改设置，应用已被非法篡改！请重新下载正版！
+  0xa554a0 off=0xad90 ref=30947 text=非法篡改
+  0xa555ac off=0x2cd90 ref=2878 text=24小时内累计浏览
+  0xa555e4 off=0x2cd98 ref=13199 text=次推荐信息，即可获取
+  0xa55610 off=0xad90 ref=30947 text=非法篡改
+  0xa55644 off=0xd9d8 ref=5597 text=gXc
+  0xa5565c off=0xda00 ref=20794 text=iXc
+  0xa55668 off=0xda08 ref=23361 text=forceVersion
+  0xa55674 off=0xad88 ref=26842 text=无法更改设置，应用已被非法篡改！请重新下载正版！
+  0xa556bc off=0xe80 ref=10127 text=QMb
+  0xa5571c off=0x2cda0 ref=13928 text=，未获得特权将在0点重置浏览次数！
+  0xa55858 off=0x2cdb8 ref=3524 text=已生效
+  0xa55a08 off=0xad90 ref=30947 text=非法篡改
+  0xa55ad4 off=0xd9d8 ref=5597 text=gXc
+  0xa55ae0 off=0xd630 ref=2617 text=忽略
+  0xa55aec off=0xda00 ref=20794 text=iXc
+  0xa55af8 off=0xda08 ref=23361 text=forceVersion
+  0xa55b04 off=0xad88 ref=26842 text=无法更改设置，应用已被非法篡改！请重新下载正版！
+  0xa55b58 off=0x2cdd0 ref=22939 text=img/kamm.jpg
+  0xa55c3c off=0xe80 ref=10127 text=QMb
+  0xa55c44 off=0xe80 ref=10127 text=QMb
+  0xa55c4c off=0xe80 ref=10127 text=QMb
+  0xa55c54 off=0xe80 ref=10127 text=QMb
+  0xa55c80 off=0x2cdd8 ref=21707 text=每日喂喵
+  0xa55cbc off=0x2cde0 ref=28525 text=喵喵饿了
+  0xa55cd0 off=0x22070 ref=15612 text=渲染代码
+  0xa55d8c off=0x2cd0 ref=5257 text=fontSize
+  0xa55dcc off=0x2cd0 ref=5257 text=fontSize
+  0xa55dec off=0x2cdf0 ref=6939 text=img/status.jpg
+  0xa55e20 off=0xad90 ref=30947 text=非法篡改
+  0xa55e54 off=0xd9d8 ref=5597 text=gXc
+  0xa55e60 off=0xd630 ref=2617 text=忽略
+  0xa55e6c off=0xda00 ref=20794 text=iXc
+  0xa55e78 off=0xda08 ref=23361 text=forceVersion
+  0xa55e84 off=0xad88 ref=26842 text=无法更改设置，应用已被非法篡改！请重新下载正版！
+  0xa55ecc off=0x220b0 ref=9888 text=浏览器设置
+  0xa55f30 off=0x2cdf8 ref=21925 text=训练喵喵
+  0xa55f8c off=0x2ce00 ref=31475 text=让喵喵更智能
+  0xa55fa0 off=0x22070 ref=15612 text=渲染代码
+  0xa5605c off=0x2cd0 ref=5257 text=fontSize
+  0xa5609c off=0x2cd0 ref=5257 text=fontSize
+  0xa560bc off=0x2ce10 ref=3838 text=分享喵喵
+  0xa560f0 off=0xad90 ref=30947 text=非法篡改
+  0xa56124 off=0xd9d8 ref=5597 text=gXc
+  0xa56130 off=0xd630 ref=2617 text=忽略
+  0xa5613c off=0xda00 ref=20794 text=iXc
+  0xa56148 off=0xda08 ref=23361 text=forceVersion
+  0xa56154 off=0xad88 ref=26842 text=无法更改设置，应用已被非法篡改！请重新下载正版！
+  0xa5619c off=0x220b0 ref=9888 text=浏览器设置
+  0xa56200 off=0x2ce18 ref=17788 text=每日一次
+  0xa56270 off=0x22070 ref=15612 text=渲染代码
+  0xa5632c off=0x2cd0 ref=5257 text=fontSize
+  0xa5636c off=0x2cd0 ref=5257 text=fontSize
+  0xa5638c off=0x2ce28 ref=17146 text=我正在使用皮皮喵看漫画、读小说和追新番!\\n全能的自定义检索阅读工具!\\nAndroid端下载地址: 
+  0xa563c0 off=0xad90 ref=30947 text=非法篡改
+  0xa563f4 off=0xd9d8 ref=5597 text=gXc
+  0xa56400 off=0xd630 ref=2617 text=忽略
+  0xa5640c off=0xda00 ref=20794 text=iXc
+  0xa56418 off=0xda08 ref=23361 text=forceVersion
+  0xa56424 off=0xad88 ref=26842 text=无法更改设置，应用已被非法篡改！请重新下载正版！
+  0xa5646c off=0x220b0 ref=9888 text=浏览器设置
+  0xa564cc off=0x2ce30 ref=32030 text=\\nIOS端安装地址: 
+  0xa56544 off=0xad90 ref=30947 text=非法篡改
+  0xa565b8 off=0x20e68 ref=26971 text=混合
+  0xa56690 off=0xd9d8 ref=5597 text=gXc
+  0xa5669c off=0xd630 ref=2617 text=忽略
+  0xa566a8 off=0xda00 ref=20794 text=iXc
+  0xa566b4 off=0xda08 ref=23361 text=forceVersion
+  0xa566c0 off=0xad88 ref=26842 text=无法更改设置，应用已被非法篡改！请重新下载正版！
+  0xa5673c off=0x20e68 ref=26971 text=混合
+-- ppcat.gentle.com URL builder 0x871320 @ 0x871320 --
+  0x871454 off=0xd070 ref=27170 text=https://ppcat.gentle.com/?u=
+  0x871834 off=0x1038 ref=3357 text=mod
+  0x8718f8 off=0xd080 ref=6383 text=other
+  0x871938 off=0x2bc0 ref=29683 text=19
+  0x87198c off=0xd088 ref=16829 text=https://ppcat.gentle.com/?i=
+  0x871994 off=0x32d8 ref=1577 text=deviceInfo
+  0x871a1c off=0x3468 ref=8689 text=machine
+  0x871a30 off=0x3468 ref=8689 text=machine
+  0x871a5c off=0xd0a0 ref=1380 text=https://ia.51.la/go1?id=21260551&rt=
+  0x871a90 off=0x3468 ref=8689 text=machine
+  0x871abc off=0xd0a8 ref=21160 text=&rl=
+  0x871b34 off=0xd0b0 ref=11624 text=&lang=zh-CN&ct=unknow&pf=1&ins=1&vd=1&ce=1&cd=24&ds=&ing=1&ekc=&sid=
+  0x871b50 off=0xd0b8 ref=22971 text=&tt=ppcat&kw=&cu=
+
+== direct BL callers ==
+共享状态门控 0x911788: ['0x590370', '0x7e3d80', '0x7e85dc', '0x7eba74', '0x7f7898', '0x80a384', '0x8391dc', '0x8a0fec', '0x920dc4', '0xa581c0', '0xa92e04', '0xaf20b0', '0xb04bd8', '0xb9fcb4', '0xba2848', '0xbca258', '0xbe4954', '0xc46bb0']
+奖励特权状态对象 0x8cf36c: ['0x59d998', '0x7e813c', '0x7e8618', '0x838970', '0x86f154', '0x89b004', '0x8a0448', '0x8a05ec', '0x8a4368', '0x8d6c68', '0xa541c8', '0xb1748c', '0xb43884', '0xb9fe74', '0xbca364', '0xc4c6c4', '0xf85d00']
+
+== snippets ==
+-- 0x8bc3c8 内部: bootTime + remoteConfigSign 0x8bc650..0x8bc710 --
+0x008bc650  200200f9 str     x0, [x17]
+0x008bc654  704f4091 add     x16, x27, #0x13, lsl #12
+0x008bc658  108a42f9 ldr     x16, [x16, #0x510]
+0x008bc65c  7e0342f9 ldr     x30, [x27, #0x400]
+0x008bc660  fe41bfa9 stp     x30, x16, [x15, #-0x10]!
+0x008bc664  18acee97 bl      #0x4676c4
+0x008bc668  ef410091 add     x15, x15, #0x10
+0x008bc66c  b14305d1 sub     x17, x29, #0x150
+0x008bc670  200200f9 str     x0, [x17]
+0x008bc674  709361f9 ldr     x16, [x27, #0x4320]
+0x008bc678  7e0342f9 ldr     x30, [x27, #0x400]
+0x008bc67c  fe41bfa9 stp     x30, x16, [x15, #-0x10]!
+0x008bc680  11acee97 bl      #0x4676c4
+0x008bc684  ef410091 add     x15, x15, #0x10
+0x008bc688  b16305d1 sub     x17, x29, #0x158
+0x008bc68c  200200f9 str     x0, [x17]
+0x008bc690  404340f9 ldr     x0, [x26, #0x80]
+0x008bc694  00a452f9 ldr     x0, [x0, #0x2548]
+0x008bc698  701740f9 ldr     x16, [x27, #0x28]
+0x008bc69c  1f00106b cmp     w0, w16
+0x008bc6a0  80000054 b.eq    #0x8bc6b0
+0x008bc6a4  70d35af9 ldr     x16, [x27, #0x35a0]
+0x008bc6a8  1f00106b cmp     w0, w16
+0x008bc6ac  81000054 b.ne    #0x8bc6bc
+0x008bc6b0  60374091 add     x0, x27, #0xd, lsl #12
+0x008bc6b4  005040f9 ldr     x0, [x0, #0xa0]
+0x008bc6b8  77171b94 bl      #0xf82494
+0x008bc6bc  b16305d1 sub     x17, x29, #0x158
+0x008bc6c0  300240f9 ldr     x16, [x17]
+0x008bc6c4  7e536af9 ldr     x30, [x27, #0x54a0]
+0x008bc6c8  fe41bfa9 stp     x30, x16, [x15, #-0x10]!
+0x008bc6cc  e08d1ff8 str     x0, [x15, #-8]!
+0x008bc6d0  26051b94 bl      #0xf7db68
+0x008bc6d4  ef610091 add     x15, x15, #0x18
+0x008bc6d8  404340f9 ldr     x0, [x26, #0x80]
+0x008bc6dc  00a852f9 ldr     x0, [x0, #0x2550]
+0x008bc6e0  701740f9 ldr     x16, [x27, #0x28]
+0x008bc6e4  1f00106b cmp     w0, w16
+0x008bc6e8  80000054 b.eq    #0x8bc6f8
+0x008bc6ec  70d35af9 ldr     x16, [x27, #0x35a0]
+0x008bc6f0  1f00106b cmp     w0, w16
+0x008bc6f4  61000054 b.ne    #0x8bc700
+0x008bc6f8  60d75af9 ldr     x0, [x27, #0x35a8]
+0x008bc6fc  66171b94 bl      #0xf82494
+0x008bc700  b16305d1 sub     x17, x29, #0x158
+0x008bc704  300240f9 ldr     x16, [x17]
+0x008bc708  7e374091 add     x30, x27, #0xd, lsl #12
+0x008bc70c  deb742f9 ldr     x30, [x30, #0x568]
+-- 0x8bc3c8 内部: isFirstRun 0x8bc730..0x8bc760 --
+0x008bc730  80000054 b.eq    #0x8bc740
+0x008bc734  70d35af9 ldr     x16, [x27, #0x35a0]
+0x008bc738  1f00106b cmp     w0, w16
+0x008bc73c  81000054 b.ne    #0x8bc74c
+0x008bc740  604f4091 add     x0, x27, #0x13, lsl #12
+0x008bc744  008c42f9 ldr     x0, [x0, #0x518]
+0x008bc748  53171b94 bl      #0xf82494
+0x008bc74c  b16305d1 sub     x17, x29, #0x158
+0x008bc750  300240f9 ldr     x16, [x17]
+0x008bc754  7ea759f9 ldr     x30, [x27, #0x3348]
+0x008bc758  fe41bfa9 stp     x30, x16, [x15, #-0x10]!
+0x008bc75c  e08d1ff8 str     x0, [x15, #-8]!
+-- 0x8d10d0 邻近: remoteConfigSign 回写 0x8d65e0..0x8d6630 --
+0x008d65e0  404340f9 ldr     x0, [x26, #0x80]
+0x008d65e4  00a852f9 ldr     x0, [x0, #0x2550]
+0x008d65e8  701740f9 ldr     x16, [x27, #0x28]
+0x008d65ec  1f00106b cmp     w0, w16
+0x008d65f0  80000054 b.eq    #0x8d6600
+0x008d65f4  70d35af9 ldr     x16, [x27, #0x35a0]
+0x008d65f8  1f00106b cmp     w0, w16
+0x008d65fc  61000054 b.ne    #0x8d6608
+0x008d6600  60d75af9 ldr     x0, [x27, #0x35a8]
+0x008d6604  a4af1a94 bl      #0xf82494
+0x008d6608  f1f48292 mov     x17, #-0x17a8
+0x008d660c  b103118b add     x17, x29, x17
+0x008d6610  210240f9 ldr     x1, [x17]
+0x008d6614  396c0091 add     x25, x1, #0x1b
+0x008d6618  200300b9 str     w0, [x25]
+0x008d661c  e0000036 tbz     w0, #0, #0x8d6638
+0x008d6620  30f05f38 ldurb   w16, [x1, #-1]
+0x008d6624  11f05f38 ldurb   w17, [x0, #-1]
+0x008d6628  300a508a and     x16, x17, x16, lsr #2
+0x008d662c  1f825cea tst     x16, x28, lsr #32
+-- 0x911788 内部: remoteConfigSign 取值 0x911840..0x911890 --
+0x00911840  00a852f9 ldr     x0, [x0, #0x2550]
+0x00911844  701740f9 ldr     x16, [x27, #0x28]
+0x00911848  1f00106b cmp     w0, w16
+0x0091184c  80000054 b.eq    #0x91185c
+0x00911850  70d35af9 ldr     x16, [x27, #0x35a0]
+0x00911854  1f00106b cmp     w0, w16
+0x00911858  61000054 b.ne    #0x911864
+0x0091185c  60d75af9 ldr     x0, [x27, #0x35a8]
+0x00911860  0dc31994 bl      #0xf82494
+0x00911864  e20300aa mov     x2, x0
+0x00911868  a1035af8 ldur    x1, [x29, #-0x60]
+0x0091186c  a20319f8 stur    x2, [x29, #-0x70]
+0x00911870  c00680d2 mov     x0, #0x36
+0x00911874  41000036 tbz     w1, #0, #0x91187c
+0x00911878  20104078 ldurh   w0, [x1, #1]
+0x0091187c  e205bfa9 stp     x2, x1, [x15, #-0x10]!
+0x00911880  71348cd2 mov     x17, #0x61a3
+0x00911884  1e00118b add     x30, x0, x17
+0x00911888  be7a7ef8 ldr     x30, [x21, x30, lsl #3]
+0x0091188c  c0033fd6 blr     x30
+-- 0xb9fc84: 先过 0x911788 再进 0x8cf36c 0xb9fcb4..0xb9fe90 --
+0x00b9fcb4  b5c6f597 bl      #0x911788
+0x00b9fcb8  e10300aa mov     x1, x0
+0x00b9fcbc  a1031ff8 stur    x1, [x29, #-0x10]
+0x00b9fcc0  40002837 tbnz    w0, #5, #0xb9fcc8
+0x00b9fcc4  128a0f94 bl      #0xf8250c
+0x00b9fcc8  a0035ff8 ldur    x0, [x29, #-0x10]
+0x00b9fccc  c0002037 tbnz    w0, #4, #0xb9fce4
+0x00b9fcd0  100080d2 mov     x16, #0
+0x00b9fcd4  f059bfa9 stp     x16, x22, [x15, #-0x10]!
+0x00b9fcd8  151fe397 bl      #0x46792c
+0x00b9fcdc  ef410091 add     x15, x15, #0x10
+0x00b9fce0  38000014 b       #0xb9fdc0
+0x00b9fce4  404340f9 ldr     x0, [x26, #0x80]
+0x00b9fce8  008448f9 ldr     x0, [x0, #0x1108]
+0x00b9fcec  1f00166b cmp     w0, w22
+0x00b9fcf0  20050054 b.eq    #0xb9fd94
+0x00b9fcf4  404340f9 ldr     x0, [x26, #0x80]
+0x00b9fcf8  008448f9 ldr     x0, [x0, #0x1108]
+0x00b9fcfc  01104078 ldurh   w1, [x0, #1]
+0x00b9fd00  700f4191 add     x16, x27, #0x43, lsl #12
+0x00b9fd04  103a42f9 ldr     x16, [x16, #0x470]
+0x00b9fd08  f001bfa9 stp     x16, x0, [x15, #-0x10]!
+0x00b9fd0c  e00301aa mov     x0, x1
+0x00b9fd10  1e0440d1 sub     x30, x0, #1, lsl #12
+0x00b9fd14  be7a7ef8 ldr     x30, [x21, x30, lsl #3]
+0x00b9fd18  c0033fd6 blr     x30
+0x00b9fd1c  ef410091 add     x15, x15, #0x10
+0x00b9fd20  1f00166b cmp     w0, w22
+0x00b9fd24  80030054 b.eq    #0xb9fd94
+0x00b9fd28  404340f9 ldr     x0, [x26, #0x80]
+0x00b9fd2c  008448f9 ldr     x0, [x0, #0x1108]
+0x00b9fd30  01104078 ldurh   w1, [x0, #1]
+0x00b9fd34  700f4191 add     x16, x27, #0x43, lsl #12
+0x00b9fd38  103a42f9 ldr     x16, [x16, #0x470]
+0x00b9fd3c  f001bfa9 stp     x16, x0, [x15, #-0x10]!
+0x00b9fd40  e00301aa mov     x0, x1
+0x00b9fd44  1e0440d1 sub     x30, x0, #1, lsl #12
+0x00b9fd48  be7a7ef8 ldr     x30, [x21, x30, lsl #3]
+0x00b9fd4c  c0033fd6 blr     x30
+0x00b9fd50  ef410091 add     x15, x15, #0x10
+0x00b9fd54  e30300aa mov     x3, x0
+0x00b9fd58  e20316aa mov     x2, x22
+0x00b9fd5c  e10316aa mov     x1, x22
+0x00b9fd60  a3831ef8 stur    x3, [x29, #-0x18]
+0x00b9fd64  c40680d2 mov     x4, #0x36
+0x00b9fd68  40000036 tbz     w0, #0, #0xb9fd70
+0x00b9fd6c  04104078 ldurh   w4, [x0, #1]
+0x00b9fd70  844401d1 sub     x4, x4, #0x51
+0x00b9fd74  9f0800f1 cmp     x4, #2
+0x00b9fd78  a9000054 b.ls    #0xb9fd8c
+0x00b9fd7c  68bb5cf9 ldr     x8, [x27, #0x3970]
+0x00b9fd80  630f4191 add     x3, x27, #0x43, lsl #12
+0x00b9fd84  633c42f9 ldr     x3, [x3, #0x478]
+0x00b9fd88  dfc2f597 bl      #0x910904
+0x00b9fd8c  a0835ef8 ldur    x0, [x29, #-0x18]
+0x00b9fd90  0c000014 b       #0xb9fdc0
+0x00b9fd94  404340f9 ldr     x0, [x26, #0x80]
+0x00b9fd98  00f052f9 ldr     x0, [x0, #0x25e0]
+0x00b9fd9c  701740f9 ldr     x16, [x27, #0x28]
+0x00b9fda0  1f00106b cmp     w0, w16
+0x00b9fda4  80000054 b.eq    #0xb9fdb4
+0x00b9fda8  70d35af9 ldr     x16, [x27, #0x35a0]
+0x00b9fdac  1f00106b cmp     w0, w16
+0x00b9fdb0  81000054 b.ne    #0xb9fdc0
+0x00b9fdb4  600f4191 add     x0, x27, #0x43, lsl #12
+0x00b9fdb8  004442f9 ldr     x0, [x0, #0x488]
+0x00b9fdbc  b6890f94 bl      #0xf82494
+0x00b9fdc0  a2835ff8 ldur    x2, [x29, #-8]
+0x00b9fdc4  a0831ef8 stur    x0, [x29, #-0x18]
+0x00b9fdc8  100080d2 mov     x16, #0
+0x00b9fdcc  f059bfa9 stp     x16, x22, [x15, #-0x10]!
+0x00b9fdd0  d71ee397 bl      #0x46792c
+0x00b9fdd4  ef410091 add     x15, x15, #0x10
+0x00b9fdd8  a2835ff8 ldur    x2, [x29, #-8]
+0x00b9fddc  403001b8 stur    w0, [x2, #0x13]
+0x00b9fde0  50f05f38 ldurb   w16, [x2, #-1]
+0x00b9fde4  11f05f38 ldurb   w17, [x0, #-1]
+0x00b9fde8  300a508a and     x16, x17, x16, lsr #2
+0x00b9fdec  1f825cea tst     x16, x28, lsr #32
+0x00b9fdf0  40000054 b.eq    #0xb9fdf8
+0x00b9fdf4  5d8b0f94 bl      #0xf82b68
+0x00b9fdf8  700342f9 ldr     x16, [x27, #0x400]
+0x00b9fdfc  f059bfa9 stp     x16, x22, [x15, #-0x10]!
+0x00b9fe00  311ee397 bl      #0x4676c4
+0x00b9fe04  ef410091 add     x15, x15, #0x10
+0x00b9fe08  a2835ff8 ldur    x2, [x29, #-8]
+0x00b9fe0c  407001b8 stur    w0, [x2, #0x17]
+0x00b9fe10  e0000036 tbz     w0, #0, #0xb9fe2c
+0x00b9fe14  50f05f38 ldurb   w16, [x2, #-1]
+0x00b9fe18  11f05f38 ldurb   w17, [x0, #-1]
+0x00b9fe1c  300a508a and     x16, x17, x16, lsr #2
+0x00b9fe20  1f825cea tst     x16, x28, lsr #32
+0x00b9fe24  40000054 b.eq    #0xb9fe2c
+0x00b9fe28  508b0f94 bl      #0xf82b68
+0x00b9fe2c  a0835ef8 ldur    x0, [x29, #-0x18]
+0x00b9fe30  01104078 ldurh   w1, [x0, #1]
+0x00b9fe34  e08d1ff8 str     x0, [x15, #-8]!
+0x00b9fe38  e00301aa mov     x0, x1
+0x00b9fe3c  1eac3a91 add     x30, x0, #0xeab
+0x00b9fe40  be7a7ef8 ldr     x30, [x21, x30, lsl #3]
+0x00b9fe44  c0033fd6 blr     x30
+0x00b9fe48  ef210091 add     x15, x15, #8
+0x00b9fe4c  a2835ff8 ldur    x2, [x29, #-8]
+0x00b9fe50  610f4191 add     x1, x27, #0x43, lsl #12
+0x00b9fe54  214842f9 ldr     x1, [x1, #0x490]
+0x00b9fe58  a0831ef8 stur    x0, [x29, #-0x18]
+0x00b9fe5c  7a8c0f94 bl      #0xf83044
+0x00b9fe60  b0835ef8 ldur    x16, [x29, #-0x18]
+0x00b9fe64  e041bfa9 stp     x0, x16, [x15, #-0x10]!
+0x00b9fe68  5add0d94 bl      #0xf173d0
+0x00b9fe6c  ef410091 add     x15, x15, #0x10
+0x00b9fe70  64db55f9 ldr     x4, [x27, #0x2bb0]
+0x00b9fe74  3ebdf497 bl      #0x8cf36c
+0x00b9fe78  a0831ef8 stur    x0, [x29, #-0x18]
+0x00b9fe7c  d110f197 bl      #0x7e41c0
+0x00b9fe80  e10316aa mov     x1, x22
+0x00b9fe84  820080d2 mov     x2, #4
+0x00b9fe88  a0031ef8 stur    x0, [x29, #-0x20]
+0x00b9fe8c  c78f0f94 bl      #0xf83da8
+-- 0x871320 内部: ?u= URL 片段 0x871440..0x8714c0 --
+0x00871440  845401d1 sub     x4, x4, #0x55
+0x00871444  9f0c00f1 cmp     x4, #3
+0x00871448  a9000054 b.ls    #0x87145c
+0x0087144c  688759f9 ldr     x8, [x27, #0x3308]
+0x00871450  63374091 add     x3, x27, #0xd, lsl #12
+0x00871454  633840f9 ldr     x3, [x3, #0x70]
+0x00871458  3a7f1c94 bl      #0xf91140
+0x0087145c  a00354f8 ldur    x0, [x29, #-0xc0]
+0x00871460  a18354f8 ldur    x1, [x29, #-0xb8]
+0x00871464  203001b8 stur    w0, [x1, #0x13]
+0x00871468  30f05f38 ldurb   w16, [x1, #-1]
+0x0087146c  11f05f38 ldurb   w17, [x0, #-1]
+0x00871470  300a508a and     x16, x17, x16, lsr #2
+0x00871474  1f825cea tst     x16, x28, lsr #32
+0x00871478  40000054 b.eq    #0x871480
+0x0087147c  b3451c94 bl      #0xf82b48
+0x00871480  20f040b8 ldur    w0, [x1, #0xf]
+0x00871484  00801c8b add     x0, x0, x28, lsl #32
+0x00871488  a00314f8 stur    x0, [x29, #-0xc0]
+0x0087148c  404340f9 ldr     x0, [x26, #0x80]
+0x00871490  000854f9 ldr     x0, [x0, #0x2810]
+0x00871494  701740f9 ldr     x16, [x27, #0x28]
+0x00871498  1f00106b cmp     w0, w16
+0x0087149c  80000054 b.eq    #0x8714ac
+0x008714a0  70d35af9 ldr     x16, [x27, #0x35a0]
+0x008714a4  1f00106b cmp     w0, w16
+0x008714a8  61000054 b.ne    #0x8714b4
+0x008714ac  602b62f9 ldr     x0, [x27, #0x4450]
+0x008714b0  f9431c94 bl      #0xf82494
+0x008714b4  e08d1ff8 str     x0, [x15, #-8]!
+0x008714b8  89faef97 bl      #0x46fedc
+0x008714bc  ef210091 add     x15, x15, #8
+-- 0x871320 内部: ?i= URL + deviceInfo/machine 0x871970..0x871b50 --
+0x00871970  e00301aa mov     x0, x1
+0x00871974  a18315f8 stur    x1, [x29, #-0xa8]
+0x00871978  40002837 tbnz    w0, #5, #0x871980
+0x0087197c  e4421c94 bl      #0xf8250c
+0x00871980  a08355f8 ldur    x0, [x29, #-0xa8]
+0x00871984  80002037 tbnz    w0, #4, #0x871994
+0x00871988  60374091 add     x0, x27, #0xd, lsl #12
+0x0087198c  004440f9 ldr     x0, [x0, #0x88]
+0x00871990  05000014 b       #0x8719a4
+0x00871994  606f59f9 ldr     x0, [x27, #0x32d8]
+0x00871998  03000014 b       #0x8719a4
+0x0087199c  60374091 add     x0, x27, #0xd, lsl #12
+0x008719a0  004840f9 ldr     x0, [x0, #0x90]
+0x008719a4  e20300aa mov     x2, x0
+0x008719a8  a18354f8 ldur    x1, [x29, #-0xb8]
+0x008719ac  a00354f8 ldur    x0, [x29, #-0xc0]
+0x008719b0  1f00166b cmp     w0, w22
+0x008719b4  c02d0054 b.eq    #0x871f6c
+0x008719b8  e201bfa9 stp     x2, x0, [x15, #-0x10]!
+0x008719bc  91f7ef97 bl      #0x46f800
+0x008719c0  ef410091 add     x15, x15, #0x10
+0x008719c4  e08d1ff8 str     x0, [x15, #-8]!
+0x008719c8  73010094 bl      #0x871f94
+0x008719cc  ef210091 add     x15, x15, #8
+0x008719d0  a38354f8 ldur    x3, [x29, #-0xb8]
+0x008719d4  607002b8 stur    w0, [x3, #0x27]
+0x008719d8  70f05f38 ldurb   w16, [x3, #-1]
+0x008719dc  11f05f38 ldurb   w17, [x0, #-1]
+0x008719e0  300a508a and     x16, x17, x16, lsr #2
+0x008719e4  1f825cea tst     x16, x28, lsr #32
+0x008719e8  40000054 b.eq    #0x8719f0
+0x008719ec  67441c94 bl      #0xf82b88
+0x008719f0  e10316aa mov     x1, x22
+0x008719f4  020280d2 mov     x2, #0x10
+0x008719f8  ec481c94 bl      #0xf83da8
+0x008719fc  a08315f8 stur    x0, [x29, #-0xa8]
+0x00871a00  71374091 add     x17, x27, #0xd, lsl #12
+0x00871a04  314e40f9 ldr     x17, [x17, #0x98]
+0x00871a08  11f000b8 stur    w17, [x0, #0xf]
+0x00871a0c  a18354f8 ldur    x1, [x29, #-0xb8]
+0x00871a10  22b041b8 ldur    w2, [x1, #0x1b]
+0x00871a14  42801c8b add     x2, x2, x28, lsl #32
+0x00871a18  023001b8 stur    w2, [x0, #0x13]
+0x00871a1c  71375af9 ldr     x17, [x27, #0x3468]
+0x00871a20  117001b8 stur    w17, [x0, #0x17]
+0x00871a24  424340f9 ldr     x2, [x26, #0x80]
+0x00871a28  42b852f9 ldr     x2, [x2, #0x2570]
+0x00871a2c  02b001b8 stur    w2, [x0, #0x1b]
+0x00871a30  71375af9 ldr     x17, [x27, #0x3468]
+0x00871a34  11f001b8 stur    w17, [x0, #0x1f]
+0x00871a38  404340f9 ldr     x0, [x26, #0x80]
+0x00871a3c  00a452f9 ldr     x0, [x0, #0x2548]
+0x00871a40  701740f9 ldr     x16, [x27, #0x28]
+0x00871a44  1f00106b cmp     w0, w16
+0x00871a48  80000054 b.eq    #0x871a58
+0x00871a4c  70d35af9 ldr     x16, [x27, #0x35a0]
+0x00871a50  1f00106b cmp     w0, w16
+0x00871a54  81000054 b.ne    #0x871a64
+0x00871a58  60374091 add     x0, x27, #0xd, lsl #12
+0x00871a5c  005040f9 ldr     x0, [x0, #0xa0]
+0x00871a60  8d421c94 bl      #0xf82494
+0x00871a64  a18355f8 ldur    x1, [x29, #-0xa8]
+0x00871a68  398c0091 add     x25, x1, #0x23
+0x00871a6c  200300b9 str     w0, [x25]
+0x00871a70  e0000036 tbz     w0, #0, #0x871a8c
+0x00871a74  30f05f38 ldurb   w16, [x1, #-1]
+0x00871a78  11f05f38 ldurb   w17, [x0, #-1]
+0x00871a7c  300a508a and     x16, x17, x16, lsr #2
+0x00871a80  1f825cea tst     x16, x28, lsr #32
+0x00871a84  40000054 b.eq    #0x871a8c
+0x00871a88  bd421c94 bl      #0xf8257c
+0x00871a8c  a18355f8 ldur    x1, [x29, #-0xa8]
+0x00871a90  71375af9 ldr     x17, [x27, #0x3468]
+0x00871a94  317002b8 stur    w17, [x1, #0x27]
+0x00871a98  404340f9 ldr     x0, [x26, #0x80]
+0x00871a9c  00ac52f9 ldr     x0, [x0, #0x2558]
+0x00871aa0  701740f9 ldr     x16, [x27, #0x28]
+0x00871aa4  1f00106b cmp     w0, w16
+0x00871aa8  80000054 b.eq    #0x871ab8
+0x00871aac  70d35af9 ldr     x16, [x27, #0x35a0]
+0x00871ab0  1f00106b cmp     w0, w16
+0x00871ab4  81000054 b.ne    #0x871ac4
+0x00871ab8  60374091 add     x0, x27, #0xd, lsl #12
+0x00871abc  005440f9 ldr     x0, [x0, #0xa8]
+0x00871ac0  75421c94 bl      #0xf82494
+0x00871ac4  a18355f8 ldur    x1, [x29, #-0xa8]
+0x00871ac8  39ac0091 add     x25, x1, #0x2b
+0x00871acc  200300b9 str     w0, [x25]
+0x00871ad0  e0000036 tbz     w0, #0, #0x871aec
+0x00871ad4  30f05f38 ldurb   w16, [x1, #-1]
+0x00871ad8  11f05f38 ldurb   w17, [x0, #-1]
+0x00871adc  300a508a and     x16, x17, x16, lsr #2
+0x00871ae0  1f825cea tst     x16, x28, lsr #32
+0x00871ae4  40000054 b.eq    #0x871aec
+0x00871ae8  a5421c94 bl      #0xf8257c
+0x00871aec  b08355f8 ldur    x16, [x29, #-0xa8]
+0x00871af0  f08d1ff8 str     x16, [x15, #-8]!
+0x00871af4  afceef97 bl      #0x4655b0
+0x00871af8  ef210091 add     x15, x15, #8
+0x00871afc  e08d1ff8 str     x0, [x15, #-8]!
+0x00871b00  25010094 bl      #0x871f94
+0x00871b04  ef210091 add     x15, x15, #8
+0x00871b08  a18354f8 ldur    x1, [x29, #-0xb8]
+0x00871b0c  20b002b8 stur    w0, [x1, #0x2b]
+0x00871b10  30f05f38 ldurb   w16, [x1, #-1]
+0x00871b14  11f05f38 ldurb   w17, [x0, #-1]
+0x00871b18  300a508a and     x16, x17, x16, lsr #2
+0x00871b1c  1f825cea tst     x16, x28, lsr #32
+0x00871b20  40000054 b.eq    #0x871b28
+0x00871b24  09441c94 bl      #0xf82b48
+0x00871b28  20f041b8 ldur    w0, [x1, #0x1f]
+0x00871b2c  00801c8b add     x0, x0, x28, lsl #32
+0x00871b30  70374091 add     x16, x27, #0xd, lsl #12
+0x00871b34  105a40f9 ldr     x16, [x16, #0xb0]
+0x00871b38  e041bfa9 stp     x0, x16, [x15, #-0x10]!
+0x00871b3c  31f7ef97 bl      #0x46f800
+0x00871b40  ef410091 add     x15, x15, #0x10
+0x00871b44  1f00166b cmp     w0, w22
+0x00871b48  40210054 b.eq    #0x871f70
+0x00871b4c  70374091 add     x16, x27, #0xd, lsl #12
