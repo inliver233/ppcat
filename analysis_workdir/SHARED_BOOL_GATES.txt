@@ -1,0 +1,2009 @@
+# SHARED (test3): bool-returning functions accessing ad/VIP/privilege strings
+# These are the gate/switch candidates (canonical-bool: x22+0x30=true, x22+0x20=false)
+
+0x46d624 (callers=3): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: ['0x46d5cc', '0x483af8', '0xa5b45c']
+0x46dfb8 (callers=65): 'Invalid internet add'
+   callers: ['0x46df00', '0x4802d8', '0x49b298', '0x5a9258', '0x602b14', '0x6214f4', '0x631b48', '0x633518', '0x633858', '0x65b178']
+0x46ec14 (callers=39): 'Invalid internet add'
+   callers: ['0x46eacc', '0x4802d8', '0x5a9258', '0x5f5590', '0x608208', '0x615d8c', '0x616a34', '0x61a5b0', '0x7ef0f8', '0x7f0d28']
+0x46edf0 (callers=9): 'IPv4 addresses canno'
+   callers: ['0x46ec14', '0x4823e4', '0x48a030', '0x48a6f0', '0x49b298', '0x51a558', '0x58b8fc', '0x5d58b4', '0xf1bf8c']
+0x46f9f8 (callers=57): 'IPv4 addresses canno'
+   callers: ['0x46f970', '0x4802d8', '0x4823e4', '0x486070', '0x48622c', '0x4866e4', '0x4871bc', '0x48a030', '0x49ac34', '0x49ada8']
+0x47a87c (callers=1): 'IPv4 addresses canno'
+   callers: ['0x464d18']
+0x47aa60 (callers=1): 'IPv4 addresses canno'
+   callers: ['0x479a2c']
+0x47c078 (callers=1): 'IPv4 addresses canno'
+   callers: ['0x479950']
+0x47ccb8 (callers=1): 'Invalid internet add'
+   callers: ['0x47cc34']
+0x47d308 (callers=1): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: ['0x47ced8']
+0x47f1c8 (callers=89): 'LinkedListEntry is a'
+   callers: ['0x47f18c', '0x4802d8', '0x48f360', '0x49ba68', '0x4a1e50', '0x4af01c', '0x4af0b0', '0x51a3e4', '0x590548', '0x592fd8']
+0x4802d8 (callers=1): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: ['0x48c0a4']
+0x4809f0 (callers=44): 'Radix '
+   callers: ['0x4802d8', '0x4888dc', '0x488d54', '0x49445c', '0x4a07cc', '0x4b14ec', '0x4bcdc8', '0x4bd17c', '0x592fd8', '0x5b2650']
+0x4823e4 (callers=31): 'IPv4 addresses canno'
+   callers: ['0x4802d8', '0x4adf7c', '0x5a9258', '0x5aad88', '0x5d3ab0', '0x5e4f60', '0x65e020', '0x675bcc', '0x68b134', '0x68e198']
+0x4830d0 (callers=1): 'IPv4 addresses canno'
+   callers: ['0x4823e4']
+0x484250 (callers=5): 'IPv4 addresses canno'
+   callers: ['0x4841b8', '0x485fd8', '0x486070', '0x489718', '0x489db4']
+0x484334 (callers=2): 'IPv4 addresses canno'
+   callers: ['0x484250', '0x48a030']
+0x484c3c (callers=5): 'IPv4 addresses canno'
+   callers: ['0x484b4c', '0x485060', '0x4b85f0', '0x67dd44', '0xdb2f70']
+0x485060 (callers=1): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: ['0x484c3c']
+0x486070 (callers=3): 'Invalid internet add'
+   callers: ['0x4830d0', '0x49ada8', '0xf18cd8']
+0x4862e8 (callers=3): 'Invalid internet add'
+   callers: ['0x48622c', '0x49ada8', '0xf1b674']
+0x4866e4 (callers=2): 'Invalid internet add'
+   callers: ['0x4862e8', '0x486780']
+0x486780 (callers=3): 'Invalid internet add'
+   callers: ['0x48622c', '0x49ada8', '0xf1b674']
+0x4876d0 (callers=1): 'IPv4 addresses canno'
+   callers: ['0x4871bc']
+0x487fc4 (callers=1): 'IPv4 addresses canno' 'Invalid internet add' 'address is too short' 'an address with a wi' 'an address without a'
+   callers: ['0x4871bc']
+0x488fa0 (callers=1): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: ['0x4871bc']
+0x4897a8 (callers=2): 'IPv4 addresses canno'
+   callers: ['0x4830d0', '0x49ada8']
+0x48bf04 (callers=1): 'Invalid internet add'
+   callers: ['0x48becc']
+0x48c438 (callers=2): 'Invalid internet add'
+   callers: ['0x48c254', '0x48cde0']
+0x48e330 (callers=0): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: []
+0x490184 (callers=2): 'Invalid internet add'
+   callers: ['0x48fe64', '0x4d2cfc']
+0x4932f8 (callers=1): 'Invalid internet add'
+   callers: ['0x493294']
+0x494318 (callers=2): 'Invalid internet add'
+   callers: ['0x4942d0', '0x495090']
+0x49445c (callers=1): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: ['0x493d04']
+0x4972d4 (callers=1): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: ['0x497208']
+0x49777c (callers=0): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: []
+0x497cfc (callers=2): 'Unexpected address t' 'address'
+   callers: ['0x497c14', '0x5d6f08']
+0x498180 (callers=3): 'Unexpected address t'
+   callers: ['0x497f44', '0xce483c', '0xf1ec90']
+0x49ada8 (callers=6): 'Invalid internet add'
+   callers: ['0x49ac34', '0x49b298', '0x4fb700', '0x5db4b8', '0x620d58', '0x682a20']
+0x49b298 (callers=2): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: ['0x49abc0', '0x4ae148']
+0x49ba68 (callers=2): 'Invalid internet add'
+   callers: ['0x49b298', '0xf01464']
+0x49e6f4 (callers=0): 'Invalid internet add'
+   callers: []
+0x49ed80 (callers=2): 'Invalid internet add'
+   callers: ['0x49e6f4', '0x4ad754']
+0x49f9d0 (callers=3): 'Invalid internet add'
+   callers: ['0x49f93c', '0x4b0500', '0x905438']
+0x4a0360 (callers=3): 'Extension already re' 'Invalid internet add'
+   callers: ['0x4a02dc', '0x4c1740', '0x8fe3c4']
+0x4a36d4 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x4a4438 (callers=2): 'Invalid internet add'
+   callers: ['0x4a36d4', '0x4a4e1c']
+0x4a4e1c (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x4a55a8 (callers=0): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: []
+0x4a711c (callers=1): 'IPv4 addresses canno'
+   callers: ['0x4a7244']
+0x4a728c (callers=1): 'Invalid internet add'
+   callers: ['0x4a72f4']
+0x4aa778 (callers=0): 'Unexpected address t' 'Invalid internet add'
+   callers: []
+0x4abdd0 (callers=6): 'Invalid internet add'
+   callers: ['0x4abd1c', '0x4ac120', '0x4ac6dc', '0x4b09ec', '0x6a60d0', '0x905770']
+0x4ad754 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x4b0500 (callers=1): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: ['0x4b04b8']
+0x4b0b80 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x4b0ec0 (callers=3): 'Invalid internet add'
+   callers: ['0x4b0e4c', '0x4b1214', '0x4b13a0']
+0x4b2834 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x4b3090 (callers=0): 'Invalid internet add'
+   callers: []
+0x4b85f0 (callers=1): 'HTTP headers are not' 'upgrade' "Trying to set 'Trans" 'IPv4 addresses canno'
+   callers: ['0x4b8540']
+0x4bae1c (callers=1): 'Invalid internet add'
+   callers: ['0x4b85f0']
+0x4bbac0 (callers=2): "Trying to set 'Trans"
+   callers: ['0x4bb94c', '0x4befd0']
+0x4bd17c (callers=1): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: ['0x4bc8d0']
+0x4c025c (callers=9): 'IPv4 addresses canno'
+   callers: ['0x4c0138', '0x52bedc', '0x52e784', '0x55d854', '0x5d6030', '0x67c4e4', '0x8ffb78', '0xa70ce0', '0xc2de7c']
+0x4c0e04 (callers=1): 'Invalid internet add'
+   callers: ['0x4b1b14']
+0x4c291c (callers=3): 'Unexpected address t' 'IPv4 addresses canno' 'Invalid internet add' 'Invalid IPv6 address'
+   callers: ['0x4c28e0', '0xce9598', '0xf1ec90']
+0x4c3c88 (callers=0): 'Invalid internet add'
+   callers: []
+0x4d3ac4 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x4d44e8 (callers=1): 'Invalid internet add'
+   callers: ['0x4d449c']
+0x4dc9f0 (callers=2): 'Invalid internet add'
+   callers: ['0x4dc754', '0x4f463c']
+0x4df660 (callers=2): 'Invalid internet add'
+   callers: ['0x4df60c', '0x4efb44']
+0x4e03b4 (callers=1): 'Invalid internet add'
+   callers: ['0x4e01e4']
+0x4e3090 (callers=1): 'Invalid internet add'
+   callers: ['0x4e304c']
+0x4e4940 (callers=3): 'Invalid internet add'
+   callers: ['0x4e3f88', '0x4e4940', '0x4f0204']
+0x4e9934 (callers=0): 'Invalid internet add'
+   callers: []
+0x4ed140 (callers=0): 'Invalid internet add'
+   callers: []
+0x4eed8c (callers=6): 'Invalid internet add'
+   callers: ['0x4df420', '0x653d80', '0x95d604', '0x9bc114', '0xf41a08', '0xf852f0']
+0x4ef644 (callers=0): ', but _dirtyElements'
+   callers: []
+0x4f3614 (callers=1): 'Invalid internet add'
+   callers: ['0x4f3568']
+0x4f8418 (callers=2): 'IPv4 addresses canno'
+   callers: ['0x4f8318', '0xf43a3c']
+0x4f9540 (callers=6): 'IPv4 addresses canno'
+   callers: ['0x4f90f4', '0x4f9bf8', '0xeab6cc', '0xef35c4', '0xef366c', '0xf489c8']
+0x4f9bf8 (callers=1): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: ['0x4f9ba8']
+0x4fd338 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x4fd8f8 (callers=1): 'Invalid internet add'
+   callers: ['0x4fd80c']
+0x4ff60c (callers=1): 'updatedSince'
+   callers: ['0x4ff3e0']
+0x4ff738 (callers=1): 'Invalid internet add'
+   callers: ['0x4ff60c']
+0x4ffb78 (callers=1): 'IPv4 addresses canno'
+   callers: ['0x4ff738']
+0x5019dc (callers=0): 'Invalid internet add'
+   callers: []
+0x502260 (callers=1): 'Invalid internet add'
+   callers: ['0x502144']
+0x5025a8 (callers=1): 'Invalid internet add'
+   callers: ['0x5019dc']
+0x511b2c (callers=0): 'Invalid internet add'
+   callers: []
+0x512fec (callers=0): 'Invalid internet add'
+   callers: []
+0x5143d0 (callers=0): 'Invalid internet add'
+   callers: []
+0x5145b4 (callers=0): 'Invalid internet add'
+   callers: []
+0x515bd4 (callers=2): 'IPv4 addresses canno'
+   callers: ['0x515a5c', '0x51dfa8']
+0x518644 (callers=0): 'Invalid internet add'
+   callers: []
+0x51a558 (callers=1): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: ['0x51a3e4']
+0x51d154 (callers=1): 'Invalid internet add'
+   callers: ['0x51d380']
+0x51d410 (callers=1): 'Invalid internet add'
+   callers: ['0x51d3c8']
+0x522e40 (callers=1): 'Invalid internet add'
+   callers: ['0x522df4']
+0x522ff0 (callers=1): 'Invalid internet add'
+   callers: ['0x522fa4']
+0x5231a0 (callers=1): 'Invalid internet add'
+   callers: ['0x523154']
+0x523350 (callers=1): 'Invalid internet add'
+   callers: ['0x523304']
+0x5280d4 (callers=1): 'Invalid internet add'
+   callers: ['0x528048']
+0x528304 (callers=5): 'Invalid internet add'
+   callers: ['0x527dcc', '0x528bf0', '0x5296d4', '0x5299c8', '0x529dc8']
+0x528730 (callers=4): 'Invalid internet add'
+   callers: ['0x5285c0', '0x54af94', '0xec761c', '0xef6730']
+0x529ed0 (callers=2): 'Invalid internet add'
+   callers: ['0x529e88', '0x56db68']
+0x52a788 (callers=1): 'Invalid internet add'
+   callers: ['0x52a128']
+0x52aa80 (callers=1): 'Invalid internet add'
+   callers: ['0x52a9e4']
+0x52ad4c (callers=1): 'Invalid internet add'
+   callers: ['0x52acfc']
+0x52b364 (callers=1): 'Invalid internet add'
+   callers: ['0x52b078']
+0x52eb14 (callers=5): 'Invalid internet add'
+   callers: ['0x52e784', '0xf0201c', '0xf023b4', '0xf3ac98', '0xf6f15c']
+0x531be4 (callers=1): 'Invalid internet add'
+   callers: ['0x531b98']
+0x5344cc (callers=2): 'Invalid internet add'
+   callers: ['0x534480', '0x56db68']
+0x5352e8 (callers=1): 'Invalid internet add'
+   callers: ['0x535460']
+0x5362c0 (callers=1): 'Invalid internet add'
+   callers: ['0x536274']
+0x539c9c (callers=2): 'Invalid internet add'
+   callers: ['0x539b88', '0x56252c']
+0x53a500 (callers=4): 'IPv4 addresses canno'
+   callers: ['0x539c9c', '0x5543d8', '0x55552c', '0x56252c']
+0x54265c (callers=9): 'Invalid internet add'
+   callers: ['0x542320', '0x54265c', '0x545e88', '0x547170', '0x9e9570', '0x9e9d70', '0xa41cf8', '0xbf3e9c', '0xd69c68']
+0x544f60 (callers=2): 'Invalid internet add'
+   callers: ['0x544f00', '0x993918']
+0x54ee58 (callers=1): 'IPv4 addresses canno'
+   callers: ['0x54ee0c']
+0x54f644 (callers=1): 'Invalid internet add'
+   callers: ['0x54f580']
+0x550200 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x556590 (callers=2): 'Invalid internet add'
+   callers: ['0x556504', '0x5616b0']
+0x558074 (callers=5): 'Invalid internet add'
+   callers: ['0x557fdc', '0x558610', '0x5586f4', '0x558838', '0xc2a41c']
+0x55ccd0 (callers=4): 'Invalid internet add' 'Tried to read a prov' 'IPv4 addresses canno'
+   callers: ['0x55cc64', '0xb09408', '0xcf26b0', '0xf3c7f4']
+0x561b6c (callers=1): 'IPv4 addresses canno'
+   callers: ['0x5378ac']
+0x56252c (callers=1): 'IPv4 addresses canno'
+   callers: ['0x5378ac']
+0x5633e4 (callers=1): 'Invalid internet add'
+   callers: ['0x563398']
+0x56601c (callers=1): 'IPv4 addresses canno'
+   callers: ['0x56613c']
+0x5663e0 (callers=1): 'Invalid internet add'
+   callers: ['0x566394']
+0x567518 (callers=1): 'Invalid internet add'
+   callers: ['0x5674cc']
+0x568248 (callers=1): 'Invalid internet add'
+   callers: ['0x5681cc']
+0x56984c (callers=3): 'IPv4 addresses canno'
+   callers: ['0x56941c', '0xc583cc', '0xf30db8']
+0x56b040 (callers=1): 'IPv4 addresses canno'
+   callers: ['0x56af38']
+0x56bb08 (callers=65): 'Invalid internet add'
+   callers: ['0x56ba44', '0x574c88', '0x657740', '0x7fab18', '0x7fc2a4', '0x83c1d0', '0x83c240', '0x83c320', '0x83c740', '0x841328']
+0x56c6e8 (callers=3): 'Invalid internet add'
+   callers: ['0x56bfe4', '0x936418', '0xc3b6bc']
+0x56ed10 (callers=2): 'Invalid internet add'
+   callers: ['0x56eba4', '0xd67ba8']
+0x570b9c (callers=0): 'Invalid internet add'
+   callers: []
+0x570e60 (callers=2): 'Invalid internet add'
+   callers: ['0x56d5e8', '0x574148']
+0x5715c0 (callers=1): 'Invalid internet add'
+   callers: ['0x570e60']
+0x5723b0 (callers=2): 'Invalid internet add'
+   callers: ['0x572298', '0x572668']
+0x5794ec (callers=1): 'Invalid internet add'
+   callers: ['0x5794a0']
+0x57b4c8 (callers=1): 'Invalid internet add'
+   callers: ['0x57b47c']
+0x57bebc (callers=1): 'Invalid internet add'
+   callers: ['0x57be70']
+0x57d684 (callers=1): 'Invalid internet add'
+   callers: ['0x57d644']
+0x580378 (callers=1): 'Invalid internet add'
+   callers: ['0x47a114']
+0x5818b4 (callers=1): 'Invalid internet add'
+   callers: ['0x581874']
+0x583c84 (callers=4): 'IPv4 addresses canno'
+   callers: ['0x57f810', '0x57fd20', '0x5810c0', '0x5818b4']
+0x58afa8 (callers=1): 'Invalid internet add'
+   callers: ['0x479ebc']
+0x58cffc (callers=0): 'Invalid internet add'
+   callers: []
+0x58d1b0 (callers=0): 'Invalid internet add'
+   callers: []
+0x58d498 (callers=0): 'Invalid internet add'
+   callers: []
+0x58f3c0 (callers=0): 'Invalid internet add'
+   callers: []
+0x58f4f8 (callers=0): 'Invalid internet add'
+   callers: []
+0x58f5e4 (callers=0): 'Invalid internet add'
+   callers: []
+0x590548 (callers=4): 'Invalid internet add'
+   callers: ['0x590318', '0x602f7c', '0x7f46e8', '0xaa5848']
+0x591a0c (callers=11): 'Invalid internet add'
+   callers: ['0x590548', '0x592fd8', '0x699d64', '0x7e9c70', '0x81b07c', '0x8a6c00', '0x8a8464', '0x8cfee4', '0xcae158', '0xf5d924']
+0x592034 (callers=0): 'Invalid internet add' 'remoteConfigSign'
+   callers: []
+0x592fd8 (callers=0): 'Invalid internet add' 'readCrackLog' 'read' 'getClassLoader' 'getRewardTime' '已过期！'
+   callers: []
+0x5aa038 (callers=0): 'headers::'
+   callers: []
+0x5aaaa8 (callers=0): 'createHeadlessWebVie'
+   callers: []
+0x5b18c8 (callers=2): 'Invalid internet add'
+   callers: ['0x5b1874', '0x5b18c8']
+0x5b2650 (callers=1): 'IPv4 addresses canno' 'Illegal IPv6 address' 'Invalid internet add'
+   callers: ['0x5b18c8']
+0x5ba434 (callers=1): 'Invalid internet add'
+   callers: ['0x5af23c']
+0x5be270 (callers=2): 'onHeadlessWebViewCre'
+   callers: ['0x5be224', '0x673a1c']
+0x5be3ec (callers=0): 'IPv4 addresses canno' 'Invalid internet add' 'onLoadStart' 'onLoadStop' 'onLoadError' 'onLoadHttpError'
+   callers: []
+0x5cceb4 (callers=1): 'Invalid internet add'
+   callers: ['0x5cce5c']
+0x5ce1a8 (callers=1): 'automaticallyAdjusts' 'Invalid internet add' 'contentInsetAdjustme'
+   callers: ['0x5ce098']
+0x5d3ab0 (callers=0): 'Invalid internet add'
+   callers: []
+0x5d4a68 (callers=3): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: ['0x5d4a20', '0x5e4544', '0xcdbee8']
+0x5d5a2c (callers=1): 'Invalid internet add'
+   callers: ['0x5d58b4']
+0x5d6ac4 (callers=0): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: []
+0x5d6f08 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x5d78d0 (callers=0): 'Invalid internet add'
+   callers: []
+0x5d7c08 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x5d9f58 (callers=1): 'Stream is already cl' 'IPv4 addresses canno'
+   callers: ['0x5d9e78']
+0x5dabf4 (callers=1): 'host is not a String'
+   callers: ['0x5d9e78']
+0x5e2060 (callers=1): 'IPv4 addresses canno'
+   callers: ['0x5e1fa8']
+0x5e3bd8 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x5e61b4 (callers=2): 'Stream is already cl'
+   callers: ['0x5db1e0', '0x5e5b98']
+0x5e76f8 (callers=1): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: ['0x5d4a68']
+0x5ed9c0 (callers=6): 'Download/'
+   callers: ['0x7f8bcc', '0x7f926c', '0x7f9764', '0x7fa6d4', '0x91280c', '0xba91ac']
+0x5edb64 (callers=0): '/皮皮喵/' 'ReadCache/' '皮皮喵/Backups/' '皮皮喵/.Backups/'
+   callers: []
+0x5f08f8 (callers=0): 'Invalid internet add'
+   callers: []
+0x5f3130 (callers=0): 'Invalid internet add' 'fuck download image!' 'IPv4 addresses canno'
+   callers: []
+0x5f4ea8 (callers=3): 'isReload:'
+   callers: ['0x5f4ad0', '0x60e46c', '0x9300f8']
+0x5f5590 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x5f88c8 (callers=0): 'Invalid internet add'
+   callers: []
+0x5fd8d0 (callers=0): 'Invalid internet add'
+   callers: []
+0x5fff8c (callers=0): 'Invalid internet add' 'orginHeader'
+   callers: []
+0x60297c (callers=1): '<script>\\\\nfunction '
+   callers: ['0x5fff8c']
+0x606d34 (callers=0): 'coverHeader' 'Invalid internet add'
+   callers: []
+0x60704c (callers=0): 'Invalid internet add' '皮皮喵来源教程（教程）[自定义]'
+   callers: []
+0x60781c (callers=0): 'Invalid internet add'
+   callers: []
+0x60e46c (callers=0): 'Invalid internet add'
+   callers: []
+0x60fe08 (callers=0): 'Invalid internet add' 'Reader'
+   callers: []
+0x611678 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x612aac (callers=0): 'Invalid internet add'
+   callers: []
+0x613ebc (callers=0): 'Invalid internet add'
+   callers: []
+0x614814 (callers=0): 'Invalid internet add'
+   callers: []
+0x615d8c (callers=0): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: []
+0x616a34 (callers=14): 'Invalid internet add' 'IPv4 addresses canno' 'orginHeader'
+   callers: ['0x5f3130', '0x5f4ad0', '0x608c3c', '0x60e46c', '0x615d8c', '0x61a5b0', '0x61af4c', '0x7efb64', '0x7f3874', '0x92aff0']
+0x618c8c (callers=0): 'Invalid internet add'
+   callers: []
+0x61a5b0 (callers=2): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: ['0x61a194', '0xc35af0']
+0x61af4c (callers=0): 'Invalid internet add' 'fuck download image!' 'IPv4 addresses canno'
+   callers: []
+0x61d6f4 (callers=1): 'coverHeader'
+   callers: ['0x61d6b0']
+0x61f280 (callers=1): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: ['0x61f11c']
+0x620778 (callers=2): 'IPv4 addresses canno'
+   callers: ['0x62074c', '0x66db80']
+0x620fa8 (callers=4): 'Invalid internet add'
+   callers: ['0x61f01c', '0x622ea8', '0x66db80', '0x66eaa0']
+0x621010 (callers=2): 'Read past the curren' 'Invalid internet add'
+   callers: ['0x61f01c', '0x61f11c']
+0x621de4 (callers=2): 'Invalid internet add'
+   callers: ['0x621468', '0x66fda0']
+0x6230b0 (callers=0): 'Invalid internet add'
+   callers: []
+0x623b04 (callers=0): 'onDowngrade must be '
+   callers: []
+0x6252ec (callers=0): 'Invalid internet add'
+   callers: []
+0x627300 (callers=1): 'Invalid internet add'
+   callers: ['0x6271e0']
+0x6284bc (callers=1): 'Invalid internet add'
+   callers: ['0x62822c']
+0x62a28c (callers=0): 'update'
+   callers: []
+0x630b10 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x633518 (callers=10): 'Invalid internet add'
+   callers: ['0x6331f4', '0x634100', '0x807658', '0x835360', '0x8426f8', '0x855f3c', '0xaa2a2c', '0xaec288', '0xb8dd1c', '0xc5133c']
+0x633b10 (callers=3): '更新中...'
+   callers: ['0xadf938', '0xae2070', '0xb95bc8']
+0x6366fc (callers=1): 'coverHeader'
+   callers: ['0x6366b8']
+0x638e9c (callers=1): 'coverHeader'
+   callers: ['0x638e58']
+0x63bf98 (callers=1): 'coverHeader'
+   callers: ['0x63bf54']
+0x63f664 (callers=0): 'Invalid internet add'
+   callers: []
+0x6403b0 (callers=0): 'Invalid internet add'
+   callers: []
+0x6418a4 (callers=0): 'forceVersion'
+   callers: []
+0x642ab0 (callers=1): 'Invalid internet add'
+   callers: ['0x642978']
+0x647e64 (callers=2): 'IPv4 addresses canno'
+   callers: ['0x647e1c', '0x64c3f0']
+0x64865c (callers=6): 'Invalid internet add'
+   callers: ['0x647e64', '0x6498e4', '0x64b4f0', '0x64b7c8', '0x64c5a0', '0xc25694']
+0x64b4f0 (callers=3): 'IPv4 addresses canno'
+   callers: ['0x64b4a4', '0x64c78c', '0xc25694']
+0x64c5a0 (callers=1): 'IPv4 addresses canno'
+   callers: ['0x64c744']
+0x651de0 (callers=2): 'IPv4 addresses canno'
+   callers: ['0x651d98', '0xcd898c']
+0x654120 (callers=0): 'Invalid internet add'
+   callers: []
+0x65646c (callers=1): 'IPv4 addresses canno'
+   callers: ['0x656420']
+0x65b178 (callers=2): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: ['0x65abe4', '0x65fd34']
+0x65c1fc (callers=1): 'Invalid Zip Signatur'
+   callers: ['0x65bb40']
+0x65cef4 (callers=4): 'Invalid internet add'
+   callers: ['0x65b7c8', '0x65bb40', '0x65c1fc', '0x8a3af0']
+0x65d6cc (callers=6): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: ['0x65ab88', '0x65b178', '0x65cb98', '0x65fffc', '0x6611b8', '0x8a1f10']
+0x65e478 (callers=0): 'Invalid internet add' '，而且广告无法正常显示，此功能'
+   callers: []
+0x66b860 (callers=0): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: []
+0x66bf2c (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x66f988 (callers=1): 'Already waiting for '
+   callers: ['0x66eeb4']
+0x670908 (callers=0): 'Invalid internet add'
+   callers: []
+0x672158 (callers=0): 'Invalid internet add'
+   callers: []
+0x675bcc (callers=12): 'Invalid internet add' 'IPv4 addresses canno' 'headers:'
+   callers: ['0x67581c', '0x677530', '0x7e93b4', '0x85b9d0', '0x85e48c', '0x86223c', '0x864d0c', '0x866a1c', '0x8707d8', '0x871320']
+0x679034 (callers=2): "Trying to set 'Trans" 'Invalid internet add'
+   callers: ['0x678ff0', '0x67a8c4']
+0x67994c (callers=2): 'expires'
+   callers: ['0x679888', '0x682e24']
+0x67b12c (callers=1): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: ['0x679afc']
+0x67dd44 (callers=1): 'HTTP headers are not' 'upgrade' "Trying to set 'Trans" 'IPv4 addresses canno' 'Invalid header field'
+   callers: ['0x67dc84']
+0x680560 (callers=1): 'Invalid internet add'
+   callers: ['0x67dd44']
+0x6818b8 (callers=2): 'IPv4 addresses canno'
+   callers: ['0x681870', '0x68a864']
+0x682f44 (callers=2): 'Invalid internet add'
+   callers: ['0x682a20', '0x6835d8']
+0x68414c (callers=1): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: ['0x6835d8']
+0x687f90 (callers=0): 'Invalid internet add'
+   callers: []
+0x68877c (callers=1): 'Invalid internet add'
+   callers: ['0x688368']
+0x68c224 (callers=2): 'Stream is already cl'
+   callers: ['0x682728', '0x68bfa8']
+0x68d6d4 (callers=0): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: []
+0x68e574 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x68f07c (callers=0): 'Invalid internet add'
+   callers: []
+0x691bbc (callers=1): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: ['0x691b60']
+0x693278 (callers=1): 'Invalid internet add'
+   callers: ['0x692d08']
+0x69335c (callers=1): 'Invalid internet add'
+   callers: ['0x692d08']
+0x69738c (callers=2): 'Invalid internet add'
+   callers: ['0x69692c', '0x93e1fc']
+0x698054 (callers=4): 'Invalid internet add'
+   callers: ['0x697bfc', '0x698870', '0x699074', '0x699400']
+0x69a020 (callers=2): 'IPv4 addresses canno'
+   callers: ['0x6905c8', '0x69a30c']
+0x69b0f4 (callers=0): 'Invalid internet add'
+   callers: []
+0x69f65c (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x69ff68 (callers=0): 'Invalid internet add'
+   callers: []
+0x6a0f88 (callers=0): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: []
+0x6a3bf0 (callers=0): 'Invalid internet add'
+   callers: []
+0x6a7bf4 (callers=0): 'Invalid internet add'
+   callers: []
+0x6a8fe0 (callers=1): 'IPv4 addresses canno'
+   callers: ['0x6a8568']
+0x7d97ac (callers=0): 'Invalid internet add'
+   callers: []
+0x7deb38 (callers=1): 'Invalid internet add'
+   callers: ['0x7deaec']
+0x7df0f8 (callers=1): 'Invalid internet add'
+   callers: ['0x7df398']
+0x7df478 (callers=6): 'Invalid internet add'
+   callers: ['0x7dd8b4', '0x7de108', '0x7deaac', '0x7deb38', '0x7df0b0', '0x7df788']
+0x7e2adc (callers=0): '皮皮喵来源教程（教程）[自定义]' 'Invalid internet add' 'IPv4 addresses canno' 'adNum:' '，而且广告无法正常显示，此功能'
+   callers: []
+0x7e4634 (callers=6): '(function(){var a=do'
+   callers: ['0x7e2adc', '0x8ac59c', '0xb7f48c', '0xbce504', '0xbcea8c', '0xbd155c']
+0x7e7f18 (callers=2): '才能导出缓存！'
+   callers: ['0xaf4c6c', '0xb067bc']
+0x7e8054 (callers=0): 'adNum:' '，而且广告无法正常显示，此功能' 'Invalid internet add'
+   callers: []
+0x7e8534 (callers=41): '才能使用！' 'isNoAdLock' 'adNum:'
+   callers: ['0x7e8054', '0x80b23c', '0x8953d4', '0x8aad9c', '0x8b418c', '0x8b626c', '0x921618', '0xa5a16c', '0xa7acd4', '0xa7bdcc']
+0x7ea7c4 (callers=3): 'Invalid internet add'
+   callers: ['0x7e93b4', '0xa69b90', '0xb3c638']
+0x7eb5cc (callers=6): '复制喵喵编号分享给朋友，打开皮皮喵App'
+   callers: ['0x7f7c30', '0xad253c', '0xad6afc', '0xb685b8', '0xbefeb0', '0xbf0864']
+0x7ebce0 (callers=8): 'Invalid internet add'
+   callers: ['0x7eb884', '0xa9d9c4', '0xab161c', '0xabfd24', '0xaf1710', '0xaf718c', '0xb23d34', '0xb99afc']
+0x7ec27c (callers=0): 'forceVersion' 'Invalid internet add' '我正在使用皮皮喵阅读《' 'IPv4 addresses canno'
+   callers: []
+0x7ef0f8 (callers=2): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: ['0x7eef00', '0xbebf14']
+0x7f0d28 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x7f1d88 (callers=0): 'Invalid internet add'
+   callers: []
+0x7f3074 (callers=4): 'Invalid internet add'
+   callers: ['0x7f2bf4', '0x7f3074', '0x91dd00', '0xbc3580']
+0x7f3f58 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x7f5020 (callers=0): 'Invalid internet add'
+   callers: []
+0x7f67cc (callers=2): '/皮皮喵'
+   callers: ['0x7f5f0c', '0xbf0864']
+0x7f7858 (callers=0): 'forceVersion'
+   callers: []
+0x7fc4f0 (callers=0): '      皮皮喵提醒您：在使用皮皮喵前'
+   callers: []
+0x7fc9c0 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x7fd30c (callers=0): 'Invalid internet add' 'coverHeader' 'downloads' 'readChapter:' 'isDownload' 'IPv4 addresses canno'
+   callers: []
+0x8047a4 (callers=0): 'Invalid internet add' 'coverHeader'
+   callers: []
+0x807e50 (callers=0): 'coverHeader' 'Invalid internet add'
+   callers: []
+0x809ae0 (callers=0): 'forceVersion' 'IPv4 addresses canno'
+   callers: []
+0x80a3c0 (callers=0): 'Invalid internet add'
+   callers: []
+0x80acc4 (callers=12): 'forceVersion'
+   callers: ['0x80abc8', '0xa84990', '0xadcad0', '0xae98fc', '0xb2d0c8', '0xb3ff04', '0xb88718', '0xb94688', '0xbc5dc8', '0xbc82d0']
+0x80b118 (callers=0): '无法显示广告，请正常联网并重启应用！'
+   callers: []
+0x80ce74 (callers=0): 'Invalid internet add' 'forceVersion'
+   callers: []
+0x80d6b8 (callers=0): 'onLoadStart::'
+   callers: []
+0x812e8c (callers=1): 'Invalid internet add'
+   callers: ['0x815470']
+0x813324 (callers=0): 'Invalid internet add'
+   callers: []
+0x816500 (callers=0): 'Invalid internet add' 'loadHTML' 'IPv4 addresses canno' 'coverHeader'
+   callers: []
+0x81b584 (callers=1): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: ['0x81b07c']
+0x81fc4c (callers=1): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: ['0x81fc04']
+0x81ffac (callers=15): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: ['0x81fc4c', '0x820e7c', '0x821aa4', '0x8220bc', '0x822800', '0x822d00', '0x823254', '0x82595c', '0x825d18', '0x82bbe0']
+0x8220bc (callers=1): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: ['0x822074']
+0x823568 (callers=3): 'IPv4 addresses canno'
+   callers: ['0x823518', '0x82d118', '0x831b2c']
+0x827d98 (callers=1): 'Invalid internet add'
+   callers: ['0x827d50']
+0x82d19c (callers=1): 'Invalid internet add'
+   callers: ['0x82dc58']
+0x82e120 (callers=1): 'Invalid internet add'
+   callers: ['0x82e0d8']
+0x831450 (callers=1): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: ['0x831408']
+0x831c40 (callers=1): 'Invalid internet add'
+   callers: ['0x831bf8']
+0x833530 (callers=10): 'Invalid internet add'
+   callers: ['0x816500', '0x832bec', '0x92aff0', '0x9300f8', '0x932e30', '0xab161c', '0xabbfb0', '0xacc560', '0xacd2b8', '0xb66f50']
+0x834698 (callers=0): 'coverHeader'
+   callers: []
+0x835dc0 (callers=0): 'coverHeader'
+   callers: []
+0x836b48 (callers=8): 'Invalid internet add'
+   callers: ['0x835dc0', '0x8375f0', '0x854c88', '0x856484', '0xc4b2c0', '0xc4bdf8', '0xc512ec', '0xc51d2c']
+0x836d24 (callers=0): 'coverHeader'
+   callers: []
+0x838e2c (callers=0): 'Invalid internet add'
+   callers: []
+0x83a240 (callers=0): 'Invalid internet add'
+   callers: []
+0x83a444 (callers=0): 'Invalid internet add'
+   callers: []
+0x83a6ac (callers=0): 'forceVersion' 'Invalid internet add'
+   callers: []
+0x83c740 (callers=0): 'coverHeader'
+   callers: []
+0x83ede4 (callers=0): 'forceVersion'
+   callers: []
+0x840840 (callers=0): 'forceVersion' 'Invalid internet add'
+   callers: []
+0x8422f4 (callers=0): 'coverHeader'
+   callers: []
+0x8426f8 (callers=0): 'coverHeader'
+   callers: []
+0x844f88 (callers=0): 'Invalid internet add'
+   callers: []
+0x8451f0 (callers=0): 'Invalid internet add'
+   callers: []
+0x845514 (callers=0): 'Invalid internet add'
+   callers: []
+0x846b1c (callers=1): '每日喂喵'
+   callers: ['0x846ad0']
+0x848b50 (callers=1): 'forceVersion' 'coverHeader'
+   callers: ['0x848b04']
+0x84ce90 (callers=0): 'coverHeader'
+   callers: []
+0x84d15c (callers=0): 'Invalid internet add'
+   callers: []
+0x84f3c0 (callers=0): 'forceVersion'
+   callers: []
+0x851118 (callers=0): 'forceVersion'
+   callers: []
+0x855468 (callers=0): 'coverHeader'
+   callers: []
+0x856294 (callers=0): 'Invalid internet add'
+   callers: []
+0x856644 (callers=0): 'Invalid internet add'
+   callers: []
+0x856e80 (callers=0): 'coverHeader'
+   callers: []
+0x858c04 (callers=2): '.remoteConfig'
+   callers: ['0x86c504', '0xf85540']
+0x85c870 (callers=0): 'Invalid internet add'
+   callers: []
+0x85f09c (callers=0): 'updateBakUrl' 'updateApkUrl' 'Invalid internet add'
+   callers: []
+0x860b04 (callers=2): 'remoteConfigSign' 'forceVersionList' 'Invalid internet add'
+   callers: ['0x85eac4', '0x85efd4']
+0x860ed0 (callers=0): 'Invalid internet add'
+   callers: []
+0x86151c (callers=0): 'Invalid internet add'
+   callers: []
+0x8619fc (callers=0): 'Invalid internet add' 'sign'
+   callers: []
+0x86223c (callers=0): 'Invalid internet add'
+   callers: []
+0x863228 (callers=0): '皮皮喵' 'Invalid internet add' 'IPv4 addresses canno'
+   callers: []
+0x8644a0 (callers=0): 'Invalid internet add'
+   callers: []
+0x864d0c (callers=0): 'Invalid internet add'
+   callers: []
+0x868dd8 (callers=0): 'coverHeader' 'IPv4 addresses canno'
+   callers: []
+0x86c504 (callers=0): 'Invalid internet add' 'remoteConfigSign' 'updateJs'
+   callers: []
+0x872208 (callers=0): '，而且广告无法正常显示，此功能'
+   callers: []
+0x873e78 (callers=0): 'Invalid internet add'
+   callers: []
+0x8758bc (callers=1): 'AdNet_Splash' 'AdNet_Interstitial' 'AdNet_Fullscreen' 'IPv4 addresses canno' 'AdNet_Reward' 'AdPgl_Splash'
+   callers: ['0x875624']
+0x876b54 (callers=0): 'Invalid internet add' 'hasReward'
+   callers: []
+0x8776c0 (callers=1): 'showFullAd'
+   callers: ['0x87a31c']
+0x87a604 (callers=0): 'showInsertAd'
+   callers: []
+0x87ab68 (callers=0): 'showRewardAd'
+   callers: []
+0x87c5ac (callers=1): 'adUnitId'
+   callers: ['0x87c308']
+0x87cb9c (callers=1): 'MobileAds#initialize'
+   callers: ['0x881f74']
+0x87d030 (callers=1): 'loadAdManagerBannerA'
+   callers: ['0x882a00']
+0x87d524 (callers=1): 'loadAppOpenAd'
+   callers: ['0x884628']
+0x87db38 (callers=1): 'AdSize#getAnchoredAd'
+   callers: ['0x882a00']
+0x881fd0 (callers=0): 'Invalid internet add'
+   callers: []
+0x8834ec (callers=0): 'Invalid internet add'
+   callers: []
+0x883efc (callers=0): 'Invalid internet add'
+   callers: []
+0x886b60 (callers=0): 'directDownloadNetwor' 'initAd'
+   callers: []
+0x887884 (callers=1): 'showRewardVideoAd'
+   callers: ['0x884e9c']
+0x889040 (callers=0): 'Invalid internet add'
+   callers: []
+0x889c8c (callers=1): 'millisLoaded'
+   callers: ['0x889c40']
+0x88aacc (callers=0): 'onReward'
+   callers: []
+0x88bf60 (callers=0): 'load'
+   callers: []
+0x88d538 (callers=0): 'Invalid internet add'
+   callers: []
+0x88e018 (callers=0): 'Invalid internet add'
+   callers: []
+0x88eecc (callers=0): 'Invalid internet add'
+   callers: []
+0x891fac (callers=1): 'AdMob_RewardAdKs_Spl'
+   callers: ['0x873e78']
+0x892048 (callers=0): 'AdNet_Splash|AdPgl_S' 'Invalid internet add'
+   callers: []
+0x8937d0 (callers=0): 'forceVersion'
+   callers: []
+0x893f84 (callers=0): 'coverHeader'
+   callers: []
+0x8953d4 (callers=0): 'updateTime' 'coverHeader' 'forceVersion'
+   callers: []
+0x895e88 (callers=0): 'forceVersion' 'Invalid internet add'
+   callers: []
+0x897c84 (callers=0): 'Invalid internet add' 'forceVersion'
+   callers: []
+0x899ae0 (callers=0): 'Invalid internet add'
+   callers: []
+0x89b5d0 (callers=0): '已过期！' 'adNum:' 'Invalid internet add'
+   callers: []
+0x8a0fd4 (callers=4): '可以捐赠' 'adNum:' '，而且广告无法正常显示，此功能'
+   callers: ['0x89fe80', '0x8a3ebc', '0x8b3a8c', '0xbca170']
+0x8a14c0 (callers=2): 'Invalid internet add'
+   callers: ['0x89fe80', '0xa95854']
+0x8a16b4 (callers=0): '重启应用生效'
+   callers: []
+0x8a181c (callers=0): '，而且广告无法正常显示，此功能'
+   callers: []
+0x8a2018 (callers=1): 'Invalid Zip Signatur'
+   callers: ['0x8a1f6c']
+0x8a41dc (callers=17): 'Invalid internet add'
+   callers: ['0x8a4130', '0x8a9040', '0x8aa9ac', '0x8ab510', '0xbc71ec', '0xbca05c', '0xbca0c0', '0xbcaae4', '0xbcb184', '0xbcb67c']
+0x8a4f54 (callers=0): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: []
+0x8a5640 (callers=0): 'forceVersion' 'Invalid internet add'
+   callers: []
+0x8a9040 (callers=0): 'Invalid internet add' '，而且广告无法正常显示，此功能'
+   callers: []
+0x8aad9c (callers=0): '，而且广告无法正常显示，此功能'
+   callers: []
+0x8ab948 (callers=0): 'forceVersion'
+   callers: []
+0x8ad3c0 (callers=1): 'Invalid internet add'
+   callers: ['0x8ad344']
+0x8af550 (callers=2): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: ['0x8ae990', '0xc5d6bc']
+0x8b2f48 (callers=0): 'forceVersion'
+   callers: []
+0x8b3978 (callers=2): '你现在进行未知风险的导入操作，皮皮喵对其'
+   callers: ['0x8b3930', '0xb7e9f0']
+0x8b418c (callers=0): '，而且广告无法正常显示，此功能'
+   callers: []
+0x8b4984 (callers=0): 'Invalid internet add' '，而且广告无法正常显示，此功能'
+   callers: []
+0x8b56c0 (callers=0): 'forceVersion'
+   callers: []
+0x8b626c (callers=0): 'Invalid internet add' '，而且广告无法正常显示，此功能'
+   callers: []
+0x8b74d8 (callers=0): 'If you are using a c'
+   callers: []
+0x8b7ad0 (callers=0): 'Invalid internet add' '，而且广告无法正常显示，此功能'
+   callers: []
+0x8b8b30 (callers=0): 'coverHeader'
+   callers: []
+0x8bcf8c (callers=0): 'loaded'
+   callers: []
+0x8be840 (callers=0): 'onLoadError:'
+   callers: []
+0x8c8370 (callers=0): 'Invalid internet add'
+   callers: []
+0x8c87a8 (callers=0): 'Invalid internet add'
+   callers: []
+0x8cf36c (callers=16): '已过期！' 'adNum:' 'adNum' '已生效！\\\\n剩余'
+   callers: ['0x592fd8', '0x7e8054', '0x7e8534', '0x83873c', '0x86c504', '0x89afa0', '0x89fe80', '0x8a41dc', '0x8d10d0', '0xa54178']
+0x8d10d0 (callers=0): 'Invalid internet add' 'ClassLoader：' 'IPv4 addresses canno' '/files/ksad' '/files/filedownloade' '/app_adnet'
+   callers: []
+0x8e03fc (callers=0): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: []
+0x8e1710 (callers=0): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: []
+0x8e1dd0 (callers=0): 'IPv4 addresses canno' 'checkSignature' 'getClassLoader' 'Invalid internet add'
+   callers: []
+0x8eb1f4 (callers=0): 'java.lang.ClassLoade'
+   callers: []
+0x8eb7c8 (callers=0): 'getClassLoader'
+   callers: []
+0x8ee2d4 (callers=0): 'Invalid internet add'
+   callers: []
+0x8ee63c (callers=3): 'Invalid internet add'
+   callers: ['0x8ee2d4', '0x8fc5d4', '0x9c1220']
+0x8ee96c (callers=0): 'Invalid internet add'
+   callers: []
+0x8ef0cc (callers=0): 'skipAdAppList'
+   callers: []
+0x8ef9dc (callers=5): 'Invalid internet add' 'assets/gdt_plugin/gd'
+   callers: ['0x592fd8', '0x8d10d0', '0x8e62b0', '0x8eac30', '0x8f0e2c']
+0x8f1cd8 (callers=3): 'Invalid internet add'
+   callers: ['0x592fd8', '0x8d10d0', '0x8eed44']
+0x8f1f10 (callers=0): 'Invalid internet add'
+   callers: []
+0x8f20dc (callers=0): 'Invalid internet add'
+   callers: []
+0x8f3d94 (callers=15): 'Invalid internet add'
+   callers: ['0x8f3cf8', '0x8f5e8c', '0x8f61a0', '0x8f6a50', '0x8f6f14', '0x8f7240', '0x8f75ac', '0x8f7830', '0x8f8994', '0x8f9324']
+0x8f7b98 (callers=1): 'Invalid internet add'
+   callers: ['0x8f7b34']
+0x8fc498 (callers=3): 'com.qq.e.ads.ADActiv'
+   callers: ['0x592fd8', '0x8d10d0', '0x8ea54c']
+0x8fe3c4 (callers=1): 'Invalid internet add'
+   callers: ['0x8fd454']
+0x9007b8 (callers=0): 'Invalid internet add'
+   callers: []
+0x90534c (callers=12): 'Invalid internet add'
+   callers: ['0x592fd8', '0x65e478', '0x807e50', '0x80da70', '0x835360', '0x85c870', '0x91f700', '0x92aff0', '0xa69b90', '0xb0a200']
+0x906740 (callers=0): 'linear-gradient(to r'
+   callers: []
+0x907140 (callers=0): 'forceVersion'
+   callers: []
+0x908dd8 (callers=2): 'Invalid internet add'
+   callers: ['0x908d88', '0x917df4']
+0x911788 (callers=17): 'remoteConfigSign' 'Invalid internet add'
+   callers: ['0x590318', '0x7e2adc', '0x7e8534', '0x7eb884', '0x7f7858', '0x80a2fc', '0x838e2c', '0x8a0fd4', '0x920d7c', '0xa58068']
+0x913bf8 (callers=0): 'Invalid internet add' 'enableAutoUploadBack' 'isShowHeaderCover' 'rewardTime' 'remoteConfigSign'
+   callers: []
+0x91c59c (callers=0): 'Invalid internet add'
+   callers: []
+0x91dfd4 (callers=0): 'Invalid internet add'
+   callers: []
+0x921920 (callers=0): 'coverHeader'
+   callers: []
+0x9273bc (callers=0): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: []
+0x927784 (callers=3): 'ppcat_download'
+   callers: ['0x9273bc', '0x92aff0', '0x9300f8']
+0x927d4c (callers=2): 'payload'
+   callers: ['0x927964', '0x929a98']
+0x928328 (callers=1): 'channelShowBadge'
+   callers: ['0x9281a4']
+0x92aff0 (callers=0): 'Invalid internet add' 'IPv4 addresses canno' 'orginHeader' 'innerHeader' 'coverHeader'
+   callers: []
+0x93b094 (callers=2): 'IPv4 addresses canno'
+   callers: ['0x9169ac', '0xf90a5c']
+0x93d120 (callers=1): 'Invalid internet add'
+   callers: ['0x93d0e0']
+0x93dcfc (callers=4): 'IPv4 addresses canno'
+   callers: ['0x937914', '0x937cf0', '0x93b8d0', '0x93d120']
+0x93e078 (callers=1): 'Invalid internet add'
+   callers: ['0x9382e8']
+0x93e2bc (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x93ee54 (callers=2): 'IPv4 addresses canno'
+   callers: ['0x938d9c', '0x938ea4']
+0x93f9c4 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x940514 (callers=2): 'IPv4 addresses canno'
+   callers: ['0x938fc4', '0x9390cc']
+0x941024 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x941bbc (callers=2): 'IPv4 addresses canno'
+   callers: ['0x9391ec', '0x9392f4']
+0x94272c (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x9432b8 (callers=2): 'IPv4 addresses canno'
+   callers: ['0x939414', '0x93951c']
+0x943e4c (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x9449e0 (callers=3): 'IPv4 addresses canno'
+   callers: ['0x93963c', '0x939744', '0x984a74']
+0x945574 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x9460b8 (callers=2): 'IPv4 addresses canno'
+   callers: ['0x939864', '0x93996c']
+0x946c10 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x947754 (callers=2): 'IPv4 addresses canno'
+   callers: ['0x939a8c', '0x939b94']
+0x9482ac (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x948e3c (callers=3): 'IPv4 addresses canno'
+   callers: ['0x699ba8', '0x939cb4', '0x939dbc']
+0x9499e0 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x94a554 (callers=3): 'IPv4 addresses canno'
+   callers: ['0x4ce4c8', '0x939edc', '0x939fe4']
+0x94b0dc (callers=1): 'IPv4 addresses canno'
+   callers: ['0x94c9cc']
+0x94bd9c (callers=1): 'IPv4 addresses canno'
+   callers: ['0x94bc14']
+0x94cb3c (callers=1): 'IPv4 addresses canno'
+   callers: ['0x94e318']
+0x94d7fc (callers=1): 'IPv4 addresses canno'
+   callers: ['0x94d674']
+0x94e488 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x94efb4 (callers=2): 'IPv4 addresses canno'
+   callers: ['0x93a554', '0x93a65c']
+0x94fab8 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x9505c4 (callers=31): 'IPv4 addresses canno'
+   callers: ['0x47be60', '0x49f444', '0x4bffa4', '0x57ea20', '0x57ef40', '0x57f1f4', '0x57f5cc', '0x580d58', '0x5838bc', '0x65f728']
+0x9510a0 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x951bd8 (callers=3): 'IPv4 addresses canno'
+   callers: ['0x48b744', '0x93a9a4', '0x93aaac']
+0x952738 (callers=6): 'IPv4 addresses canno'
+   callers: ['0x57e330', '0x57e810', '0x58996c', '0x93b9e8', '0x93bd68', '0xb25f74']
+0x95ee84 (callers=2): 'Invalid internet add'
+   callers: ['0x95ec7c', '0x960e74']
+0x95f44c (callers=2): 'Invalid internet add'
+   callers: ['0x95f410', '0x960de0']
+0x9634bc (callers=0): 'Invalid internet add'
+   callers: []
+0x967a48 (callers=0): 'Invalid internet add'
+   callers: []
+0x967d78 (callers=1): 'IPv4 addresses canno'
+   callers: ['0x9386cc']
+0x969f64 (callers=0): 'Invalid internet add'
+   callers: []
+0x96a054 (callers=0): 'Invalid internet add'
+   callers: []
+0x96a264 (callers=0): 'Invalid internet add'
+   callers: []
+0x96a410 (callers=0): 'Invalid internet add'
+   callers: []
+0x96a5dc (callers=0): 'Invalid internet add'
+   callers: []
+0x96a788 (callers=0): 'Invalid internet add'
+   callers: []
+0x96a930 (callers=0): 'Invalid internet add'
+   callers: []
+0x96ab70 (callers=0): 'Invalid internet add'
+   callers: []
+0x96adb0 (callers=0): 'Invalid internet add'
+   callers: []
+0x96aeb0 (callers=9): 'Invalid internet add'
+   callers: ['0x58cf80', '0x8bfaf8', '0x8e8fbc', '0x924fdc', '0x99aea8', '0x99c494', '0x9c1220', '0x9c41d8', '0xccdbe0']
+0x96b060 (callers=0): 'Invalid internet add'
+   callers: []
+0x96b130 (callers=0): 'Invalid internet add'
+   callers: []
+0x96e0a0 (callers=2): 'IPv4 addresses canno'
+   callers: ['0x96e058', '0x9a1704']
+0x9706d4 (callers=2): 'IPv4 addresses canno'
+   callers: ['0x970574', '0x9a95e0']
+0x973000 (callers=2): 'IPv4 addresses canno'
+   callers: ['0x972fb8', '0x9b1bf0']
+0x97969c (callers=1): 'Invalid internet add'
+   callers: ['0x97854c']
+0x97de7c (callers=1): 'Invalid internet add'
+   callers: ['0x97dd60']
+0x987380 (callers=3): 'Invalid internet add'
+   callers: ['0x987304', '0x98981c', '0x98a160']
+0x987984 (callers=1): 'Invalid internet add'
+   callers: ['0x987938']
+0x98dbc0 (callers=1): 'Invalid internet add'
+   callers: ['0x98d050']
+0x996cb4 (callers=0): 'Invalid internet add'
+   callers: []
+0x99bd88 (callers=0): 'Invalid internet add'
+   callers: []
+0x99c0f4 (callers=2): 'Invalid internet add'
+   callers: ['0x99c094', '0x99c0f4']
+0x99cf0c (callers=0): 'Invalid internet add'
+   callers: []
+0x9a2b48 (callers=0): 'Invalid internet add'
+   callers: []
+0x9a8498 (callers=0): 'forceVersion'
+   callers: []
+0x9aa238 (callers=1): 'forceVersion'
+   callers: ['0x9a95e0']
+0x9b0efc (callers=0): 'Invalid internet add'
+   callers: []
+0x9b3910 (callers=2): 'Invalid internet add'
+   callers: ['0x9b305c', '0x9b4fc4']
+0x9b7794 (callers=0): 'Invalid internet add'
+   callers: []
+0x9ba738 (callers=0): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: []
+0x9bdd48 (callers=0): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: []
+0x9c1220 (callers=0): 'Invalid internet add'
+   callers: []
+0x9c41d8 (callers=0): 'Invalid internet add'
+   callers: []
+0x9c9d2c (callers=0): 'Invalid internet add'
+   callers: []
+0x9cb4a8 (callers=0): 'Invalid internet add'
+   callers: []
+0x9cfb40 (callers=1): 'Invalid internet add'
+   callers: ['0x9cf998']
+0x9d0584 (callers=0): 'Invalid internet add'
+   callers: []
+0x9d11e0 (callers=0): 'Invalid internet add'
+   callers: []
+0x9d1558 (callers=0): 'Invalid internet add'
+   callers: []
+0x9d2cb4 (callers=1): 'Invalid internet add'
+   callers: ['0x9dcb84']
+0x9d4c04 (callers=3): 'Invalid internet add'
+   callers: ['0x9d4b74', '0x9dd068', '0x9dd61c']
+0x9dbe1c (callers=2): 'Invalid internet add'
+   callers: ['0x9dbda4', '0xc697cc']
+0x9ddce4 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x9dde44 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0x9dfaa0 (callers=1): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: ['0x9df94c']
+0x9f9688 (callers=1): 'Invalid internet add'
+   callers: ['0x9f90d0']
+0xa00948 (callers=1): 'padding' 'forceVersion'
+   callers: ['0xa0068c']
+0xa07cc0 (callers=8): 'IPv4 addresses canno'
+   callers: ['0xa07c50', '0xa0adc8', '0xa0ae8c', '0xa0af50', '0xa0b014', '0xa0b0d8', '0xa0b19c', '0xa0b260']
+0xa14b7c (callers=0): 'Invalid internet add'
+   callers: []
+0xa17520 (callers=0): 'Invalid internet add'
+   callers: []
+0xa18684 (callers=2): 'Invalid internet add'
+   callers: ['0xa185fc', '0xa18d90']
+0xa18f34 (callers=1): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: ['0xa18d90']
+0xa1a16c (callers=0): 'forceVersion'
+   callers: []
+0xa20cbc (callers=1): 'reload'
+   callers: ['0xa20c50']
+0xa215b0 (callers=0): 'BorderRadius.all(' 'IPv4 addresses canno'
+   callers: []
+0xa225d4 (callers=0): 'Invalid internet add' 'forceVersion'
+   callers: []
+0xa2e9d0 (callers=1): 'Invalid internet add'
+   callers: ['0xa2f834']
+0xa2fd28 (callers=0): 'Invalid internet add'
+   callers: []
+0xa35ebc (callers=2): 'Invalid internet add'
+   callers: ['0xa35e6c', '0xa3611c']
+0xa36244 (callers=0): 'Invalid internet add'
+   callers: []
+0xa39c7c (callers=0): 'Invalid internet add'
+   callers: []
+0xa42f28 (callers=2): 'Invalid internet add'
+   callers: ['0xa42ed4', '0xee5b64']
+0xa44774 (callers=0): 'Invalid internet add'
+   callers: []
+0xa449a8 (callers=1): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: ['0xa44774']
+0xa45020 (callers=0): 'Invalid internet add'
+   callers: []
+0xa452e8 (callers=0): 'Invalid internet add'
+   callers: []
+0xa45990 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0xa466d0 (callers=1): 'Invalid internet add'
+   callers: ['0xa46680']
+0xa46b74 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0xa48ddc (callers=0): 'Invalid internet add'
+   callers: []
+0xa4cbd8 (callers=0): 'Invalid internet add'
+   callers: []
+0xa52920 (callers=0): 'Invalid internet add'
+   callers: []
+0xa53998 (callers=0): '喵喵载入中...'
+   callers: []
+0xa54178 (callers=0): 'forceVersion' 'adNum:' 'http://q.qlogo.cn/he' '通过捐赠绑定设备获取' '功能，通过捐赠绑定账号获取' '，未获得特权将在0点重置浏览次数！'
+   callers: []
+0xa58068 (callers=0): 'forceVersion' 'Invalid internet add'
+   callers: []
+0xa5b45c (callers=0): 'Invalid internet add'
+   callers: []
+0xa620ec (callers=0): 'Invalid internet add'
+   callers: []
+0xa63364 (callers=0): 'Invalid internet add'
+   callers: []
+0xa65038 (callers=0): 'Invalid internet add'
+   callers: []
+0xa65f94 (callers=0): '/皮皮喵/Backups/'
+   callers: []
+0xa67cd8 (callers=3): '皮皮喵/ExportDown/'
+   callers: ['0xaf4c6c', '0xaf5dd0', '0xb067bc']
+0xa67f68 (callers=0): 'Invalid internet add' 'coverHeader'
+   callers: []
+0xa6c65c (callers=2): '皮皮喵/'
+   callers: ['0xa75098', '0xa7901c']
+0xa70240 (callers=0): '/Download/'
+   callers: []
+0xa70ce0 (callers=0): 'Invalid internet add'
+   callers: []
+0xa71c74 (callers=0): 'Invalid internet add' 'remoteConfigSign'
+   callers: []
+0xa7abb0 (callers=0): '皮皮喵备份_'
+   callers: []
+0xa7acd4 (callers=0): 'Invalid internet add'
+   callers: []
+0xa7bdcc (callers=0): 'forceVersion'
+   callers: []
+0xa7d9cc (callers=0): 'Invalid internet add'
+   callers: []
+0xa7f9e8 (callers=0): 'Invalid internet add'
+   callers: []
+0xa80c0c (callers=0): 'forceVersion' 'IPv4 addresses canno'
+   callers: []
+0xa81154 (callers=0): 'forceVersion'
+   callers: []
+0xa833ec (callers=1): 'forceVersion' 'reload'
+   callers: ['0xa8319c']
+0xa84990 (callers=0): 'forceVersion' 'Invalid internet add' 'coverHeader' 'IPv4 addresses canno'
+   callers: []
+0xa8635c (callers=2): 'BorderRadius.all(' 'forceVersion' 'IPv4 addresses canno' 'coverHeader'
+   callers: ['0xa84990', '0xa99188']
+0xa8bc3c (callers=0): '皮皮喵自动备份_' 'Invalid internet add'
+   callers: []
+0xa8caf4 (callers=0): 'Invalid internet add'
+   callers: []
+0xa908e0 (callers=0): 'Invalid internet add' 'fuckReadChapter:'
+   callers: []
+0xa92b0c (callers=0): '喵喵编号打开'
+   callers: []
+0xa95510 (callers=0): 'forceVersion'
+   callers: []
+0xa95854 (callers=0): 'Invalid internet add' 'forceVersion'
+   callers: []
+0xa965d8 (callers=0): 'coverHeader'
+   callers: []
+0xa96bac (callers=0): 'coverHeader'
+   callers: []
+0xa96db4 (callers=0): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: []
+0xa9839c (callers=0): 'forceVersion'
+   callers: []
+0xa99188 (callers=0): 'Invalid internet add'
+   callers: []
+0xa993a0 (callers=0): '放开更新订阅状态' '更新完成' '下拉更新订阅状态' '更新中'
+   callers: []
+0xa9a044 (callers=1): 'Loading…'
+   callers: ['0xa99ffc']
+0xa9a850 (callers=1): 'Invalid internet add'
+   callers: ['0xa9a808']
+0xa9ba54 (callers=1): 'Invalid internet add'
+   callers: ['0xa9b9c0']
+0xa9ca1c (callers=0): 'forceVersion'
+   callers: []
+0xa9d17c (callers=0): 'Invalid internet add'
+   callers: []
+0xa9d2c4 (callers=0): 'Invalid internet add' 'forceVersion'
+   callers: []
+0xa9d9c4 (callers=1): 'forceVersion' 'coverHeader' 'Invalid internet add'
+   callers: ['0xa9d2c4']
+0xaa23f8 (callers=4): 'showSplashAd'
+   callers: ['0xb28b94', '0xb28cd4', '0xb2a120', '0xc4b324']
+0xaa4058 (callers=0): 'forceVersion'
+   callers: []
+0xaa5848 (callers=0): 'Invalid internet add' 'IPv4 addresses canno' 'AdsTest' 'AdMob_Fullscreen' 'AdMob_Reward' 'AdKs_Splash'
+   callers: []
+0xaaa2e8 (callers=0): 'Invalid internet add'
+   callers: []
+0xab09d8 (callers=0): 'forceVersion'
+   callers: []
+0xab161c (callers=0): 'forceVersion' 'coverHeader'
+   callers: []
+0xab2ac0 (callers=1): 'forceVersion' 'Invalid internet add'
+   callers: ['0xab2848']
+0xab362c (callers=0): 'Invalid internet add'
+   callers: []
+0xab51b4 (callers=1): 'forceVersion' 'Invalid internet add'
+   callers: ['0xab2848']
+0xab76ac (callers=0): 'forceVersion' 'Invalid internet add'
+   callers: []
+0xabaccc (callers=0): 'Invalid internet add'
+   callers: []
+0xabb054 (callers=0): 'forceVersion'
+   callers: []
+0xabcbf4 (callers=0): 'forceVersion' 'BorderRadius.all('
+   callers: []
+0xabf760 (callers=0): 'Invalid internet add' 'forceVersion'
+   callers: []
+0xabfd24 (callers=1): 'forceVersion' 'coverHeader' 'IPv4 addresses canno' 'Invalid internet add' 'updateTime'
+   callers: ['0xab2848']
+0xac38f8 (callers=2): 'Invalid internet add' 'forceVersion'
+   callers: ['0xabfd24', '0xacd2b8']
+0xac4370 (callers=0): 'forceVersion' 'reload' 'Invalid internet add'
+   callers: []
+0xac99c0 (callers=0): 'Invalid internet add' 'forceVersion'
+   callers: []
+0xaca908 (callers=0): '，而且广告无法正常显示，此功能'
+   callers: []
+0xacb228 (callers=0): 'BorderRadius.all(' 'forceVersion'
+   callers: []
+0xacd2b8 (callers=0): 'forceVersion' 'coverHeader' 'Invalid internet add' '正在更新' 'reload'
+   callers: []
+0xad8f60 (callers=0): 'forceVersion'
+   callers: []
+0xada004 (callers=7): 'forceVersion'
+   callers: ['0xad8f60', '0xb1b39c', '0xb34f90', '0xb80474', '0xb89024', '0xbc974c', '0xbdce10']
+0xadb6a8 (callers=1): 'forceVersion'
+   callers: ['0xadb640']
+0xadc094 (callers=0): 'Invalid internet add'
+   callers: []
+0xadcad0 (callers=0): 'forceVersion' 'AI喵喵努力推荐中...' 'Invalid internet add'
+   callers: []
+0xade9e0 (callers=3): 'BorderRadius.all(' 'forceVersion'
+   callers: ['0xadcad0', '0xaea348', '0xaee6e0']
+0xae0b40 (callers=0): 'Invalid internet add'
+   callers: []
+0xae2070 (callers=0): 'Invalid internet add'
+   callers: []
+0xae2d18 (callers=1): 'Invalid internet add' 'forceVersion'
+   callers: ['0xadcad0']
+0xae30e0 (callers=0): '喵喵饿了' 'forceVersion'
+   callers: []
+0xae5fa8 (callers=0): 'forceVersion'
+   callers: []
+0xae71bc (callers=0): '每日喂喵' 'forceVersion'
+   callers: []
+0xae89b4 (callers=7): 'Invalid internet add'
+   callers: ['0xae88d4', '0xae8f2c', '0xae94dc', '0xae95a8', '0xc4bb50', '0xc50b98', '0xc5133c']
+0xae98fc (callers=0): 'forceVersion' 'Invalid internet add' 'Loading...'
+   callers: []
+0xaef744 (callers=0): 'Invalid internet add'
+   callers: []
+0xaf0214 (callers=1): 'forceVersion' 'reload' 'Invalid internet add'
+   callers: ['0xaf0030']
+0xaf1710 (callers=0): 'Invalid internet add' 'forceVersion' 'coverHeader' 'IPv4 addresses canno'
+   callers: []
+0xaf2228 (callers=0): 'Invalid internet add'
+   callers: []
+0xaf6988 (callers=0): 'coverHeader'
+   callers: []
+0xaf6ebc (callers=0): 'Invalid internet add'
+   callers: []
+0xaf718c (callers=2): 'forceVersion' 'coverHeader' 'Invalid internet add'
+   callers: ['0xaf70cc', '0xafe8c4']
+0xaf9fd4 (callers=0): 'coverHeader' 'Invalid internet add'
+   callers: []
+0xafa150 (callers=0): 'coverHeader'
+   callers: []
+0xafa3c4 (callers=0): 'Invalid internet add'
+   callers: []
+0xafe9a0 (callers=0): 'forceVersion'
+   callers: []
+0xaffd34 (callers=1): 'forceVersion'
+   callers: ['0xafe9a0']
+0xb02a6c (callers=0): 'forceVersion'
+   callers: []
+0xb04188 (callers=0): 'forceVersion'
+   callers: []
+0xb06f48 (callers=0): 'coverHeader' 'sreadChapter:'
+   callers: []
+0xb08b04 (callers=0): 'coverHeader'
+   callers: []
+0xb0b4b0 (callers=0): 'forceVersion'
+   callers: []
+0xb0cb58 (callers=0): 'forceVersion' 'Invalid internet add' 'coverHeader' 'IPv4 addresses canno'
+   callers: []
+0xb0de84 (callers=0): 'coverHeader'
+   callers: []
+0xb10d3c (callers=0): 'IPv4 addresses canno' 'forceVersion' '更新封面' 'coverHeader'
+   callers: []
+0xb141a8 (callers=0): '正在更新封面中...'
+   callers: []
+0xb16cf8 (callers=0): 'Invalid internet add'
+   callers: []
+0xb18494 (callers=0): 'Invalid internet add'
+   callers: []
+0xb1b39c (callers=1): 'forceVersion' 'Invalid internet add'
+   callers: ['0xb1b250']
+0xb1d1e8 (callers=0): 'forceVersion'
+   callers: []
+0xb1dd64 (callers=0): 'forceVersion'
+   callers: []
+0xb1e92c (callers=0): 'Invalid internet add'
+   callers: []
+0xb1edf8 (callers=0): 'Invalid internet add'
+   callers: []
+0xb1f15c (callers=0): 'Invalid internet add' 'forceVersion'
+   callers: []
+0xb203ec (callers=0): 'forceVersion'
+   callers: []
+0xb20b90 (callers=0): 'Invalid internet add'
+   callers: []
+0xb215e8 (callers=0): 'Invalid internet add'
+   callers: []
+0xb22848 (callers=0): 'forceVersion' 'reload' 'Invalid internet add'
+   callers: []
+0xb23d34 (callers=0): 'forceVersion' 'coverHeader' 'Invalid internet add' 'IPv4 addresses canno'
+   callers: []
+0xb25a6c (callers=0): 'Invalid internet add'
+   callers: []
+0xb25f74 (callers=3): 'IPv4 addresses canno'
+   callers: ['0xb25a6c', '0xb27808', '0xf2a66c']
+0xb27808 (callers=0): 'Invalid internet add'
+   callers: []
+0xb2a578 (callers=1): 'BorderRadius.all('
+   callers: ['0xb2a2f4']
+0xb2b410 (callers=1): 'forceVersion'
+   callers: ['0xb2b3bc']
+0xb2c50c (callers=0): 'forceVersion' 'IPv4 addresses canno'
+   callers: []
+0xb2cadc (callers=0): 'forceVersion'
+   callers: []
+0xb2e758 (callers=0): 'forceVersion'
+   callers: []
+0xb2f680 (callers=0): 'forceVersion'
+   callers: []
+0xb31910 (callers=0): 'Invalid internet add' 'forceVersion'
+   callers: []
+0xb33174 (callers=0): 'Invalid internet add'
+   callers: []
+0xb34f90 (callers=0): 'forceVersion' 'Invalid internet add' 'reload'
+   callers: []
+0xb35f4c (callers=1): 'forceVersion' 'reload'
+   callers: ['0xb34f90']
+0xb3784c (callers=0): 'forceVersion'
+   callers: []
+0xb38c78 (callers=5): ',loading:'
+   callers: ['0xb8abf4', '0xb8b22c', '0xb8b894', '0xb8d6fc', '0xb8dac0']
+0xb38e18 (callers=0): 'Invalid internet add'
+   callers: []
+0xb39bc0 (callers=0): 'Invalid internet add'
+   callers: []
+0xb3abd0 (callers=0): 'forceVersion'
+   callers: []
+0xb3b5d8 (callers=3): 'ComicReaderMode'
+   callers: ['0xb3b58c', '0xb60a58', '0xc4d2b8']
+0xb3c3f8 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0xb3c480 (callers=1): 'readchpater savePath'
+   callers: ['0xb3c3f8']
+0xb3c638 (callers=0): 'Invalid internet add' 'orginHeader'
+   callers: []
+0xb3ff04 (callers=0): 'forceVersion' 'Invalid internet add' 'reload'
+   callers: []
+0xb47724 (callers=5): 'IPv4 addresses canno'
+   callers: ['0xb474e8', '0xb48f14', '0xb4b6fc', '0xb4d244', '0xb54eac']
+0xb48f14 (callers=0): 'Invalid internet add' '没有更新的章节' 'IPv4 addresses canno'
+   callers: []
+0xb49fc8 (callers=5): 'Invalid internet add'
+   callers: ['0xb48f14', '0xb4d244', '0xb5241c', '0xb537e0', '0xb54eac']
+0xb4b6fc (callers=0): 'Invalid internet add'
+   callers: []
+0xb4d244 (callers=0): 'Invalid internet add' '没有更新的章节' 'IPv4 addresses canno'
+   callers: []
+0xb537e0 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0xb54eac (callers=0): '没有更新的章节' 'Invalid internet add'
+   callers: []
+0xb55894 (callers=0): 'Invalid internet add'
+   callers: []
+0xb571f4 (callers=0): 'Invalid internet add'
+   callers: []
+0xb57b6c (callers=0): 'Invalid internet add'
+   callers: []
+0xb59ce4 (callers=0): 'Invalid internet add'
+   callers: []
+0xb5a1fc (callers=0): 'Invalid internet add'
+   callers: []
+0xb5b904 (callers=0): 'forceVersion'
+   callers: []
+0xb5bc74 (callers=0): 'Invalid internet add' 'forceVersion'
+   callers: []
+0xb66260 (callers=0): 'Invalid internet add'
+   callers: []
+0xb68308 (callers=0): 'Invalid internet add'
+   callers: []
+0xb6b520 (callers=0): 'forceVersion'
+   callers: []
+0xb6d480 (callers=0): 'forceVersion'
+   callers: []
+0xb6e3ec (callers=0): 'Invalid internet add'
+   callers: []
+0xb6edd8 (callers=1): 'reload' 'forceVersion'
+   callers: ['0xb6edac']
+0xb6f5a8 (callers=0): 'forceVersion'
+   callers: []
+0xb71ebc (callers=0): '_isLoading:'
+   callers: []
+0xb72324 (callers=0): 'forceVersion'
+   callers: []
+0xb73020 (callers=0): 'Invalid internet add' 'reload' 'forceVersion'
+   callers: []
+0xb799b8 (callers=0): 'forceVersion' '皮皮喵来源教程（教程）[自定义]' 'Header' 'headerCode' 'Header处理代码'
+   callers: []
+0xb7d744 (callers=0): 'Invalid internet add'
+   callers: []
+0xb80184 (callers=1): 'Invalid internet add'
+   callers: ['0xb7ff9c']
+0xb80474 (callers=0): 'forceVersion' 'Invalid internet add'
+   callers: []
+0xb82074 (callers=0): 'Invalid internet add'
+   callers: []
+0xb834ec (callers=0): 'forceVersion'
+   callers: []
+0xb8402c (callers=0): 'forceVersion'
+   callers: []
+0xb84b10 (callers=0): 'Invalid internet add'
+   callers: []
+0xb850ac (callers=0): 'Invalid internet add'
+   callers: []
+0xb857c8 (callers=1): 'forceVersion' 'Invalid internet add'
+   callers: ['0xb85704']
+0xb88718 (callers=0): 'forceVersion'
+   callers: []
+0xb89024 (callers=1): 'Invalid internet add' 'forceVersion' 'IPv4 addresses canno'
+   callers: ['0xb88718']
+0xb8abf4 (callers=0): 'Invalid internet add'
+   callers: []
+0xb8bca8 (callers=0): 'forceVersion'
+   callers: []
+0xb8ca0c (callers=0): 'forceVersion'
+   callers: []
+0xb8f8a0 (callers=0): 'Invalid internet add' 'forceVersion'
+   callers: []
+0xb8fc44 (callers=0): 'BorderRadius.all('
+   callers: []
+0xb91c54 (callers=0): 'forceVersion' 'reload'
+   callers: []
+0xb92cd8 (callers=0): 'Invalid internet add' 'IPv4 addresses canno' 'forceVersion'
+   callers: []
+0xb96a50 (callers=0): 'Invalid internet add'
+   callers: []
+0xb97d78 (callers=0): 'reload' 'forceVersion'
+   callers: []
+0xb98f54 (callers=0): 'forceVersion'
+   callers: []
+0xb99638 (callers=0): 'forceVersion'
+   callers: []
+0xb99afc (callers=0): 'BorderRadius.all(' 'coverHeader' 'Invalid internet add'
+   callers: []
+0xb9a848 (callers=0): 'BorderRadius.all('
+   callers: []
+0xb9b468 (callers=0): 'BorderRadius.all('
+   callers: []
+0xb9caac (callers=0): 'coverHeader'
+   callers: []
+0xb9ce08 (callers=0): 'BorderRadius.all('
+   callers: []
+0xb9e4e8 (callers=0): 'coverHeader'
+   callers: []
+0xb9fc84 (callers=1): 'adNum:' '功能，通过捐赠绑定账号获取' '通过捐赠绑定设备获取' 'forceVersion' '喵喵喵~' '饿了喵~'
+   callers: ['0xb9fafc']
+0xba63f8 (callers=0): 'Invalid internet add'
+   callers: []
+0xba651c (callers=0): 'forceVersion'
+   callers: []
+0xbaa9a4 (callers=0): 'Invalid internet add'
+   callers: []
+0xbaaac8 (callers=0): 'forceVersion'
+   callers: []
+0xbac0a0 (callers=0): 'forceVersion'
+   callers: []
+0xbac944 (callers=1): 'Invalid internet add'
+   callers: ['0xbac7ac']
+0xbad4d8 (callers=0): 'Invalid internet add' 'coverHeader'
+   callers: []
+0xbae03c (callers=0): 'forceVersion' 'IPv4 addresses canno'
+   callers: []
+0xbafc44 (callers=0): 'Invalid internet add'
+   callers: []
+0xbafd68 (callers=0): 'forceVersion'
+   callers: []
+0xbb8bc8 (callers=0): 'Invalid internet add'
+   callers: []
+0xbb8cec (callers=0): 'forceVersion'
+   callers: []
+0xbbaafc (callers=0): 'forceVersion'
+   callers: []
+0xbc13a0 (callers=0): 'ReadCache' '广告' 'com_qq_e_download' '是否清空广告缓存？'
+   callers: []
+0xbc279c (callers=0): 'Invalid internet add' 'ReadCache' '广告' '已经清空广告缓存!'
+   callers: []
+0xbc4220 (callers=0): 'ksadsdk'
+   callers: []
+0xbc71ec (callers=0): 'forceVersion' 'reload'
+   callers: []
+0xbc82d0 (callers=1): 'forceVersion'
+   callers: ['0xbc7f9c']
+0xbc95e0 (callers=3): '皮皮喵来源教程（教程）[自定义]'
+   callers: ['0xbc9580', '0xbcb758', '0xc522f0']
+0xbca240 (callers=3): 'adNum:'
+   callers: ['0xbca170', '0xbcb5a4', '0xbd0fa0']
+0xbcb758 (callers=0): 'forceVersion' 'IPv4 addresses canno' 'Invalid internet add'
+   callers: []
+0xbceea8 (callers=0): 'Invalid internet add'
+   callers: []
+0xbd3084 (callers=1): 'forceVersion'
+   callers: ['0xbd2e1c']
+0xbd3540 (callers=1): 'forceVersion' 'admobBannerFurtureVi'
+   callers: ['0xbd2e1c']
+0xbd6354 (callers=0): 'forceVersion'
+   callers: []
+0xbd699c (callers=0): 'forceVersion'
+   callers: []
+0xbd92d4 (callers=0): 'Invalid internet add'
+   callers: []
+0xbdabc0 (callers=1): 'forceVersion'
+   callers: ['0xbda348']
+0xbdb050 (callers=0): 'forceVersion' 'BorderRadius.all('
+   callers: []
+0xbdce10 (callers=0): 'forceVersion' 'IPv4 addresses canno' 'loadHTML' 'Headers'
+   callers: []
+0xbe0540 (callers=0): 'Invalid internet add'
+   callers: []
+0xbe298c (callers=0): 'forceVersion'
+   callers: []
+0xbe4418 (callers=0): 'Invalid internet add' 'reload' 'forceVersion'
+   callers: []
+0xbe633c (callers=0): 'IPv4 addresses canno' 'forceVersion'
+   callers: []
+0xbe8cd8 (callers=0): 'forceVersion'
+   callers: []
+0xbe9f78 (callers=0): 'forceVersion' 'IPv4 addresses canno'
+   callers: []
+0xbea72c (callers=0): 'forceVersion'
+   callers: []
+0xbebf14 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0xbedbf4 (callers=0): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: []
+0xbef8a8 (callers=2): 'forceVersion'
+   callers: ['0xbef790', '0xbf2a90']
+0xbf0864 (callers=0): 'coverHeader' 'Invalid internet add'
+   callers: []
+0xbf2b30 (callers=5): 'forceVersion' 'IPv4 addresses canno' 'Invalid internet add' 'Loading...' 'http://q.qlogo.cn/he'
+   callers: ['0xbedbf4', '0xbf40e0', '0xbf4174', '0xbf4f34', '0xbf4fc8']
+0xbf61c0 (callers=0): 'forceVersion'
+   callers: []
+0xbf6edc (callers=1): 'isReaderFullDialog' 'forceVersion'
+   callers: ['0xbf61c0']
+0xbf91f0 (callers=0): 'forceVersion'
+   callers: []
+0xbf96e4 (callers=0): 'forceVersion'
+   callers: []
+0xbf9be8 (callers=0): 'forceVersion' 'Invalid internet add' 'reload'
+   callers: []
+0xc01570 (callers=1): 'Invalid internet add'
+   callers: ['0xbf9be8']
+0xc01e28 (callers=0): 'isReaderFullDialog' 'forceVersion'
+   callers: []
+0xc04688 (callers=0): 'forceVersion' 'http://q.qlogo.cn/he'
+   callers: []
+0xc04dd0 (callers=0): 'forceVersion' 'http://q.qlogo.cn/he'
+   callers: []
+0xc0643c (callers=0): 'Invalid internet add'
+   callers: []
+0xc090b8 (callers=0): 'Invalid internet add' 'forceVersion'
+   callers: []
+0xc0b200 (callers=1): 'Invalid internet add'
+   callers: ['0xc090b8']
+0xc0eb24 (callers=0): 'isReaderFullDialog' 'forceVersion'
+   callers: []
+0xc11138 (callers=0): 'forceVersion' 'http://q.qlogo.cn/he'
+   callers: []
+0xc117a4 (callers=0): 'forceVersion' 'http://q.qlogo.cn/he'
+   callers: []
+0xc129d0 (callers=0): 'forceVersion'
+   callers: []
+0xc13188 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0xc13e98 (callers=0): 'Invalid internet add'
+   callers: []
+0xc1593c (callers=1): 'bad maskPattern:'
+   callers: ['0xc15838']
+0xc1ccf0 (callers=0): 'Invalid internet add'
+   callers: []
+0xc2275c (callers=2): 'Invalid Zip Signatur'
+   callers: ['0xc22648', '0xc38e00']
+0xc22dbc (callers=2): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: ['0xc22c98', '0xc3f544']
+0xc3b6bc (callers=1): 'IPv4 addresses canno'
+   callers: ['0xc3b460']
+0xc3f16c (callers=0): 'IPv4 addresses canno'
+   callers: []
+0xc40098 (callers=0): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: []
+0xc49e28 (callers=0): 'Invalid internet add'
+   callers: []
+0xc4cb30 (callers=0): 'Invalid internet add'
+   callers: []
+0xc4e088 (callers=0): 'coverHeader' 'Invalid internet add'
+   callers: []
+0xc4ee74 (callers=1): 'Invalid internet add'
+   callers: ['0xc4e088']
+0xc51764 (callers=0): 'Invalid internet add'
+   callers: []
+0xc54980 (callers=0): 'Invalid internet add'
+   callers: []
+0xc62bfc (callers=0): '\\", headers: '
+   callers: []
+0xc63658 (callers=1): 'Invalid internet add'
+   callers: ['0xc6360c']
+0xc64a24 (callers=0): 'LoadStatus.'
+   callers: []
+0xc64b4c (callers=1): '更新完成'
+   callers: ['0xc64b00']
+0xc6a4b0 (callers=0): 'com.gstory.ksad/Nati'
+   callers: []
+0xc7dde8 (callers=4): 'BorderRadius.all('
+   callers: ['0xc7b048', '0xec81dc', '0xf40634', '0xf40bb4']
+0xc81bfc (callers=0): 'Invalid internet add'
+   callers: []
+0xc82130 (callers=1): 'IPv4 addresses canno'
+   callers: ['0xc81eec']
+0xc85a34 (callers=0): 'Invalid internet add' 'Read past the curren'
+   callers: []
+0xc8ea80 (callers=0): 'IPv4 addresses canno' ' was not loaded.'
+   callers: []
+0xc8f874 (callers=0): 'Read past the curren'
+   callers: []
+0xc90580 (callers=1): 'Invalid internet add'
+   callers: ['0xc902ac']
+0xc99358 (callers=1): 'Invalid internet add'
+   callers: ['0xc99084']
+0xc99a48 (callers=1): 'Invalid internet add'
+   callers: ['0xa60f3c']
+0xca1a2c (callers=2): 'Read past the curren'
+   callers: ['0xca19e8', '0xca2098']
+0xca1d84 (callers=2): 'Read past the curren'
+   callers: ['0xca1d40', '0xca2098']
+0xca23e4 (callers=0): 'BorderRadius.all(' 'Read past the curren' 'BorderRadius.only(' 'BorderRadiusDirectio' 'BorderRadiusDirectio' 'BorderRadiusDirectio'
+   callers: []
+0xca4fc8 (callers=0): 'Read past the curren'
+   callers: []
+0xcb00d0 (callers=0): 'update'
+   callers: []
+0xcb439c (callers=1): 'Invalid internet add'
+   callers: ['0xcb2df0']
+0xcc1d08 (callers=1): 'header'
+   callers: ['0xcc05f4']
+0xcc207c (callers=34): 'adoption-agency-1.2' 'adoption-agency-1.1'
+   callers: ['0xcc1e38', '0xcc2f40', '0xcc304c', '0xcc3614', '0xcc3744', '0xcc38a8', '0xcc3a04', '0xcc4274', '0xcc5a5c', '0xcc5b64']
+0xcc304c (callers=9): 'Invalid internet add'
+   callers: ['0xcc2f40', '0xcc304c', '0xcc3744', '0xcc5a5c', '0xcc5f38', '0xcc609c', '0xcc6164', '0xcc6304', '0xf05238']
+0xcc38a8 (callers=1): 'Invalid internet add'
+   callers: ['0xcc05f4']
+0xcc3a04 (callers=1): 'Invalid internet add'
+   callers: ['0xcc05f4']
+0xcc69bc (callers=10): 'loadHTML' 'IPv4 addresses canno'
+   callers: ['0xcc05f4', '0xcc6c34', '0xcc7d80', '0xcc8080', '0xcc841c', '0xcc8d48', '0xcc9524', '0xcc9c50', '0xccb72c', '0xccb964']
+0xcc7f28 (callers=2): 'IPv4 addresses canno'
+   callers: ['0xcc7d80', '0xf0773c']
+0xcc86a8 (callers=2): 'thead' 'IPv4 addresses canno'
+   callers: ['0xcc866c', '0xf07e80']
+0xcc9ef0 (callers=1): 'IPv4 addresses canno'
+   callers: ['0xcc9c50']
+0xcca088 (callers=2): 'loadHTML' 'thead'
+   callers: ['0xcc9fc0', '0xf07440']
+0xccaa64 (callers=1): 'IPv4 addresses canno'
+   callers: ['0xcc9c50']
+0xccc60c (callers=2): 'Invalid internet add'
+   callers: ['0xccc5c8', '0xf1de34']
+0xccef24 (callers=0): 'Invalid internet add'
+   callers: []
+0xcd0880 (callers=1): 'Invalid internet add'
+   callers: ['0x58dcec']
+0xcd0918 (callers=2): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: ['0x4dbe28', '0xcd0880']
+0xcd0bd8 (callers=1): 'Invalid internet add'
+   callers: ['0x58de24']
+0xcd2c54 (callers=0): 'admobBannerFurtureVi'
+   callers: []
+0xcd3ab0 (callers=0): 'forceVersion'
+   callers: []
+0xcd501c (callers=0): 'Invalid internet add'
+   callers: []
+0xcd655c (callers=1): 'forceVersion' 'reload' 'Invalid internet add'
+   callers: ['0xcd2c54']
+0xcd8ae4 (callers=1): 'Invalid internet add'
+   callers: ['0xcd7e44']
+0xcd9464 (callers=0): 'forceVersion' 'Invalid internet add' 'Loading...'
+   callers: []
+0xcdae38 (callers=0): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: []
+0xce3598 (callers=0): 'Invalid internet add'
+   callers: []
+0xce4ef4 (callers=1): 'Invalid internet add'
+   callers: ['0xce2718']
+0xce6b54 (callers=1): 'Invalid internet add'
+   callers: ['0xce62fc']
+0xce848c (callers=0): 'Invalid internet add'
+   callers: []
+0xceaaac (callers=0): 'IPv4 addresses canno'
+   callers: []
+0xcebef4 (callers=1): 'update '
+   callers: ['0xcebec8']
+0xcec518 (callers=0): 'Invalid internet add'
+   callers: []
+0xced080 (callers=1): 'Invalid internet add'
+   callers: ['0xced028']
+0xced6b0 (callers=1): 'forceVersion'
+   callers: ['0xcd2c54']
+0xcede90 (callers=2): 'IPv4 addresses canno'
+   callers: ['0xced6b0', '0xcefa80']
+0xceeb28 (callers=0): 'forceVersion'
+   callers: []
+0xcefa80 (callers=0): 'reload' 'forceVersion'
+   callers: []
+0xcf18f0 (callers=0): 'Invalid internet add'
+   callers: []
+0xcf1a74 (callers=1): 'forceVersion'
+   callers: ['0xcd2c54']
+0xcf26b0 (callers=9): 'Invalid internet add'
+   callers: ['0xcd2c54', '0xcd39f8', '0xcd3ab0', '0xcd655c', '0xced4c4', '0xced6b0', '0xcee320', '0xcee95c', '0xcf1a74']
+0xcf29d4 (callers=0): 'Invalid internet add'
+   callers: []
+0xcf2bcc (callers=0): 'forceVersion'
+   callers: []
+0xcf49b4 (callers=0): 'forceVersion'
+   callers: []
+0xcf5774 (callers=0): 'admobBannerFurtureVi'
+   callers: []
+0xcf7c38 (callers=0): 'forceVersion'
+   callers: []
+0xcfae18 (callers=0): 'admobBannerFurtureVi'
+   callers: []
+0xcffc0c (callers=3): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: ['0xcffbc4', '0xd03ce8', '0xd04340']
+0xd008e4 (callers=3): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: ['0xcffc0c', '0xd008e4', '0xd01df0']
+0xd035ec (callers=3): 'Invalid internet add'
+   callers: ['0xd034f8', '0xd036ec', '0xd053dc']
+0xd05da0 (callers=0): 'gas value selector a' 'self this super self' 'abi decode encode en' 'add sub mul div sdiv'
+   callers: []
+0xd0ec38 (callers=0): 'self this super self' '(?:append|filter|fla' '[^<\\\\/\\\\$\\\\:\'\\"-]\\\\b' '(?:zip\\\\-file|(?:xml'
+   callers: []
+0xd117e8 (callers=0): 'accept_on alias alwa' '$finish $stop $exit ' 'self this super self'
+   callers: []
+0xd127d0 (callers=0): 'self this super self'
+   callers: []
+0xd168ac (callers=0): '\\\\b(a|abbr|address|a' '\\\\b\\\\d+(\\\\.\\\\d+)?(%|'
+   callers: []
+0xd22010 (callers=0): 'self this super self' '\\\\bsignal\\\\b' 'do while select dele'
+   callers: []
+0xd2ce10 (callers=0): 'Abort AddBrandingIma' 'admin all auto both ' 'self this super self' '\\\\!(addincludedir|ad'
+   callers: []
+0xd34968 (callers=0): 'self this super self'
+   callers: []
+0xd3c0b0 (callers=0): 'self this super self'
+   callers: []
+0xd450cc (callers=0): 'self this super self'
+   callers: []
+0xd5dad8 (callers=0): 'adoc'
+   callers: []
+0xd6495c (callers=0): 'forceVersion'
+   callers: []
+0xd65064 (callers=0): 'forceVersion'
+   callers: []
+0xd65a10 (callers=0): 'forceVersion'
+   callers: []
+0xd6d614 (callers=1): 'Invalid internet add'
+   callers: ['0xd6d1c0']
+0xd70f3c (callers=1): 'IPv4 addresses canno'
+   callers: ['0xd70e7c']
+0xd759cc (callers=0): 'Invalid internet add'
+   callers: []
+0xd771d8 (callers=1): 'Invalid internet add'
+   callers: ['0xd76eb0']
+0xd77d2c (callers=0): 'Invalid internet add'
+   callers: []
+0xd7bb04 (callers=1): 'thead' 'loadHTML' 'IPv4 addresses canno'
+   callers: ['0xd7c0dc']
+0xd7bf98 (callers=1): 'loadHTML' 'IPv4 addresses canno'
+   callers: ['0xd7c1b8']
+0xd7c21c (callers=1): 'loadHTML' 'IPv4 addresses canno'
+   callers: ['0xd7c2e8']
+0xd7c34c (callers=0): 'loadHTML' 'IPv4 addresses canno'
+   callers: []
+0xd8d108 (callers=0): 'forceVersion'
+   callers: []
+0xd8ddfc (callers=1): 'forceVersion'
+   callers: ['0xd8dcd8']
+0xd91a3c (callers=3): 'Cannot fire new even'
+   callers: ['0x5125a4', '0x513ab8', '0x641734']
+0xd96fa0 (callers=2): 'Invalid internet add'
+   callers: ['0x4bf6b0', '0x4bfd80']
+0xda6278 (callers=2): 'Invalid internet add'
+   callers: ['0x67c2e4', '0x67c680']
+0xda9798 (callers=1): 'IPv4 addresses canno'
+   callers: ['0xf1c4ec']
+0xdae504 (callers=1): 'Invalid internet add'
+   callers: ['0xdadcf4']
+0xdaf4a8 (callers=1): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: ['0xdae504']
+0xdb069c (callers=1): 'Invalid internet add'
+   callers: ['0xdae504']
+0xdb1598 (callers=1): 'Invalid internet add'
+   callers: ['0xdb14b8']
+0xdb17c0 (callers=1): 'Invalid internet add'
+   callers: ['0xdb14b8']
+0xdb5814 (callers=1): 'Invalid internet add'
+   callers: ['0xdb57b4']
+0xea6210 (callers=0): 'Invalid internet add'
+   callers: []
+0xea63c8 (callers=1): 'IPv4 addresses canno'
+   callers: ['0xea62bc']
+0xea67ac (callers=0): 'Invalid internet add'
+   callers: []
+0xea6b20 (callers=1): 'IPv4 addresses canno'
+   callers: ['0xd97b14']
+0xea73e4 (callers=1): 'IPv4 addresses canno'
+   callers: ['0xea72e8']
+0xea7ee8 (callers=1): 'IPv4 addresses canno'
+   callers: ['0xd9819c']
+0xeaaed8 (callers=1): 'Invalid internet add'
+   callers: ['0xeaadf4']
+0xeb2a84 (callers=2): 'Invalid internet add'
+   callers: ['0xeb27dc', '0xeb38dc']
+0xed5930 (callers=1): 'Invalid internet add'
+   callers: ['0x93890c']
+0xedef10 (callers=3): 'IPv4 addresses canno'
+   callers: ['0xededa4', '0xee24e0', '0xee4e88']
+0xee04c0 (callers=3): 'IPv4 addresses canno'
+   callers: ['0xee0354', '0xee2fcc', '0xee54e4']
+0xee0fe4 (callers=1): 'IPv4 addresses canno'
+   callers: ['0xee0cc0']
+0xee220c (callers=1): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: ['0xee217c']
+0xee2910 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0xee2cf8 (callers=1): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: ['0xee2c68']
+0xee33b4 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0xee4058 (callers=1): 'Invalid internet add'
+   callers: ['0xee3fc8']
+0xee4454 (callers=1): 'Invalid internet add'
+   callers: ['0xee43c4']
+0xee4b3c (callers=1): 'IPv4 addresses canno'
+   callers: ['0xee4aac']
+0xee5198 (callers=1): 'IPv4 addresses canno'
+   callers: ['0xee5108']
+0xee763c (callers=1): 'Invalid internet add'
+   callers: ['0xee621c']
+0xef32fc (callers=6): 'loading an image'
+   callers: ['0xef31d4', '0xef3824', '0xef3904', '0xef3bd8', '0xef3d3c', '0xef3f20']
+0xef3df0 (callers=0): "Couldn't download or"
+   callers: []
+0xef7f28 (callers=2): 'Invalid internet add'
+   callers: ['0xef6bbc', '0xf55618']
+0xf01464 (callers=2): 'IPv4 addresses canno'
+   callers: ['0xf01004', '0xf01778']
+0xf01aa8 (callers=2): 'Invalid internet add'
+   callers: ['0xf01984', '0xf1d8c4']
+0xf01b10 (callers=3): 'Invalid internet add'
+   callers: ['0xf01984', '0xf1c724', '0xf20f40']
+0xf01b78 (callers=3): 'Invalid internet add'
+   callers: ['0xf01984', '0xf1c724', '0xf20f40']
+0xf01c5c (callers=3): 'Invalid internet add'
+   callers: ['0xf01778', '0xf01984', '0xf1c724']
+0xf032ac (callers=1): 'Content Download'
+   callers: ['0xc7cedc']
+0xf038fc (callers=0): 'IPv4 addresses canno'
+   callers: []
+0xf04824 (callers=0): 'More than one value '
+   callers: []
+0xf068ec (callers=1): 'Invalid internet add'
+   callers: ['0xf05238']
+0xf06a9c (callers=1): 'Invalid internet add'
+   callers: ['0xf05238']
+0xf08458 (callers=1): 'IPv4 addresses canno'
+   callers: ['0xf08190']
+0xf0cdac (callers=17): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: ['0x4db428', '0x52882c', '0x5dadf0', '0x5daef4', '0x5db470', '0x5e57cc', '0x6498e4', '0x682484', '0x682530', '0x68bd1c']
+0xf0f4b8 (callers=0): 'Invalid internet add'
+   callers: []
+0xf0f5b8 (callers=1): 'Invalid internet add'
+   callers: ['0x578a30']
+0xf0f6c4 (callers=0): 'Invalid internet add'
+   callers: []
+0xf1427c (callers=3): 'IPv4 addresses canno'
+   callers: ['0x69692c', '0xf53c28', '0xf80490']
+0xf1883c (callers=0): 'Unable to load asset'
+   callers: []
+0xf18cd8 (callers=1): 'Invalid internet add'
+   callers: ['0xf1883c']
+0xf190d0 (callers=0): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: []
+0xf1a1d0 (callers=0): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: []
+0xf1b674 (callers=3): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: ['0xf0df6c', '0xf1c468', '0xf1c724']
+0xf1bf8c (callers=1): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: ['0xf1b674']
+0xf1d948 (callers=1): 'IPv4 addresses canno'
+   callers: ['0xf1c724']
+0xf1ef58 (callers=0): 'Invalid offset param' 'Invalid internet add'
+   callers: []
+0xf1f21c (callers=1): 'Invalid length param'
+   callers: ['0xf1ef58']
+0xf20650 (callers=1): 'IPv4 addresses canno'
+   callers: ['0xf1c724']
+0xf20af4 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0xf25d9c (callers=1): 'Invalid internet add'
+   callers: ['0x921db0']
+0xf2c2a8 (callers=0): 'Invalid internet add'
+   callers: []
+0xf2c384 (callers=4): 'Invalid internet add'
+   callers: ['0xf2c2a8', '0xf2c4e4', '0xf33938', '0xf35180']
+0xf30db8 (callers=2): 'Invalid internet add'
+   callers: ['0xf30b80', '0xf3294c']
+0xf3c7f4 (callers=0): 'Invalid internet add'
+   callers: []
+0xf413f4 (callers=0): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: []
+0xf42234 (callers=1): 'Invalid internet add'
+   callers: ['0x644298']
+0xf489c8 (callers=2): 'IPv4 addresses canno'
+   callers: ['0x4f8b48', '0xf48cdc']
+0xf4f1f8 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0xf4ff44 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0xf53c28 (callers=0): 'Invalid internet add'
+   callers: []
+0xf59e98 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0xf5a518 (callers=1): 'Invalid internet add'
+   callers: ['0x7e09e4']
+0xf66ef4 (callers=1): 'Invalid internet add'
+   callers: ['0xf66c04']
+0xf66fc8 (callers=0): 'IPv4 addresses canno'
+   callers: []
+0xf6754c (callers=2): 'Invalid internet add' 'notReady' 'ready'
+   callers: ['0xf6754c', '0xf6a200']
+0xf6a6d8 (callers=1): 'Invalid internet add'
+   callers: ['0xf6754c']
+0xf6dc2c (callers=1): 'forceVersion'
+   callers: ['0xa4b494']
+0xf6f790 (callers=0): 'Invalid internet add'
+   callers: []
+0xf77394 (callers=0): 'Invalid internet add'
+   callers: []
+0xf77b60 (callers=1): 'IPv4 addresses canno' 'Invalid internet add'
+   callers: ['0xf77394']
+0xf781a4 (callers=0): 'Invalid internet add'
+   callers: []
+0xf7ce04 (callers=1): 'Invalid internet add'
+   callers: ['0xf76680']
+0xf7ff70 (callers=1): 'Invalid internet add' 'IPv4 addresses canno'
+   callers: ['0xf800dc']
+0xf800dc (callers=7): 'IPv4 addresses canno'
+   callers: ['0x5b940c', '0x821aa4', '0x8220bc', '0x822800', '0x822d00', '0x82595c', '0xc90580']
+0xf85540 (callers=0): 'Invalid internet add'
+   callers: []
