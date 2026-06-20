@@ -212,6 +212,43 @@ target=0xb9fc84 fn=None ins=None
    - `DecompInterface.decompileFunction`
 2. 如果这条链稳定，再替代当前部分 Java Ghidra 探针
 
+### 5.3 已用 `PyGhidra` 跑通定向反编译闭环
+
+本轮已经把上面的“下一步”真正落成了可复用脚本：
+
+- `analysis_round13/pyghidra_targeted_decompile.py`
+- `analysis_round13/pyghidra_targeted_decompile.txt`
+
+脚本做的事情很直接：
+
+- `pyghidra.open_program(...)` 打开 `libapp.so`
+- 对已知区间手工 `disassemble`
+- 用 `listing.createFunction(..., AddressSet body, USER_DEFINED)` 显式建函数
+- 再用 `DecompInterface.decompileFunction(...)` 导出伪代码
+
+当前已覆盖的 5 个目标：
+
+- `0x8758bc .. 0x876154`
+- `0x911788 .. 0x911b28`
+- `0x8cf36c .. 0x8cf8f0`
+- `0xa54178 .. 0xa56824`
+- `0xb9fc84 .. 0xba46ec`
+
+已确认的事实：
+
+- 5 个目标全部 `decompile_completed=True`
+- `PyGhidra` 这条链不再只停留在“能打开 program”，而是已经能完整跑到“手工建函数 + 反编译”
+- 语义层面没有推翻现有结论，反而再次支持：
+  - `0xa54178` 仍然很薄，更像页面装配 wrapper
+  - `0xb9fc84` 仍然是厚状态机
+  - `0x911788 / 0x8cf36c` 的伪代码仍带大量 AOT 运行时噪音，说明它们更适合继续配合 `pool_accesses + Capstone + 对象池` 去拆，而不是直接依赖反编译伪代码
+
+这条链对协作的实际意义是：
+
+- 后续不必再完全依赖 Java 版 `GhidraScript`
+- 其他分支如果需要复用 `test1` 的环境成果，现在可以直接基于这份 Python 脚本扩展目标区间
+- `PyGhidra` 已经从“工具安装记录”升级成了 `test1` 分支上可直接复跑的共享分析入口
+
 ## 6. 本轮最有价值的结论
 
 - 新工具不是停留在“装好了”：

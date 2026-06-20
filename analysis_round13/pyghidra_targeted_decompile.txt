@@ -1,0 +1,298 @@
+program=libapp.so
+image_base=0x100000
+
+=== target 0x8758bc..0x876150 ===
+create_fn=FUN_008758bc
+first_ins=None
+decompile_completed=True
+
+void FUN_008758bc(long param_1,undefined8 param_2,long param_3)
+
+{
+  long in_x15;
+  undefined8 uVar1;
+  long unaff_x27;
+  
+  *(undefined4 *)(param_3 + 0xf) = 0x180fa;
+  *(undefined4 *)(param_1 + 0x97ab) = 0xad0a;
+  *(undefined4 *)(param_1 + 0x97af) = 0x180fc;
+  *(undefined4 *)(param_1 + 0x97b3) = 0xad0e;
+  *(undefined4 *)(param_1 + 0x97b7) = 0x18142;
+  *(undefined4 *)(param_1 + 0x97bb) = 0xad1e;
+  *(undefined4 *)(param_1 + 0x97bf) = 0x18144;
+  *(undefined4 *)(param_1 + 0x97c3) = 0xb1aa;
+  *(undefined4 *)(param_1 + 0x97c7) = 0x18146;
+  *(undefined4 *)(param_1 + 0x97cb) = 0xb1a6;
+  *(undefined4 *)(param_1 + 0x97cf) = 0x18148;
+  *(undefined4 *)(param_1 + 0x97d3) = 0xb1a2;
+  *(undefined4 *)(param_1 + 0x97d7) = 0x1814a;
+  *(undefined4 *)(param_1 + 0x97db) = 0xb19c;
+  *(undefined4 *)(param_1 + 0x97df) = 0x1814c;
+  *(undefined4 *)(param_1 + 0x97e3) = 0xb660;
+  *(undefined4 *)(param_1 + 0x97e7) = 0x1814e;
+  *(undefined4 *)(param_1 + 0x97eb) = 0xb654;
+  *(undefined4 *)(param_1 + 0x97ef) = 0x18150;
+  *(undefined4 *)(param_1 + 0x97f3) = 0xb648;
+  *(undefined4 *)(param_1 + 0x97f7) = 0x18152;
+  *(undefined4 *)(param_1 + 0x97fb) = 0xb6f4;
+  *(undefined4 *)(param_1 + 0x97ff) = 0x18154;
+  *(undefined4 *)(param_1 + 0x9803) = 0xb86e;
+  *(undefined4 *)(param_1 + 0x9807) = 0x18156;
+  *(undefined4 *)(param_1 + 0x980b) = 0xb8d0;
+  *(undefined4 *)(param_1 + 0x980f) = 0x18158;
+  *(undefined4 *)(param_1 + 0x9813) = 0xbb78;
+  *(undefined4 *)(param_1 + 0x9817) = 0x1815a;
+  *(undefined4 *)(param_1 + 0x981b) = 0xbb74;
+  *(undefined4 *)(param_1 + 0x981f) = 0x1815c;
+  *(undefined4 *)(param_1 + 0x9823) = 0xbb7a;
+  *(undefined4 *)(param_1 + 0x9827) = 0x1815e;
+  *(undefined4 *)(param_1 + 0x982b) = 0xbb70;
+  *(undefined4 *)(param_1 + 0x982f) = 0x18160;
+  *(undefined4 *)(param_1 + 0x9833) = 0xbcd6;
+  *(undefined4 *)(param_1 + 0x9837) = 0x18162;
+  *(undefined4 *)(param_1 + 0x983b) = 0xbe98;
+  *(undefined4 *)(param_1 + 0x983f) = 0x18164;
+  *(undefined4 *)(param_1 + 0x9843) = 0xbf7a;
+  *(undefined4 *)(param_1 + 0x9847) = 0x18166;
+  *(undefined4 *)(param_1 + 0x984b) = 0xc392;
+  *(undefined4 *)(param_1 + 0x984f) = 0x18168;
+  *(undefined4 *)(param_1 + 0x9853) = 0xc384;
+  *(undefined4 *)(param_1 + 38999) = 0x1816a;
+  *(undefined4 *)(param_1 + 0x985b) = 0xc38e;
+  *(undefined4 *)(param_1 + 0x985f) = 0x1816c;
+  *(undefined4 *)(param_1 + 0x9863) = 0xc3cc;
+  *(undefined4 *)(param_1 + 0x9867) = 0x1816e;
+  *(undefined4 *)(param_1 + 0x986b) = 0xc396;
+  *(undefined4 *)(param_1 + 0x986f) = 0x18170;
+  *(undefined4 *)(param_1 + 0x9873) = 0xc464;
+  *(undefined4 *)(param_1 + 0x9877) = 0x18172;
+  *(undefined4 *)(param_1 + 0x987b) = 0xc468;
+  *(undefined4 *)(param_1 + 0x987f) = 0x18174;
+  *(undefined4 *)(param_1 + 0x9883) = 0xc99c;
+  *(undefined4 *)(param_1 + 0x9887) = 0x18176;
+  *(undefined4 *)(param_1 + 0x988b) = 0xc994;
+  *(undefined4 *)(param_1 + 0x988f) = 0x18178;
+  *(undefined4 *)(param_1 + 0x9893) = 0xc9b0;
+  *(undefined4 *)(param_1 + 0x9897) = 0x1817a;
+  *(undefined4 *)(param_1 + 0x989b) = 0xc9c0;
+  *(undefined4 *)(param_1 + 0x989f) = 0x1817c;
+  *(undefined4 *)(param_1 + 0x98a3) = 0xc9e0;
+  *(undefined4 *)(param_1 + 0x98a7) = 0x1817e;
+  *(undefined4 *)(param_1 + 0x98ab) = 0xc9cc;
+  *(undefined4 *)(param_1 + 0x98af) = 0x18180;
+  *(undefined4 *)(param_1 + 0x98b3) = 0xc9d8;
+  *(undefined4 *)(param_1 + 0x98b7) = 0x18182;
+  *(undefined4 *)(param_1 + 0x98bb) = 0xc9e2;
+  *(undefined4 *)(param_1 + 0x98bf) = 0x18184;
+  *(undefined4 *)(param_1 + 0x98c3) = 0xc9c4;
+
+=== target 0x911788..0x911b24 ===
+create_fn=FUN_00911788
+first_ins=None
+decompile_completed=True
+
+void FUN_00911788(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+                 long param_5)
+
+{
+  long in_x15;
+  long unaff_x28;
+  
+  *(undefined8 *)(in_x15 + -0x10) = param_3;
+  *(undefined8 *)(in_x15 + -8) = param_2;
+  *(long *)(in_x15 + -0x20) = param_5 + (unaff_x28 << 0x20);
+  *(undefined8 *)(in_x15 + -0x18) = param_4;
+  func_0x0057369c();
+  return;
+}
+
+
+=== target 0x8cf36c..0x8cf8ec ===
+create_fn=FUN_008cf36c
+first_ins=None
+decompile_completed=True
+
+undefined8 FUN_008cf36c(long param_1,int param_2)
+
+{
+  long lVar1;
+  ulong uVar2;
+  ulong uVar3;
+  long in_x15;
+  long extraout_x15;
+  long *extraout_x15_00;
+  undefined8 uVar4;
+  long lVar5;
+  long unaff_x27;
+  long unaff_x29;
+  
+  *(undefined4 *)(param_1 + (long)param_2 * 2 + 0xf) = 0xb6;
+  *(undefined4 *)(param_1 + 0xdff) = 0x80;
+  *(undefined4 *)(param_1 + 0xe03) = 200;
+  *(undefined4 *)(param_1 + 0xe07) = 100;
+  *(undefined4 *)(param_1 + 0xe0b) = 0x1be;
+  *(undefined4 *)(param_1 + 0xe0f) = 0x110;
+  *(undefined4 *)(param_1 + 0xe13) = 0x184;
+  *(undefined4 *)(param_1 + 0xe17) = 0x32;
+  *(undefined4 *)(param_1 + 0xe1b) = 0xb0;
+  *(undefined4 *)(param_1 + 0xe1f) = 0xaa;
+  *(undefined4 *)(param_1 + 0xe23) = 8;
+  *(undefined4 *)(param_1 + 0xe27) = 0xae;
+  *(undefined4 *)(param_1 + 0xe2b) = 0x1e;
+  *(undefined4 *)(param_1 + 0xe2f) = 0xc;
+  *(undefined4 *)(param_1 + 0xe33) = 0xa4;
+  *(undefined4 *)(param_1 + 0xe37) = 0x14;
+  *(undefined4 *)(param_1 + 0xe3b) = 0xae;
+  *(undefined4 *)(param_1 + 0xe3f) = 0x80;
+  *(undefined4 *)(param_1 + 0xe43) = 0x32;
+  *(undefined4 *)(param_1 + 0xe47) = 0x82;
+  *(undefined4 *)(param_1 + 0xe4b) = 0xa8;
+  *(undefined4 *)(param_1 + 0xe4f) = 0xbe;
+  *(undefined4 *)(param_1 + 0xe53) = 0x10;
+  *(undefined4 *)(param_1 + 0xe57) = 0xa4;
+  *(undefined4 *)(param_1 + 0xe5b) = 0x86;
+  *(undefined4 *)(param_1 + 0xe5f) = 0xb0;
+  *(undefined4 *)(param_1 + 0xe63) = 0x2e;
+  *(undefined4 *)(param_1 + 0xe67) = 0x1c;
+  *(undefined4 *)(param_1 + 0xe6b) = 0x92;
+  *(undefined4 *)(param_1 + 0xe6f) = 0x8e;
+  *(undefined4 *)(param_1 + 0xe73) = 0x12;
+  *(undefined4 *)(param_1 + 0xe77) = 0x92;
+  *(undefined4 *)(param_1 + 0xe7b) = 8;
+  *(undefined4 *)(param_1 + 0xe7f) = 0x18;
+  *(undefined4 *)(param_1 + 0xe83) = 0x8c;
+  *(undefined4 *)(param_1 + 0xe87) = 0xe;
+  *(undefined4 *)(param_1 + 0xe8b) = 0xa6;
+  *(undefined4 *)(param_1 + 0xe8f) = 0xae;
+  *(undefined4 *)(param_1 + 0xe93) = 0x2c;
+  *(undefined4 *)(param_1 + 0xe97) = 0xa0;
+  *(undefined4 *)(param_1 + 0xe9b) = 0xb6;
+  *(undefined4 *)(param_1 + 0xe9f) = 0x9a;
+  *(undefined4 *)(param_1 + 0xea3) = 0x34;
+  *(undefined4 *)(param_1 + 0xea7) = 2;
+  *(undefined4 *)(param_1 + 0xeab) = 0xa2;
+  *(undefined4 *)(param_1 + 0xeaf) = 0x98;
+  *(undefined4 *)(param_1 + 0xeb3) = 0x4e;
+  *(undefined4 *)(param_1 + 0xeb7) = 0xbc;
+  *(undefined4 *)(param_1 + 0xebb) = 8;
+  *(undefined4 *)(param_1 + 0xebf) = 0x18;
+  *(undefined4 *)(param_1 + 0xec3) = 0x82;
+  *(undefined4 *)(param_1 + 0xec7) = 0x98;
+  *(undefined4 *)(param_1 + 0xecb) = 0x92;
+  *(undefined4 *)(param_1 + 0xecf) = 0xb6;
+  *(undefined4 *)(param_1 + 0xed3) = 0x92;
+  *(undefined4 *)(param_1 + 0xed7) = 0x90;
+  *(undefined4 *)(param_1 + 0xedb) = 0x26;
+  *(undefined4 *)(param_1 + 0xedf) = 0xba;
+  *(undefined4 *)(param_1 + 0xee3) = 0x80;
+  *(undefined4 *)(param_1 + 0xee7) = 0x22;
+  *(undefined4 *)(param_1 + 0xeeb) = 0xa8;
+  *(undefined4 *)(param_1 + 0xeef) = 0x16;
+  *(undefined4 *)(param_1 + 0xef3) = 0x1c;
+  *(undefined4 *)(param_1 + 0xef7) = 0x9a;
+  *(undefined4 *)(param_1 + 0xefb) = 0x2a;
+
+=== target 0xa54178..0xa56820 ===
+create_fn=FUN_00a54178
+first_ins=None
+decompile_completed=True
+
+undefined8 FUN_00a54178(undefined8 param_1,undefined8 param_2)
+
+{
+  long in_x15;
+  undefined8 uVar1;
+  long unaff_x29;
+  
+  uVar1 = *(undefined8 *)(unaff_x29 + -8);
+  *(undefined8 *)(in_x15 + -0x10) = param_2;
+  *(undefined8 *)(in_x15 + -8) = uVar1;
+  func_0x010732e8();
+  return *(undefined8 *)(unaff_x29 + -0x10);
+}
+
+
+=== target 0xb9fc84..0xba46e8 ===
+create_fn=FUN_00b9fc84
+first_ins=None
+decompile_completed=True
+
+void FUN_00b9fc84(ulong param_1)
+
+{
+  undefined8 *puVar1;
+  int iVar2;
+  uint uVar3;
+  bool bVar4;
+  long lVar5;
+  long lVar6;
+  long extraout_x1;
+  long extraout_x1_00;
+  long lVar7;
+  int iVar8;
+  long lVar9;
+  ulong uVar10;
+  ulong uVar11;
+  long extraout_x8;
+  long extraout_x8_00;
+  long extraout_x8_01;
+  int iVar12;
+  long lVar13;
+  long extraout_x9;
+  long extraout_x9_00;
+  long extraout_x9_01;
+  long extraout_x9_02;
+  long extraout_x9_03;
+  long lVar14;
+  long extraout_x10;
+  long extraout_x10_00;
+  long lVar15;
+  long lVar16;
+  long in_x15;
+  long extraout_x15;
+  long *extraout_x15_00;
+  long extraout_x15_01;
+  long extraout_x15_02;
+  long extraout_x15_03;
+  long extraout_x15_04;
+  long extraout_x15_05;
+  long extraout_x15_06;
+  long extraout_x15_07;
+  long *extraout_x15_08;
+  long *extraout_x15_09;
+  long extraout_x15_10;
+  long *plVar17;
+  int unaff_w22;
+  undefined4 unaff_000040b4;
+  long unaff_x26;
+  long unaff_x27;
+  ulong unaff_x28;
+  long unaff_x29;
+  undefined8 uVar18;
+  double dVar19;
+  long extraout_d0;
+  long lVar20;
+  long extraout_var;
+  
+  uVar11 = 0x36;
+  if ((param_1 & 1) != 0) {
+    uVar11 = (ulong)*(ushort *)(param_1 + 1);
+  }
+  uVar11 = uVar11 - 0x55;
+  if (3 < uVar11) {
+    func_0x0109116c(*(undefined8 *)(unaff_x27 + 0x178));
+    in_x15 = extraout_x15;
+  }
+  lVar5 = (ulong)*(uint *)(*(long *)(unaff_x29 + -0xa8) + 0xf) + (unaff_x28 << 0x20);
+  if ((int)lVar5 == unaff_w22) {
+    lVar6 = func_0x010845fc();
+    plVar17 = extraout_x15_08;
+    lVar5 = extraout_d0;
+    lVar20 = extraout_var;
+  }
+  else {
+    *(long *)(in_x15 + -8) = lVar5;
+    lVar5 = func_0x008ee4b4();
+    if ((lVar5 < 4) &&
+       ((int)*(undefined8 *)(*(long *)(unaff_x26 + 0x80) + 0x10e8) !=
+        (int)*(undefined8 *)(unaff_x26 + 0xd0))) {
