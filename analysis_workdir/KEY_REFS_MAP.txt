@@ -1,0 +1,49 @@
+# ref -> slot -> offset -> .text accessor PCs (file offsets)
+ref  27673 slot 0x276e off 0x13b70 | 无法正常联网，导致广告无法显示！\\n请升级最新版应用，联网并关闭相关广告屏蔽软
+   .text PCs: ['0x921080']  funcs: ['0x920d7c']
+ref  29112 slot 0x1cfd off 0xe7e8 | 故障
+   .text PCs: []  funcs: []
+ref  21707 slot 0x59bb off 0x2cdd8 | 每日喂喵
+   .text PCs: ['0x846b60', '0xa55c80', '0xae72b0', '0xae72f8', '0xae7524']  funcs: ['0x846b1c', '0xa54178', '0xae71bc']
+ref  22466 slot 0x9912 off 0x4c890 | 无法加载数据，请稍后再试！\\n如果开启了屏蔽广告的相关软件或插件，请关闭然后重
+   .text PCs: ['0xb682d4']  funcs: ['0xb68234']
+ref  26842 slot 0x15b1 off 0xad88 | 无法更改设置，应用已被非法篡改！请重新下载正版！
+   .text PCs: ['0x51e160', '0x51e274', '0x5273f8', '0x641ecc', '0x641f6c', '0x642008', '0x642060', '0x652140']  funcs: ['0x51dfa8', '0x526e18', '0x6418a4', '0x652058', '0x65e478']
+ref  30947 slot 0x15b2 off 0xad90 | 非法篡改
+   .text PCs: ['0x51e0fc', '0x51e214', '0x641e68', '0x641f0c', '0x6420a0', '0x654458', '0x65ed48', '0x7dbe7c']  funcs: ['0x51dfa8', '0x6418a4', '0x654120', '0x65e478', '0x7dbd30']
+ref  30922 slot 0x2e2d off 0x17168 | 应用已被非法篡改或被第三方APP禁用某些模块或安装在第三方虚拟环境！请重新下载正
+   .text PCs: ['0x8e52d0', '0x8ef414']  funcs: ['0x8e1dd0', '0x8ef2b8']
+ref  14719 slot 0x8a1 off 0x4508 | rewardVideo
+   .text PCs: ['0x878fa4']  funcs: ['0x878da8']
+ref  19944 slot 0x8e5 off 0x4728 | 激励广告失败 
+   .text PCs: ['0x8787c0']  funcs: ['0x878660']
+ref  12372 slot 0x321b off 0x190d8 | 展示RewardVideo广告失败
+   .text PCs: ['0x891a74']  funcs: ['0x891930']
+ref  32387 slot 0x325e off 0x192f0 | earned reward: 
+   .text PCs: ['0x882254', '0x883748', '0x884158']  funcs: ['0x882128', '0x88361c', '0x88402c']
+ref  16427 slot 0xa38 off 0x51c0 | rewardItem
+   .text PCs: ['0x88043c']  funcs: ['0x8802a4']
+ref  11366 slot 0x1cf7 off 0xe7b8 | 可以捐赠
+   .text PCs: ['0x8a10d0']  funcs: ['0x8a0fd4']
+ref   8910 slot 0x59a5 off 0x2cd28 | 通过捐赠绑定设备获取
+   .text PCs: ['0xa54d3c', '0xba007c']  funcs: ['0xa54178', '0xb9fc84']
+ref  13169 slot 0x59ab off 0x2cd58 | 功能，通过捐赠绑定账号获取
+   .text PCs: ['0xa55130', '0xba0070']  funcs: ['0xa54178', '0xb9fc84']
+ref   7406 slot 0x2605 off 0x13028 | expiresDate
+   .text PCs: ['0x8ba8e0']  funcs: ['0x8ba3d0']
+ref  12056 slot 0x3b12 off 0x1d890 | expires
+   .text PCs: ['0x6799e4']  funcs: ['0x67994c']
+ref   5520 slot 0x1abb off 0xd5d8 | 发现新版本
+   .text PCs: ['0x85f020']  funcs: ['0x85efd4']
+ref  23584 slot 0x1bbb off 0xddd8 | 更新
+   .text PCs: ['0x85def8']  funcs: ['0x85d3a4']
+ref  11225 slot 0x1c38 off 0xe1c0 | 更新核心失败！
+   .text PCs: ['0x85ab84']  funcs: ['0x85aa2c']
+ref  20086 slot 0x1b37 off 0xd9b8 | 已忽略此更新版本的提示！
+   .text PCs: ['0x860934']  funcs: ['0x8607d0']
+ref  23406 slot 0x1cd2 off 0xe690 | ，而且广告无法正常显示，此功能
+   .text PCs: ['0x652dbc', '0x65e590', '0x65e6ac', '0x7e4064', '0x7e81ec', '0x84656c', '0x87273c', '0x898994']  funcs: ['0x652c94', '0x65e478', '0x7e2adc', '0x7e8054', '0x846508']
+ref  17612 slot 0x1cf5 off 0xe7a8 | 无法正常联网，导致此功能无法正常使用！\\n请升级最新版应用，联网并关闭相关广告
+   .text PCs: ['0x5d36e4']  funcs: ['0x5d35a4']
+ref  11470 slot 0x2025 off 0x10128 | 无法显示广告，请正常联网并重启应用！
+   .text PCs: ['0x80b1c0']  funcs: ['0x80b118']

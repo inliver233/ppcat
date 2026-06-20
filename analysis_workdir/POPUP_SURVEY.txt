@@ -1,0 +1,204 @@
+# Functions accessing dialog/popup/error strings (>=2 such strings)
+
+func 0x65e478 (3 dlg-strings):
+   ref  14834: '验证失败'
+   ref  23406: '，而且广告无法正常显示，此功能'
+   ref  26842: '无法更改设置，应用已被非法篡改！请重新下载正版！'
+
+func 0x7f83a0 (4 dlg-strings):
+   ref   2774: '缓存数据清空失败！'
+   ref   5532: '配置加载错误信息::\\\\n'
+   ref  14834: '验证失败'
+   ref  26842: '无法更改设置，应用已被非法篡改！请重新下载正版！'
+
+func 0x7f9f6c (2 dlg-strings):
+   ref   2774: '缓存数据清空失败！'
+   ref  21307: '迁移数据失败！'
+
+func 0x7fc4f0 (2 dlg-strings):
+   ref   7770: '      皮皮喵提醒您：在使用皮皮喵前，请您务必仔细阅读并透彻理解本声明。您可以选择不使用皮皮喵，'
+   ref  26842: '无法更改设置，应用已被非法篡改！请重新下载正版！'
+
+func 0x85efd4 (2 dlg-strings):
+   ref   5520: '发现新版本'
+   ref  19264: '新版本 '
+
+func 0x872208 (2 dlg-strings):
+   ref  23406: '，而且广告无法正常显示，此功能'
+   ref  23786: '验证失败，此设备无法获取'
+
+func 0x87310c (2 dlg-strings):
+   ref   6509: '应用缺少必要的权限！请点击\\"授权\\"，打开所需要的权限。'
+   ref  26842: '无法更改设置，应用已被非法篡改！请重新下载正版！'
+
+func 0x878da8 (2 dlg-strings):
+   ref   6003: '开屏广告错误  '
+   ref  14719: 'rewardVideo'
+
+func 0x8794b0 (2 dlg-strings):
+   ref   5512: 'rewardAmount'
+   ref  25959: 'rewardName'
+
+func 0x8859e4 (2 dlg-strings):
+   ref  30042: 'rewardVerify'
+   ref  31760: 'rewardType'
+
+func 0x89fe80 (3 dlg-strings):
+   ref   1171: '已收到登录结果，请稍等！'
+   ref  18959: '无法正常调用！'
+   ref  23406: '，而且广告无法正常显示，此功能'
+
+func 0x8a0fd4 (2 dlg-strings):
+   ref  11366: '可以捐赠'
+   ref  23406: '，而且广告无法正常显示，此功能'
+
+func 0x8a181c (4 dlg-strings):
+   ref  14834: '验证失败'
+   ref  23406: '，而且广告无法正常显示，此功能'
+   ref  25973: '连接服务器失败，请确保网络通畅，稍后再试！'
+   ref  26842: '无法更改设置，应用已被非法篡改！请重新下载正版！'
+
+func 0x8b4984 (3 dlg-strings):
+   ref   8547: '数据错误！'
+   ref  23406: '，而且广告无法正常显示，此功能'
+   ref  27203: '格式错误！'
+
+func 0x8b626c (2 dlg-strings):
+   ref  23406: '，而且广告无法正常显示，此功能'
+   ref  27203: '格式错误！'
+
+func 0x8b7ad0 (2 dlg-strings):
+   ref  23406: '，而且广告无法正常显示，此功能'
+   ref  27203: '格式错误！'
+
+func 0x8e1dd0 (2 dlg-strings):
+   ref  26842: '无法更改设置，应用已被非法篡改！请重新下载正版！'
+   ref  30922: '应用已被非法篡改或被第三方APP禁用某些模块或安装在第三方虚拟环境！请重新下载正版并直接安装在真实环'
+
+func 0x912b54 (2 dlg-strings):
+   ref   6917: '应用已被非法篡改！请重新下载正版！'
+   ref  26842: '无法更改设置，应用已被非法篡改！请重新下载正版！'
+
+func 0x913bf8 (2 dlg-strings):
+   ref   5532: '配置加载错误信息::\\\\n'
+   ref   7606: 'rewardTime'
+
+func 0xa54178 (5 dlg-strings):
+   ref   8910: '通过捐赠绑定设备获取'
+   ref  13169: '功能，通过捐赠绑定账号获取'
+   ref  21707: '每日喂喵'
+   ref  26842: '无法更改设置，应用已被非法篡改！请重新下载正版！'
+   ref  28525: '喵喵饿了'
+
+func 0xa5a570 (2 dlg-strings):
+   ref  10562: '获取云端备份列表失败！'
+   ref  25704: '上传备份至云端失败！'
+
+func 0xa65be0 (2 dlg-strings):
+   ref   5532: '配置加载错误信息::\\\\n'
+   ref  31282: '已过期！'
+
+func 0xa65f94 (2 dlg-strings):
+   ref   3844: '自动上传备份失败！\\\\n'
+   ref  25704: '上传备份至云端失败！'
+
+func 0xa67520 (2 dlg-strings):
+   ref  14834: '验证失败'
+   ref  26842: '无法更改设置，应用已被非法篡改！请重新下载正版！'
+
+func 0xa6f740 (2 dlg-strings):
+   ref  14834: '验证失败'
+   ref  26842: '无法更改设置，应用已被非法篡改！请重新下载正版！'
+
+func 0xa6fcc4 (2 dlg-strings):
+   ref  14834: '验证失败'
+   ref  26842: '无法更改设置，应用已被非法篡改！请重新下载正版！'
+
+func 0xa7ed1c (2 dlg-strings):
+   ref   3844: '自动上传备份失败！\\\\n'
+   ref  25704: '上传备份至云端失败！'
+
+func 0xa98e48 (2 dlg-strings):
+   ref  23406: '，而且广告无法正常显示，此功能'
+   ref  30464: '请输入新的密码'
+
+func 0xa993a0 (4 dlg-strings):
+   ref  20328: '下拉更新订阅状态'
+   ref  20887: '更新中'
+   ref  27530: '更新完成'
+   ref  28959: '放开更新订阅状态'
+
+func 0xacd2b8 (2 dlg-strings):
+   ref   8220: '正在更新'
+   ref  26842: '无法更改设置，应用已被非法篡改！请重新下载正版！'
+
+func 0xae30e0 (2 dlg-strings):
+   ref  26842: '无法更改设置，应用已被非法篡改！请重新下载正版！'
+   ref  28525: '喵喵饿了'
+
+func 0xae71bc (2 dlg-strings):
+   ref  21707: '每日喂喵'
+   ref  26842: '无法更改设置，应用已被非法篡改！请重新下载正版！'
+
+func 0xaf4c6c (2 dlg-strings):
+   ref  22047: '以下缓存导出失败:\\\\n'
+   ref  23406: '，而且广告无法正常显示，此功能'
+
+func 0xaf718c (2 dlg-strings):
+   ref  22459: '错误停止'
+   ref  26842: '无法更改设置，应用已被非法篡改！请重新下载正版！'
+
+func 0xb067bc (2 dlg-strings):
+   ref   7197: '导出失败！'
+   ref  23406: '，而且广告无法正常显示，此功能'
+
+func 0xb10d3c (2 dlg-strings):
+   ref  16105: '更新封面'
+   ref  26842: '无法更改设置，应用已被非法篡改！请重新下载正版！'
+
+func 0xb22848 (2 dlg-strings):
+   ref   4881: '请输入关键词筛选历史记录'
+   ref  26842: '无法更改设置，应用已被非法篡改！请重新下载正版！'
+
+func 0xb35f4c (2 dlg-strings):
+   ref  26842: '无法更改设置，应用已被非法篡改！请重新下载正版！'
+   ref  29431: '请输入搜索关键词'
+
+func 0xb799b8 (2 dlg-strings):
+   ref  12626: '图片无来路请求'
+   ref  26842: '无法更改设置，应用已被非法篡改！请重新下载正版！'
+
+func 0xb91c54 (2 dlg-strings):
+   ref  26842: '无法更改设置，应用已被非法篡改！请重新下载正版！'
+   ref  29431: '请输入搜索关键词'
+
+func 0xb9fc84 (5 dlg-strings):
+   ref   8910: '通过捐赠绑定设备获取'
+   ref   9424: '检测更新'
+   ref  13169: '功能，通过捐赠绑定账号获取'
+   ref  19419: '更新地址'
+   ref  26842: '无法更改设置，应用已被非法篡改！请重新下载正版！'
+
+func 0xbaaac8 (2 dlg-strings):
+   ref  18351: '请输入当前密码'
+   ref  26842: '无法更改设置，应用已被非法篡改！请重新下载正版！'
+
+func 0xbab734 (3 dlg-strings):
+   ref  11444: '密码错误！'
+   ref  23406: '，而且广告无法正常显示，此功能'
+   ref  30464: '请输入新的密码'
+
+func 0xbacb80 (3 dlg-strings):
+   ref  10104: '替换失败！'
+   ref  23406: '，而且广告无法正常显示，此功能'
+   ref  26936: '批量替换订阅失败，请恢复之前的备份！'
+
+func 0xbc13a0 (2 dlg-strings):
+   ref  23444: '广告'
+   ref  30325: '是否清空广告缓存？'
+
+func 0xbc279c (2 dlg-strings):
+   ref  21296: '已经清空广告缓存!'
+   ref  23444: '广告'
+
+# total candidate popup orchestrators: 46

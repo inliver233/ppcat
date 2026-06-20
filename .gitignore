@@ -1,0 +1,7 @@
+# large binaries / generated artifacts not tracked
+*.so
+asm.txt.gz
+libapp_round6_full.so
+asm.txt
+__pycache__/
+*.pyc
