@@ -1,0 +1,147 @@
+2026-06-20 14:07:45 INFO  (LoggingInitialization) Using log config file: jar:file:/root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2026-06-20 14:07:45 INFO  (LoggingInitialization) Using log file: /root/ppcat_repo/analysis_round8/ghidra_logs/probe_an.log  
+2026-06-20 14:07:45 DEBUG (GhidraObjectInputFilter) Including serial input filter: FileSystem/data/client.rmi.serial.filter  
+2026-06-20 14:07:45 INFO  (Preferences) Loading user preferences: /root/.config/ghidra/ghidra_12.1.2_PUBLIC/preferences  
+2026-06-20 14:07:45 INFO  (ClassSearcher) Searching for classes...  
+2026-06-20 14:07:46 INFO  (ClassSearcher) Class search complete (1477 ms)  
+2026-06-20 14:07:46 INFO  (DefaultSSLContextInitializer) Initializing SSL Context  
+2026-06-20 14:07:46 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2026-06-20 14:07:46 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2026-06-20 14:07:46 INFO  (DefaultTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2026-06-20 14:07:47 INFO  (AnalyzeHeadless) Headless startup complete (3782 ms)  
+2026-06-20 14:07:47 INFO  (ClassSearcher) Class searcher loaded 59 extension points (20 false positives)  
+2026-06-20 14:07:48 INFO  (HeadlessAnalyzer) HEADLESS Script Paths:
+    /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Features/PDB/ghidra_scripts
+    /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Debug/Debugger/ghidra_scripts
+    /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Features/VersionTracking/ghidra_scripts
+    /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Features/GnuDemangler/ghidra_scripts
+    /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Processors/8051/ghidra_scripts
+    /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Features/BytePatterns/ghidra_scripts
+    /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Features/SwiftDemangler/ghidra_scripts
+    /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Processors/PIC/ghidra_scripts
+    /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Features/Base/ghidra_scripts
+    /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Processors/DATA/ghidra_scripts
+    /root/ppcat_repo/analysis_round8/ghidra_scripts
+    /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Features/FileFormats/ghidra_scripts
+    /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Features/WildcardAssembler/ghidra_scripts
+    /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Features/BSim/ghidra_scripts
+    /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Features/Decompiler/ghidra_scripts
+    /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Processors/Atmel/ghidra_scripts
+    /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Features/PyGhidra/ghidra_scripts
+    /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Features/FunctionID/ghidra_scripts
+    /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Processors/JVM/ghidra_scripts  
+2026-06-20 14:07:48 INFO  (HeadlessAnalyzer) HEADLESS: execution starts  
+2026-06-20 14:07:48 INFO  (HeadlessAnalyzer) Creating project: /root/ghidra_projects/ppcat_probe_an  
+2026-06-20 14:07:48 INFO  (DefaultProject) Creating project: /root/ghidra_projects/ppcat_probe_an  
+2026-06-20 14:07:48 INFO  (HeadlessAnalyzer) REPORT: Processing input files:   
+2026-06-20 14:07:48 INFO  (HeadlessAnalyzer)      project: /root/ghidra_projects/ppcat_probe_an  
+2026-06-20 14:07:48 INFO  (HeadlessAnalyzer) IMPORTING: file:///root/ppcat_repo/libapp.so  
+2026-06-20 14:07:50 INFO  (ProgramLoader) Using Loader: Executable and Linking Format (ELF)  
+2026-06-20 14:07:50 INFO  (ProgramLoader) Using Language/Compiler: AARCH64:LE:64:v8A:default  
+2026-06-20 14:07:50 INFO  (ProgramLoader) Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64]  
+2026-06-20 14:07:50 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2026-06-20 14:07:51 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_1.6 at 0055fd2d  
+2026-06-20 14:07:51 INFO  (ProgramLoader) Additional info:
+Loading file:///root/ppcat_repo/libapp.so?MD5=41a401a3612b6eeb17b794405950ec8f...
+------------------------------------------------
+
+  
+2026-06-20 14:07:51 INFO  (HeadlessAnalyzer) IMPORTING: Loaded 0 additional files  
+2026-06-20 14:07:51 INFO  (HeadlessAnalyzer) ANALYZING all memory and code: file:///root/ppcat_repo/libapp.so  
+2026-06-20 14:07:51 INFO  (ExternalDebugFileSectionProvider) DWARF external debug information found: ExternalDebugInfo [filename=null, crc=0, hash=3c2fd245a6f31fe0c0367f927993b858, objectType=DEBUGINFO, extra=null]  
+2026-06-20 14:07:51 DEBUG (LocalDirDebugInfoDProvider) Finished cache cleanup of debug files in /var/tmp/root-ghidra/debuginfo-cache, deleted 0 files, 0 total bytes  
+2026-06-20 14:07:51 INFO  (DWARFAnalyzer) Unable to find DWARF information, skipping DWARF analysis  
+2026-06-20 14:07:52 DEBUG (FidAnalyzer) No FID Libraries apply for language AARCH64:LE:64:v8A  
+2026-06-20 14:07:52 INFO  (PackedDatabaseCache) Packed database cache: /var/tmp/root-ghidra/packed-db-cache  
+2026-06-20 14:07:52 DEBUG (PackedDatabaseCache) Caching packed database: /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2026-06-20 14:07:52 DEBUG (PackedDatabase) Unpacking database /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt -> /var/tmp/root-ghidra/packed-db-cache/pdb2FCCC1AB/db.1.gbf  
+2026-06-20 14:07:52 DEBUG (PackedDatabaseCache) Cache update completed: /root/ppcat_repo/analysis_round8/tools/ghidra_12.1.2_PUBLIC/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2026-06-20 14:07:53 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: generic_clib_64  
+2026-06-20 14:07:55 INFO  (AutoAnalysisManager) -----------------------------------------------------
+    AARCH64 ELF PLT Thunks                     0.000 secs
+    ASCII Strings                              1.844 secs
+    Apply Data Archives                        1.087 secs
+    Create Address Tables                      0.002 secs
+    Create Function                            0.000 secs
+    DWARF                                      0.021 secs
+    Data Reference                             0.005 secs
+    Demangler GNU                              0.043 secs
+    Disassemble Entry Points                   0.002 secs
+    Embedded Media                             0.159 secs
+    External Entry References                  0.000 secs
+    Function ID                                0.034 secs
+    Function Start Search                      0.247 secs
+    Function Start Search After Data           0.292 secs
+    GCC Exception Handlers                     0.033 secs
+    Non-Returning Functions - Known            0.002 secs
+-----------------------------------------------------
+     Total Time   3 secs
+-----------------------------------------------------
+  
+2026-06-20 14:07:55 INFO  (HeadlessAnalyzer) REPORT: Analysis succeeded for file: file:///root/ppcat_repo/libapp.so  
+2026-06-20 14:07:55 INFO  (HeadlessAnalyzer) REPORT: Execute script: VipStateProbe.java   
+2026-06-20 14:07:55 INFO  (HeadlessAnalyzer) SCRIPT: /root/ppcat_repo/analysis_round8/ghidra_scripts/VipStateProbe.java  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> program=libapp.so  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == refs to 0x911788 (0) ==  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == target 0x911788 fnStart=null ==  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == refs to 0xb9fc84 (0) ==  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == target 0xb9fc84 fnStart=null ==  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == refs to 0xa54178 (0) ==  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == target 0xa54178 fnStart=null ==  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == refs to 0x8a0fd4 (0) ==  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == target 0x8a0fd4 fnStart=null ==  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == refs to 0x8ba3d0 (0) ==  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == target 0x8ba3d0 fnStart=null ==  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == refs to 0x67994c (0) ==  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == target 0x67994c fnStart=null ==  
+2026-06-20 14:07:55 INFO  (HeadlessAnalyzer) ANALYZING changes made by post scripts: file:///root/ppcat_repo/libapp.so  
+2026-06-20 14:07:55 INFO  (HeadlessAnalyzer) REPORT: Post-analysis succeeded for file: file:///root/ppcat_repo/libapp.so  
+2026-06-20 14:07:55 INFO  (LocalFileSystem) /libapp.so: file created (root)  
+2026-06-20 14:07:55 INFO  (HeadlessAnalyzer) REPORT: Save succeeded for: /libapp.so (ppcat_probe_an:/libapp.so)  
+2026-06-20 14:07:55 INFO  (HeadlessAnalyzer) REPORT: Import succeeded  
+
+--- tail ---
+    ASCII Strings                              1.844 secs
+    Apply Data Archives                        1.087 secs
+    Create Address Tables                      0.002 secs
+    Create Function                            0.000 secs
+    DWARF                                      0.021 secs
+    Data Reference                             0.005 secs
+    Demangler GNU                              0.043 secs
+    Disassemble Entry Points                   0.002 secs
+    Embedded Media                             0.159 secs
+    External Entry References                  0.000 secs
+    Function ID                                0.034 secs
+    Function Start Search                      0.247 secs
+    Function Start Search After Data           0.292 secs
+    GCC Exception Handlers                     0.033 secs
+    Non-Returning Functions - Known            0.002 secs
+-----------------------------------------------------
+     Total Time   3 secs
+-----------------------------------------------------
+  
+2026-06-20 14:07:55 INFO  (HeadlessAnalyzer) REPORT: Analysis succeeded for file: file:///root/ppcat_repo/libapp.so  
+2026-06-20 14:07:55 INFO  (HeadlessAnalyzer) REPORT: Execute script: VipStateProbe.java   
+2026-06-20 14:07:55 INFO  (HeadlessAnalyzer) SCRIPT: /root/ppcat_repo/analysis_round8/ghidra_scripts/VipStateProbe.java  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> program=libapp.so  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == refs to 0x911788 (0) ==  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == target 0x911788 fnStart=null ==  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == refs to 0xb9fc84 (0) ==  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == target 0xb9fc84 fnStart=null ==  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == refs to 0xa54178 (0) ==  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == target 0xa54178 fnStart=null ==  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == refs to 0x8a0fd4 (0) ==  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == target 0x8a0fd4 fnStart=null ==  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == refs to 0x8ba3d0 (0) ==  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == target 0x8ba3d0 fnStart=null ==  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == refs to 0x67994c (0) ==  
+2026-06-20 14:07:55 INFO  (GhidraScript) VipStateProbe.java> == target 0x67994c fnStart=null ==  
+2026-06-20 14:07:55 INFO  (HeadlessAnalyzer) ANALYZING changes made by post scripts: file:///root/ppcat_repo/libapp.so  
+2026-06-20 14:07:55 INFO  (HeadlessAnalyzer) REPORT: Post-analysis succeeded for file: file:///root/ppcat_repo/libapp.so  
+2026-06-20 14:07:55 INFO  (LocalFileSystem) /libapp.so: file created (root)  
+2026-06-20 14:07:55 INFO  (HeadlessAnalyzer) REPORT: Save succeeded for: /libapp.so (ppcat_probe_an:/libapp.so)  
+2026-06-20 14:07:55 INFO  (HeadlessAnalyzer) REPORT: Import succeeded  
