@@ -92,20 +92,68 @@ def main():
     except FileNotFoundError:
         print("\n[SKIP] pool_deserialized.json not found")
 
-    # 8. Proposed patch summary
-    print("\n# Proposed Patches")
+    # 8. Verify Direction D patch sites (ad async function entries)
+    print("\n# Direction D: Ad async function entry point verification")
+    ad_funcs = {
+        0x888b18: 'showSplashAd_async',
+        0x8880c0: 'ad_register_ksad_like',
+        0x88862c: 'ad_initAd_like',
+        0x8863e8: 'ad_controller',
+        0x8758bc: 'ad_dispatcher',
+    }
+    for addr, name in ad_funcs.items():
+        verify_entry_point(d, addr, name)
+
+    # 9. Verify showDialog BL sites in ad functions (safe NOP candidates)
+    print("\n# Direction D: showDialog BL sites in ad functions")
+    showdialog_bls = {
+        0x888c3c: 'showSplashAd→showDialog',
+        0x8881f0: 'ad_async_1→showDialog',
+        0x888750: 'ad_async_2→showDialog',
+        0x886564: 'ad_controller→showDialog',
+    }
+    for addr, desc in showdialog_bls.items():
+        instr = d[addr:addr+4]
+        print(f"  {hex(addr)} ({desc}): {instr.hex()}")
+
+    # 10. Verify invokeMethod BL sites
+    print("\n# Direction D: invokeMethod BL sites")
+    invoke_bls = {
+        0x888c10: 'showSplashAd→invoke(0x886290)',
+        0x8881c4: 'ad_async_1→invoke(0x885ee0)',
+        0x888724: 'ad_async_2→invoke(0x885ee0)',
+    }
+    for addr, desc in invoke_bls.items():
+        instr = d[addr:addr+4]
+        print(f"  {hex(addr)} ({desc}): {instr.hex()}")
+
+    # 11. Proposed patch summary
+    print("\n# ==========================")
+    print("# Proposed Patches (Round 8)")
+    print("# ==========================")
     print("""
-    ## Patch 1: 喵喵饿了常驻块消失 (0xae312c)
-    d[0xae312c:0xae312c+4] = bytes.fromhex('c10d0014')  # B.NE → B (无条件跳转)
+    ## Patch 1: 喵喵饿了常驻块消失 (方案A-1)
+    d[0xae312c:0xae312c+4] = bytes.fromhex('c10d0014')  # B.NE → B
     或:
     d[0xae3128:0xae3128+4] = bytes.fromhex('1f000071')  # CMP #0x14 → CMP #0x0
 
-    ## Patch 2: 静默 MissingPluginException (0xca8bdc) ★实验性
+    ## Patch 2: 静默 MissingPluginException (方案A-5) ★实验性
     d[0xca8bdc:0xca8bdc+8] = bytes.fromhex('e00316aac0035fd6')  # MOV X0,X22; RET
 
-    ## Patch 3: 全局 onError 回调截断 (地址待定)
-    # 需要先确认回调函数地址（通过 logcat Dart 栈帧或 Ghidra 反编译）
-    # d[0xXXXXXX:0xXXXXXX+8] = bytes.fromhex('e00316aac0035fd6')  # MOV X0,X22; RET
+    ## Patch 3: 广告async函数入口return-null (方案D-1) ★★推荐
+    for addr in [0x888b18, 0x8880c0, 0x88862c]:
+        d[addr:addr+8] = bytes.fromhex('e00316aac0035fd6')
+
+    ## Patch 4: NOP广告showDialog BL (方案D-3, 已证安全但不够)
+    for addr in [0x888c3c, 0x8881f0, 0x888750, 0x886564]:
+        d[addr:addr+4] = bytes.fromhex('1f2003d5')
+
+    ## Patch 5: 全局 onError 回调截断 (地址待定)
+    # 需 logcat Dart 栈帧或 Ghidra 反编译定位回调地址
+    # d[0xXXXXXX:0xXXXXXX+8] = bytes.fromhex('e00316aac0035fd6')
+
+    ## V4 Stub (方案B-1): 按方法名返回正确类型
+    # 见分析报告8.md §6.3
     """)
 
 if __name__ == '__main__':
